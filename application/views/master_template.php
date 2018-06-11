@@ -59,7 +59,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><i><b>IT</b></i></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>IT Assets</b></span>
+      <span class="logo-lg"><img src="<?php echo base_url() ?>/assets/img/utsg.png" width="80px"></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -117,7 +117,7 @@
           <ul class="treeview-menu">
             <li><a href=""><i class="fa fa-circle-o text-aqua"></i> Spesifikasi</a></li>
             <li><a href=""><i class="fa fa-circle-o text-aqua"></i> Model</a></li>
-            <li><a href=""><i class="fa fa-circle-o text-aqua"></i> Manufacturer</a></li>
+            <li><a href="<?php echo base_url(); ?>manufacturer"><i class="fa fa-circle-o text-aqua"></i> Manufacturer</a></li>
             <li><a href=""><i class="fa fa-circle-o text-aqua"></i> Unit</a></li>
             <li><a href=""><i class="fa fa-circle-o text-aqua"></i> Lokasi</a></li>
             <li><a href=""><i class="fa fa-circle-o text-aqua"></i> Sewa</a></li>
@@ -188,3 +188,16 @@
 
 </body>
 </html>
+<script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>
