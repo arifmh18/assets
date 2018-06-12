@@ -4,7 +4,7 @@
           <div class="box box-info">
 
             <div class="box-header with-border">
-              <h3 class="box-title">Data siswa</h3>
+              <h3 class="box-title">Data Spesifikasi</h3>
 <!--               <div class="pull-right box-tools">
                 <a href="<?php base_url()?>siswa/cetak" class="btn btn-info pull-right" data-toggle="tooltip" title="Print Data siswa"><span class="fa fa-print"></span> Print</a>
               </div>
@@ -13,80 +13,110 @@
             <!-- form start -->
             <form id="tambah" class="form-horizontal" action="" method="post">
               <div class="box-body">
+              <div class="row invoice-info">
+                <div class="col-sm-6 invoice-col">
               
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Nomor Induk</label>
-                  <div class="col-sm-9">
-                    <?php echo $detail[0]->no_induk; ?>
+                  <label class="col-sm-6 control-label">Hardware ID<span style="color: red">*</span></label>
+                  <div class="col-sm-6">
+                    <?php echo $detail[0]->hardware_IDS ?>
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Username</label>
-                  <div class="col-sm-9">
-                    <?php echo $detail[0]->username; ?>
+                  <label class="col-sm-6 control-label">Model<span style="color: red">*</span></label>
+                  <div class="col-sm-6">
+                    <?php echo $detail[0]->model ?>
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Nama Lengkap</label>
-                  <div class="col-sm-9">
-                    <?php echo $detail[0]->nama_lengkap; ?>
+                  <label class="col-sm-6 control-label">Product<span style="color: red">*</span></label>
+                  <div class="col-sm-6">
+                    <?php echo $detail[0]->product ?>
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Email</label>
-                  <div class="col-sm-9">
-                    <?php echo $detail[0]->email; ?>
+                  <label class="col-sm-6 control-label">Serial Number<span style="color: red">*</span></label>
+                  <div class="col-sm-6">
+                    <?php echo $detail[0]->serialnumber ?>
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">No HP/Telp</label>
-                  <div class="col-sm-9">
-                    <?php echo $detail[0]->hp; ?>
+                  <label class="col-sm-6 control-label">Manufacturer<span style="color: red">*</span></label>
+                  <div class="col-sm-6">
+                    <?php echo $detail[0]->manufacturer ?>
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Kota Domisili</label>
-                  <div class="col-sm-9">
-                    <?php echo $detail[0]->domisili; ?>
+                  <label class="col-sm-6 control-label">Processors<span style="color: red">*</span></label>
+                  <div class="col-sm-6">
+                    <?php echo $detail[0]->processors ?>
+                  </div>
+                </div>
+              
+                <div class="form-group">
+                  <label class="col-sm-6 control-label">Memory Type<span style="color: red">*</span></label>
+                  <div class="col-sm-6">
+                    <?php echo $detail[0]->memorytype ?>
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Alamat Lengkap</label>
-                  <div class="col-sm-9">
-                    <?php echo $detail[0]->alamat; ?>
+                  <label class="col-sm-6 control-label">Memory Size<span style="color: red">*</span></label>
+                  <div class="col-sm-6">
+                    <?php echo $detail[0]->memorysize ?>
+                  </div>
+                </div>
+              </div>
+
+                <div class="col-sm-6 invoice-col">
+
+                <div class="form-group">
+                  <label class="col-sm-6 control-label">Memory Max<span style="color: red">*</span></label>
+                  <div class="col-sm-6">
+                    <?php echo $detail[0]->memorymax ?>
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Jurusan</label>
-                  <div class="col-sm-9">
-                  <?php 
-                  foreach ($jurusan as $key => $value) {
-                     if ($detail[0]->jurusan  == $value->kd_jurusan) {
-                        echo $value->nama_jurusan;
-                      }
-                    }
-                  ?>
+                  <label class="col-sm-6 control-label">Memory DIM 1<span style="color: red">*</span></label>
+                  <div class="col-sm-6">
+                    <?php echo $detail[0]->memorydim1 ?>
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Avatar</label>
-                  <div class="col-sm-9">
-                    <img src="<?php echo base_url()?>assets/img/avatar/<?php echo $detail[0]->avatar; ?>" width="25%"> 
+                  <label class="col-sm-6 control-label">Memory DIM 2<span style="color: red">*</span></label>
+                  <div class="col-sm-6">
+                    <?php echo $detail[0]->memorydim2 ?>
                   </div>
                 </div>
+
+                <div class="form-group">
+                  <label class="col-sm-6 control-label">Memory DIM 3<span style="color: red">*</span></label>
+                  <div class="col-sm-6">
+                    <?php echo $detail[0]->memorydim3 ?>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-6 control-label">Memory DIM 4<span style="color: red">*</span></label>
+                  <div class="col-sm-6">
+                    <?php echo $detail[0]->memorydim4 ?>
+                  </div>
+                </div>
+              </div>
+            </div>
 
               </div>
               <!-- /.box-body -->
               <div class="box-footer">
-              <input action="action" onclick="window.history.go(-1); return false;" type="button" value="Kembali" class="btn btn-default pull-right" />
+                <a href="<?php echo base_url()?>spesifikasi/edit/<?php echo strEncrypt($detail[0]->hardware_IDS); ?>" class="btn btn-info">Edit Data</a>
+                <input action="action" onclick="window.history.go(-1); return false;" type="button" value="Kembali" class="btn btn-default pull-right" />
               </div>
               <!-- /.box-footer -->
             </form>

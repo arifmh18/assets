@@ -12,7 +12,7 @@
               <div class="box-body">
               
                 <div class="form-group">
-                  <label class="col-sm-3 control-label"><span style="color: red">*</span></label>
+                  <label class="col-sm-3 control-label">Hardware ID<span style="color: red">*</span></label>
                   <div class="col-sm-9">
                     <input type="text" class="form-control" placeholder="Hardware ID" name="ID">
                   </div>
@@ -21,7 +21,12 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Model<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Model" name="model">
+                    <select class="form-control select2" style="width: 100%;" name="model">
+                      <option value="">- Pilih Model -</option>
+                      <?php foreach ($model as $key => $value) { ?>
+                      <option value="<?php echo $value->kode_model; ?>"><?php echo $value->model; ?></option>
+                      <?php } ?>
+                    </select>
                   </div>
                 </div>
 
@@ -42,7 +47,12 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Manufacturer<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Manufacturer" name="manufacturer">
+                    <select class="form-control select2" style="width: 100%;" name="manufacturer">
+                      <option value="">- Pilih Manufacturer -</option>
+                      <?php foreach ($manufacturer as $key => $value) { ?>
+                      <option value="<?php echo $value->kode_manufacturer; ?>"><?php echo $value->manufacturer; ?></option>
+                      <?php } ?>
+                    </select>
                   </div>
                 </div>
 
@@ -102,27 +112,6 @@
                   </div>
                 </div>
 
-<!--                 <div class="form-group">
-                  <label class="col-sm-2 control-label">Photo Profil</label>
-                  <div class="col-sm-10">
-                    <input type="file" name="avatar" class="form-control avatar">
-                    <p><i>hanya file type jpg, png, gif</i></p>
-                  </div>
-                </div>
- -->
- <!--               <div class="form-group">
-                  <label class="col-sm-3 control-label">Jurusan<span style="color: red">*</span></label>
-                  <div class="col-sm-9">
-                    <select class="form-control select2" style="width: 100%;" name="jurusan">
-                      <option value="">- Pilih Jurusan -</option>
-                      <?php foreach ($jurusan as $key => $value) { ?>
-                      <option value="<?php echo $value->kd_jurusan; ?>"><?php echo $value->nama_jurusan; ?></option>
-                      <?php } ?>
-                    </select>
-                  </div>
-                </div>
-              </div>
--->
               <!-- /.box-body -->
               <div class="box-footer">
                 <button type="submit" class="btn btn-info pull-right">Tambah</button>
@@ -158,10 +147,9 @@
         },
         error   : function(data) {
           swal('Error', 'Hardware ID Sudah Ada<br>, <b>Hardware ID</b> TIDAK BOLEH SAMA!', 'error');
-          console.log(data);
         }
       });
-        console.log(img);
+
     });
   });
 </script>

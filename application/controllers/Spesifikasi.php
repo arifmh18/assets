@@ -17,6 +17,8 @@ class Spesifikasi extends CI_Controller {
 		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li class="active">Spesifikasi</li>';
 		$data['view'] = 'master_data/spesifikasi/index';
 		$data['spesifikasi'] = $this->m_global->get_data_all('spesifikasi');
+		$data['model'] = $this->m_global->get_data_all('model');
+		$data['manufacturer'] = $this->m_global->get_data_all('manufacturer');
 		$this->load->view('master_template', $data);
 	
 	}
@@ -27,6 +29,8 @@ public function add()
 		$data['judul'] = 'Tambah Data Spesifikasi';
 		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard active"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li><a href="'.base_url().'spesifikasi">Spesifikasi</a></li><li class="active">Tambah data</li>';
 		$data['view'] = 'master_data/spesifikasi/add';
+		$data['manufacturer'] = $this->m_global->get_data_all('manufacturer');
+		$data['model'] = $this->m_global->get_data_all('model');
 
 		$this->load->view('master_template', $data);
 		
@@ -46,7 +50,7 @@ public function add()
 		$this->form_validation->set_rules('processors', 'Processors', 'trim|required');
 		$this->form_validation->set_rules('memorytype', 'Memory Type', 'trim|required');
 		$this->form_validation->set_rules('memorysize', 'Memory Size', 'trim|required');
-		$this->form_validation->set_rules('memorymax', 'Memory Max', 'trim|required');
+		$this->form_validation->set_rules('memorymax', 'Memory Max', 'trim|required|numeric');
 		$this->form_validation->set_rules('memorydim1', 'Memory Dim 1', 'trim|required');
 		$this->form_validation->set_rules('memorydim2', 'Memory Dim 2', 'trim|required');
 		$this->form_validation->set_rules('memorydim3', 'Memory Dim 3', 'trim|required');
@@ -94,6 +98,8 @@ public function add()
 		$data['view'] = 'master_data/spesifikasi/edit';
 
 		$data['detail'] = $this->m_global->get_data_all('spesifikasi', null, [strEncrypt('hardware_IDS', TRUE) => $id]);
+		$data['model'] = $this->m_global->get_data_all('model');
+		$data['manufacturer'] = $this->m_global->get_data_all('manufacturer');
 
 		$this->load->view('master_template', $data);
 
@@ -175,6 +181,18 @@ public function add()
 
 
 	}
+
+	public function detail($id){
+		$data['title'] = 'Detail Spesifikasi';
+		$data['judul'] = 'Detail Data Spesifikasi';
+		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li><a href="'.base_url().'spesifikasi">Spesifikasi</a></li><li class="active">Detail Data</li>';
+		$data['view'] = 'master_data/spesifikasi/detail';
+
+		$data['detail'] = $this->m_global->get_data_all('spesifikasi', [['model','spesifikasi.model = kode_model'],['manufacturer','spesifikasi.manufacturer = kode_manufacturer']], [strEncrypt('hardware_IDS', TRUE) => $id]);
+		$this->load->view('master_template', $data);
+
+	}
+
 
 	public function hapus(){
 		$id = $this->input->post('id');

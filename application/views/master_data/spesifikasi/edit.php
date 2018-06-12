@@ -12,7 +12,7 @@
               <div class="box-body">
               
                 <div class="form-group">
-                  <label class="col-sm-3 control-label"><span style="color: red">*</span></label>
+                  <label class="col-sm-3 control-label">Hardware ID<span style="color: red">*</span></label>
                   <div class="col-sm-9">
                     <input type="text" class="form-control" placeholder="Hardware ID" name="ID" value="<?php echo $detail[0]->hardware_IDS; ?>">
                   </div>
@@ -21,7 +21,15 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Model<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Model" name="model" value="<?php echo $detail[0]->model; ?>">
+                    <select class="form-control select2" style="width: 100%;" name="model">
+                      <option value="">- Pilih Model -</option>
+                      <?php 
+                          foreach ($model as $key => $value) {
+                            echo "<option ".($value->kode_model == $detail[0]->model ? 'selected' : '')." value='".$value->kode_model."'>".$value->model."</option>";
+                          }
+
+                        ?>
+                    </select>
                   </div>
                 </div>
 
@@ -42,7 +50,15 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Manufacturer<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Manufacturer" name="manufacturer" value="<?php echo $detail[0]->manufacturer; ?>">
+                    <select class="form-control select2" style="width: 100%;" name="manufacturer">
+                      <option value="">- Pilih Manufacturer -</option>
+                      <?php 
+                          foreach ($manufacturer as $key => $value) {
+                            echo "<option ".($value->kode_manufacturer == $detail[0]->manufacturer ? 'selected' : '')." value='".$value->kode_manufacturer."'>".$value->manufacturer."</option>";
+                          }
+
+                        ?>
+                    </select>
                   </div>
                 </div>
 
