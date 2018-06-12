@@ -5,7 +5,7 @@
             <div class="pull-right box-tools">
             <!-- <button type="button" class="btn btn-success btn-sm" data-widget="remove" data-toggle="tooltip" title="Tambah Data"> -->
             <!-- <i class="fa fa-plus"></i></button> -->
-            <a href="<?php echo base_url(); ?>siswa/add" class="btn btn-success btn-sm" data-toggle="tooltip" title="Tambah Data">&nbsp;&nbsp;&nbsp;<i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp;</a>
+            <a href="<?php echo base_url(); ?>manufacturer/add" class="btn btn-success btn-sm" data-toggle="tooltip" title="Tambah Data">&nbsp;&nbsp;&nbsp;<i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp;</a>
         </div></div>
         <div class="box-body">
       <div class="row">
@@ -15,17 +15,25 @@
                 <thead>
                 <tr>
                   <th width="10px">No</th>
-                  <th>Hardware IDS</th>
+                  <th>Hardware ID</th>
                   <th>Model</th>
                   <th>Product</th>
                   <th>Serial Number</th>
                   <th>Manufacturer</th>
+                  <th>Processors</th>
+                  <th>Memory Type</th>
+                  <th>Memory Size</th>
+                  <th>Memory Max</th>
+                  <th>Memory DIM 1</th>
+                  <th>Memory DIM 2</th>
+                  <th>Memory DIM 3</th>
+                  <th>Memory DIM 4</th>
                   <th width="200px" class="text-center">Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php $i=1;
-                  foreach ($spek as $key => $value){ 
+                  foreach ($spesifikasi as $key => $value){ 
                 ?>
                 <tr>
                   <td class="text-center"><?php echo $i ?></td>
@@ -34,8 +42,16 @@
                   <td><?php echo $value->product ?></td>
                   <td><?php echo $value->serialnumber ?></td>
                   <td><?php echo $value->manufacturer ?></td>
+                  <td><?php echo $value->processors ?></td>
+                  <td><?php echo $value->memorytype ?></td>
+                  <td><?php echo $value->memorysize ?></td>
+                  <td><?php echo $value->memorymax ?></td>
+                  <td><?php echo $value->memorydim1 ?></td>
+                  <td><?php echo $value->memorydim2 ?></td>
+                  <td><?php echo $value->memorydim3 ?></td>
+                  <td><?php echo $value->memorydim4 ?></td>
                   <td class="text-right">
-                    <a href="<?php echo base_url()?>siswa/edit/<?php echo strEncrypt($value->hardware_IDS); ?>" class="btn btn-warning"><span class="fa fa-edit"></span> Edit</a>
+                    <a href="<?php echo base_url()?>spesifikasi/edit/<?php echo strEncrypt($value->hardware_IDS); ?>" class="btn btn-warning"><span class="fa fa-edit"></span> Edit</a>
                     <button type="button" value="<?php echo $value->hardware_IDS ?>" class="btn btn-danger confirm">
                         <i class="fa fa-trash" aria-hidden="true"></i> Hapus
                     </button>

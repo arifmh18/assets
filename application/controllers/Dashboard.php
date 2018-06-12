@@ -17,7 +17,8 @@ class Dashboard extends CI_Controller {
 		$data['breadcumb'] = '<li><i class="fa fa-dashboard"></i> Dashboard</li>';
 		$data['view'] = 'dashboard';
 		$data['manufacturer'] = count($this->m_global->get_data_all('manufacturer', null));
-
+		$data['spesifikasi'] = count($this->m_global->get_data_all('spesifikasi', null));
+		$data['lokasi'] = count($this->m_global->get_data_all('lokasi', null));
 
 		$this->load->view('master_template', $data);
 	

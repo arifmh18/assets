@@ -8,69 +8,97 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form id="tambah" class="form-horizontal" action="<?php echo base_url() ?>siswa/act_add" method="post" enctype="multipart/form-data">
+            <form id="tambah" class="form-horizontal" action="<?php echo base_url() ?>spesifikasi/act_add" method="post" enctype="multipart/form-data">
               <div class="box-body">
               
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">No Induk Siswa<span style="color: red">*</span></label>
+                  <label class="col-sm-3 control-label"><span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="No Induk Siswa" name="induk">
+                    <input type="text" class="form-control" placeholder="Hardware ID" name="ID">
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Username<span style="color: red">*</span></label>
+                  <label class="col-sm-3 control-label">Model<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Username" name="username">
+                    <input type="text" class="form-control" placeholder="Model" name="model">
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Password<span style="color: red">*</span></label>
+                  <label class="col-sm-3 control-label">Product<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="password" class="form-control" placeholder="Password" name="password">
+                    <input type="text" class="form-control" placeholder="Product" name="product">
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Konfirmasi Password<span style="color: red">*</span></label>
+                  <label class="col-sm-3 control-label">Serial Number<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="password" class="form-control" placeholder="Confirm Password" name="repass">
+                    <input type="text" class="form-control" placeholder="Serial Number" name="serialnumber">
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Nama Lengkap<span style="color: red">*</span></label>
+                  <label class="col-sm-3 control-label">Manufacturer<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Nama Lengkap" name="nama_lengkap">
+                    <input type="text" class="form-control" placeholder="Manufacturer" name="manufacturer">
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Email<span style="color: red">*</span></label>
+                  <label class="col-sm-3 control-label">Processors<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="email" class="form-control"  placeholder="Email" name="email">
+                    <input type="text" class="form-control"  placeholder="Processors" name="processors">
                   </div>
                 </div>
               
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">No HP/Telp<span style="color: red">*</span></label>
+                  <label class="col-sm-3 control-label">Memory Type<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="No HP/Telp" name="no">
+                    <input type="text" class="form-control" placeholder="Memory Type" name="memorytype">
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Kota Domisili<span style="color: red">*</span></label>
+                  <label class="col-sm-3 control-label">Memory Size<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Kota/Kabupaten Domisili" name="domisili">
+                    <input type="text" class="form-control" placeholder="Memory Size" name="memorysize">
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Alamat Lengkap<span style="color: red">*</span></label>
+                  <label class="col-sm-3 control-label">Memory Max<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <textarea class="form-control" rows="2" placeholder="Enter ..." name="alamat"></textarea>
+                    <input type-"number" class="form-control" placeholder="Memory Max" name="memorymax">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Memory DIM 1<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Memory DIM 1" name="memorydim1">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Memory DIM 2<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Memory DIM 2" name="memorydim2">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Memory DIM 3<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Memory DIM 3" name="memorydim3">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Memory DIM 4<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Memory DIM 4" name="memorydim4">
                   </div>
                 </div>
 
@@ -82,7 +110,7 @@
                   </div>
                 </div>
  -->
-                <div class="form-group">
+ <!--               <div class="form-group">
                   <label class="col-sm-3 control-label">Jurusan<span style="color: red">*</span></label>
                   <div class="col-sm-9">
                     <select class="form-control select2" style="width: 100%;" name="jurusan">
@@ -93,12 +121,12 @@
                     </select>
                   </div>
                 </div>
-
               </div>
+-->
               <!-- /.box-body -->
               <div class="box-footer">
                 <button type="submit" class="btn btn-info pull-right">Tambah</button>
-                <a href="<?php echo base_url() ?>siswa" class="btn btn-default pull-right">Kembali</a>
+                <a href="<?php echo base_url() ?>spesifikasi" class="btn btn-default pull-right">Kembali</a>
               </div>
               <!-- /.box-footer -->
             </form>
@@ -114,7 +142,6 @@
       var $this   = $(this),
         url   = $this.attr('action'),
         data  = $this.serialize();
-        img  = new FormData('.avatar')
 
       $.ajax({
         url   : url,
@@ -124,15 +151,13 @@
         success : function(data) {
           if(data.sts == 1) {
             swal("Sukses!",data.msg,"success");
-            // $.notify({message: data.msg},{type: 'success'});
-            // $('.wadah').load('<?php echo base_url()?>siswa');
-            setTimeout("location.href='<?php echo base_url() ?>siswa'", 1500);
+            setTimeout("location.href='<?php echo base_url() ?>spesifikasi'", 1500);
           } else {
             $.notify({message: data.msg},{type: 'danger'});
           }    console.log(data);
         },
         error   : function(data) {
-          swal('Error', 'Terdapat Kesamaan Data <br>, <b>Nomor Induk</b> dan <b>Email</b> TIDAK BOLEH SAMA!', 'error');
+          swal('Error', 'Hardware ID Sudah Ada<br>, <b>Hardware ID</b> TIDAK BOLEH SAMA!', 'error');
           console.log(data);
         }
       });
