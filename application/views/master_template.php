@@ -121,7 +121,7 @@
             <li><a href=""><i class="fa fa-circle-o text-aqua"></i> Unit</a></li>
             <li><a href="<?php echo base_url(); ?>lokasi"><i class="fa fa-circle-o text-aqua"></i> Lokasi</a></li>
             <li><a href=""><i class="fa fa-circle-o text-aqua"></i> Sewa</a></li>
-            <li><a href=""><i class="fa fa-circle-o text-aqua"></i> User</a></li>
+            <li><a href="<?php echo base_url(); ?>user"><i class="fa fa-circle-o text-aqua"></i> User</a></li>
             <li><a href=""><i class="fa fa-circle-o text-aqua"></i> Supplier</a></li>
           </ul>
         </li>
