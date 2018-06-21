@@ -96,14 +96,14 @@ class Lokasi extends CI_Controller {
 					'lokasi' => $post['nama']
 					);				
 			
-			$x = $this->m_global->get_data_all('lokasi', null, ['code_lokasi' => $data['code_loc']]);
+			$x = $this->m_global->get_data_all('lokasi', null, ['code_loc' => $data['code_loc']]);
 			if($x) {
 				if(strEncrypt($x[0]->code_loc) !== $id) {
 					$result['msg'] = 'Kode Lokasi sudah ada !';
 					$result['sts'] = '0';
 				}
 				else{
-					$proses = $this->m_global->update('lokasi', $data, [strEncrypt('code_lokasi', TRUE) => $id]);
+					$proses = $this->m_global->update('lokasi', $data, [strEncrypt('code_loc', TRUE) => $id]);
 					if($proses) {
 						$result['msg'] = 'Data Lokasi berhasil perbarui !';
 						$result['sts'] = '1';

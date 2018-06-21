@@ -43,7 +43,7 @@
                   <label class="col-sm-3 control-label">Unit<span style="color: red">*</span></label>
                   <div class="col-sm-9">
                     <select class="form-control select2" style="width: 100%;" name="unit">
-                      <option value="">- Pilih Model -</option>
+                      <option value="">- Pilih Unit -</option>
                       <?php foreach ($unit as $key => $value) { ?>
                       <option value="<?php echo $value->unitcode; ?>"><?php echo $value->unitname; ?></option>
                       <?php } ?>
@@ -56,7 +56,7 @@
                   <label class="col-sm-3 control-label">Lokasi<span style="color: red">*</span></label>
                   <div class="col-sm-9">
                     <select class="form-control select2" style="width: 100%;" name="lokasi">
-                      <option value="">- Pilih Model -</option>
+                      <option value="">- Pilih Lokasi -</option>
                       <?php foreach ($lokasi as $key => $value) { ?>
                       <option value="<?php echo $value->code_loc; ?>"><?php echo $value->lokasi; ?></option>
                       <?php } ?>
@@ -68,7 +68,7 @@
               <!-- /.box-body -->
               <div class="box-footer">
                 <button type="submit" class="btn btn-info pull-right">Tambah</button>
-                <a href="<?php echo base_url() ?>spesifikasi" class="btn btn-default pull-right">Kembali</a>
+                <a href="<?php echo base_url() ?>user" class="btn btn-default pull-right">Kembali</a>
               </div>
               <!-- /.box-footer -->
             </form>

@@ -15,10 +15,9 @@ class Sewa extends CI_Controller {
 		$data['title'] = 'Sewa | IT Assets';
 		$data['judul'] = 'Sewa';
 		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li class="active">Sewa</li>';
-		$data['view'] = 'master_data/Sewa/index';
-		$data['Sewa'] = $this->m_global->get_data_all('Sewa');
-		$data['model'] = $this->m_global->get_data_all('model');
-		$data['manufacturer'] = $this->m_global->get_data_all('manufacturer');
+		$data['view'] = 'master_data/sewa/index';
+		$data['sewa'] = $this->m_global->get_data_all('sewa');
+		$data['supplier'] = $this->m_global->get_data_all('supplier');
 		$this->load->view('master_template', $data);
 	
 	}
@@ -27,11 +26,9 @@ public function add()
 	{
 		$data['title'] = 'Tambah Data';
 		$data['judul'] = 'Tambah Data Sewa';
-		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard active"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li><a href="'.base_url().'Sewa">Sewa</a></li><li class="active">Tambah data</li>';
-		$data['view'] = 'master_data/Sewa/add';
-		$data['manufacturer'] = $this->m_global->get_data_all('manufacturer');
-		$data['model'] = $this->m_global->get_data_all('model');
-
+		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard active"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li><a href="'.base_url().'sewa">Sewa</a></li><li class="active">Tambah data</li>';
+		$data['view'] = 'master_data/sewa/add';
+		$data['supplier'] = $this->m_global->get_data_all('supplier');
 		$this->load->view('master_template', $data);
 		
 	}
@@ -42,36 +39,24 @@ public function add()
 		$post = $this->input->post();
 
 		// $this->form_validation->set_rules('induk', 'No induk', 'trim|required|numeric|min_length[18]|max_length[18]');
-		$this->form_validation->set_rules('ID', 'Hardware ID', 'trim|required');
-		$this->form_validation->set_rules('model', 'Model', 'trim|required');
-		$this->form_validation->set_rules('product', 'Product', 'trim|required');
-		$this->form_validation->set_rules('serialnumber', 'Serial Number', 'trim|required');
-		$this->form_validation->set_rules('manufacturer', 'Manufacturer', 'trim|required');
-		$this->form_validation->set_rules('processors', 'Processors', 'trim|required');
-		$this->form_validation->set_rules('memorytype', 'Memory Type', 'trim|required');
-		$this->form_validation->set_rules('memorysize', 'Memory Size', 'trim|required');
-		$this->form_validation->set_rules('memorymax', 'Memory Max', 'trim|required|numeric');
-		$this->form_validation->set_rules('memorydim1', 'Memory Dim 1', 'trim|required');
-		$this->form_validation->set_rules('memorydim2', 'Memory Dim 2', 'trim|required');
-		$this->form_validation->set_rules('memorydim3', 'Memory Dim 3', 'trim|required');
-		$this->form_validation->set_rules('memorydim4', 'Memory Dim 4', 'trim|required');
+		$this->form_validation->set_rules('kode_barang', 'Kode Barang', 'trim|required');
+		$this->form_validation->set_rules('model_barang', 'Model Barang', 'trim|required');
+		$this->form_validation->set_rules('nama_barang', 'Nama Barang', 'trim|required');
+		$this->form_validation->set_rules('tgl_mulai_sewa', 'Tanggal Mulai Sewa', 'trim|required');
+		$this->form_validation->set_rules('tgl_akhir_sewa', 'Tanggal Akhir Sewa', 'trim|required');
+		$this->form_validation->set_rules('no_po', 'No PO', 'trim|required');
+		$this->form_validation->set_rules('supplier', 'Supplier', 'trim|required');
 		if ($this->form_validation->run() == true){
 			$data = array(
-				'hardware_IDS' => $post['ID'],
-				'model' => $post['model'],
-				'product' => $post['product'],
-				'serialnumber' => $post['serialnumber'],
-				'manufacturer' => $post['manufacturer'],
-				'processors' => $post['processors'],
-				'memorytype' => $post['memorytype'],
-				'memorysize' => $post['memorysize'],
-				'memorymax' => $post['memorymax'],
-				'memorydim1' => $post['memorydim1'],
-				'memorydim2' => $post['memorydim2'],
-				'memorydim3' => $post['memorydim3'],
-				'memorydim4' => $post['memorydim4']
+				'kode_barang' => $post['kode_barang'],
+				'model_barang' => $post['model_barang'],
+				'nama_barang' => $post['nama_barang'],
+				'tgl_mulai_sewa' => $post['tgl_mulai_sewa'],
+				'tgl_akhir_sewa' => $post['tgl_akhir_sewa'],
+				'no_po' => $post['no_po'],
+				'supplier' => $post['supplier']
 				);
-			$proses = $this->m_global->insert('Sewa', $data);
+			$proses = $this->m_global->insert('sewa', $data);
 			if($proses) {
 				$result['msg'] = 'Data Sewa berhasil ditambahkan !';
 				$result['sts'] = '1';
@@ -94,12 +79,11 @@ public function add()
 	public function edit($id){
 		$data['title'] = 'Edit Data ';
 		$data['judul'] = 'Edit Data Sewa';
-		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li><a href="'.base_url().'Sewa">Sewa</a></li><li class="active">Edit Data</li>';
-		$data['view'] = 'master_data/Sewa/edit';
+		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li><a href="'.base_url().'sewa">Sewa</a></li><li class="active">Edit Data</li>';
+		$data['view'] = 'master_data/sewa/edit';
 
-		$data['detail'] = $this->m_global->get_data_all('Sewa', null, [strEncrypt('hardware_IDS', TRUE) => $id]);
-		$data['model'] = $this->m_global->get_data_all('model');
-		$data['manufacturer'] = $this->m_global->get_data_all('manufacturer');
+		$data['detail'] = $this->m_global->get_data_all('sewa', null, [strEncrypt('kode_barang', TRUE) => $id]);
+		$data['supplier'] = $this->m_global->get_data_all('supplier');
 
 		$this->load->view('master_template', $data);
 
@@ -112,44 +96,32 @@ public function add()
 		$post = $this->input->post();
 
 		// $this->form_validation->set_rules('induk', 'No induk', 'trim|required|numeric|min_length[18]|max_length[18]');
-		$this->form_validation->set_rules('ID', 'Hardware ID', 'trim|required');
-		$this->form_validation->set_rules('model', 'Model', 'trim|required');
-		$this->form_validation->set_rules('product', 'Product', 'trim|required');
-		$this->form_validation->set_rules('serialnumber', 'Serial Number', 'trim|required');
-		$this->form_validation->set_rules('manufacturer', 'Manufacturer', 'trim|required');
-		$this->form_validation->set_rules('processors', 'Processors', 'trim|required');
-		$this->form_validation->set_rules('memorytype', 'Memory Type', 'trim|required');
-		$this->form_validation->set_rules('memorysize', 'Memory Size', 'trim|required');
-		$this->form_validation->set_rules('memorymax', 'Memory Max', 'trim|required');
-		$this->form_validation->set_rules('memorydim1', 'Memory Dim 1', 'trim|required');
-		$this->form_validation->set_rules('memorydim2', 'Memory Dim 2', 'trim|required');
-		$this->form_validation->set_rules('memorydim3', 'Memory Dim 3', 'trim|required');
-		$this->form_validation->set_rules('memorydim4', 'Memory Dim 4', 'trim|required');
+		$this->form_validation->set_rules('kode_barang', 'Kode Barang', 'trim|required');
+		$this->form_validation->set_rules('model_barang', 'Model Barang', 'trim|required');
+		$this->form_validation->set_rules('nama_barang', 'Nama Barang', 'trim|required');
+		$this->form_validation->set_rules('tgl_mulai_sewa', 'Tanggal Mulai Sewa', 'trim|required');
+		$this->form_validation->set_rules('tgl_akhir_sewal', 'Tanggal Akhir Sewa', 'trim|required');
+		$this->form_validation->set_rules('no_po', 'No PO', 'trim|required');
+		$this->form_validation->set_rules('supplier', 'Supplier', 'trim|required');
 		if ($this->form_validation->run() == true){
 			$data = array(
-				'hardware_IDS' => $post['ID'],
-				'model' => $post['model'],
-				'product' => $post['product'],
-				'serialnumber' => $post['serialnumber'],
-				'manufacturer' => $post['manufacturer'],
-				'processors' => $post['processors'],
-				'memorytype' => $post['memorytype'],
-				'memorysize' => $post['memorysize'],
-				'memorymax' => $post['memorymax'],
-				'memorydim1' => $post['memorydim1'],
-				'memorydim2' => $post['memorydim2'],
-				'memorydim3' => $post['memorydim3'],
-				'memorydim4' => $post['memorydim4']
+				'kode_barang' => $post['kode_barang'],
+				'model_barang' => $post['model_barang'],
+				'nama_barang' => $post['nama_barang'],
+				'tgl_mulai_sewa' => $post['tgl_mulai_sewa'],
+				'tgl_akhir_sewa' => $post['tgl_akhir_sewa'],
+				'no_po' => $post['no_po'],
+				'supplier' => $post['supplier']
 				);	
 			
-			$x = $this->m_global->get_data_all('Sewa', null, ['hardware_IDS' => $data['hardware_IDS']]);
+			$x = $this->m_global->get_data_all('Sewa', null, ['kode_barang' => $data['kode_barang']]);
 			if($x) {
-				if(strEncrypt($x[0]->hardware_IDS) !== $id) {
+				if(strEncrypt($x[0]->kode_barang) !== $id) {
 					$result['msg'] = 'Kode Sewa sudah ada !';
 					$result['sts'] = '0';
 				}
 				else{
-					$proses = $this->m_global->update('Sewa', $data, [strEncrypt('hardware_IDS', TRUE) => $id]);
+					$proses = $this->m_global->update('sewa', $data, [strEncrypt('kode_barang', TRUE) => $id]);
 					if($proses) {
 						$result['msg'] = 'Data Sewa berhasil perbarui !';
 						$result['sts'] = '1';
@@ -161,7 +133,7 @@ public function add()
 				}
 			}
 			else{
-				$proses = $this->m_global->update('Sewa', $data, [strEncrypt('hardware_IDS', TRUE) => $id]);
+				$proses = $this->m_global->update('sewa', $data, [strEncrypt('kode_barang', TRUE) => $id]);
 				if($proses) {
 					$result['msg'] = 'Data Sewa berhasil perbarui !';
 					$result['sts'] = '1';
@@ -182,21 +154,21 @@ public function add()
 
 	}
 
-	public function detail($id){
-		$data['title'] = 'Detail Sewa';
-		$data['judul'] = 'Detail Data Sewa';
-		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li><a href="'.base_url().'Sewa">Sewa</a></li><li class="active">Detail Data</li>';
-		$data['view'] = 'master_data/Sewa/detail';
+//	public function detail($id){
+//		$data['title'] = 'Detail Sewa';
+//		$data['judul'] = 'Detail Data Sewa';
+//		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li><a href="'.base_url().'Sewa">Sewa</a></li><li class="active">Detail Data</li>';
+//		$data['view'] = 'master_data/Sewa/detail';
 
-		$data['detail'] = $this->m_global->get_data_all('Sewa', [['model','Sewa.model = kode_model'],['manufacturer','Sewa.manufacturer = kode_manufacturer']], [strEncrypt('hardware_IDS', TRUE) => $id]);
-		$this->load->view('master_template', $data);
+//		$data['detail'] = $this->m_global->get_data_all('Sewa', [['supplier','Sewa.supplier = kode_supplier']], [strEncrypt('kode_barang', TRUE) => $id]);
+//		$this->load->view('master_template', $data);
 
-	}
+//	}
 
 
 	public function hapus(){
 		$id = $this->input->post('id');
-		$proses = $this->m_global->delete('Sewa',['hardware_IDS'=>$id]);
+		$proses = $this->m_global->delete('sewa',['kode_barang'=>$id]);
 
 		if($proses) {
 			$result['msg'] = 'Data Sewa berhasil dihapus !';

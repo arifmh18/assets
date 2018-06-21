@@ -116,13 +116,13 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="<?php echo base_url(); ?>spesifikasi"><i class="fa fa-circle-o text-aqua"></i> Spesifikasi</a></li>
-            <li><a href=""><i class="fa fa-circle-o text-aqua"></i> Model</a></li>
+            <li><a href="<?php echo base_url(); ?>model"><i class="fa fa-circle-o text-aqua"></i> Model</a></li>
             <li><a href="<?php echo base_url(); ?>manufacturer"><i class="fa fa-circle-o text-aqua"></i> Manufacturer</a></li>
-            <li><a href=""><i class="fa fa-circle-o text-aqua"></i> Unit</a></li>
-            <li><a href="<?php echo base_url(); ?>lokasi"><i class="fa fa-circle-o text-aqua"></i> Lokasi</a></li>
-            <li><a href=""><i class="fa fa-circle-o text-aqua"></i> Sewa</a></li>
             <li><a href="<?php echo base_url(); ?>user"><i class="fa fa-circle-o text-aqua"></i> User</a></li>
-            <li><a href=""><i class="fa fa-circle-o text-aqua"></i> Supplier</a></li>
+            <li><a href="<?php echo base_url(); ?>unit"><i class="fa fa-circle-o text-aqua"></i> Unit</a></li>
+            <li><a href="<?php echo base_url(); ?>lokasi"><i class="fa fa-circle-o text-aqua"></i> Lokasi</a></li>
+            <li><a href="<?php echo base_url(); ?>sewa"><i class="fa fa-circle-o text-aqua"></i> Sewa</a></li>
+            <li><a href="<?php echo base_url(); ?>supplier"><i class="fa fa-circle-o text-aqua"></i> Supplier</a></li>
           </ul>
         </li>
         <?php }?>
@@ -156,7 +156,7 @@
 
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.0
+      <b>Version</b> 1.0
     </div>
     <strong>Copyright &copy; 2018 All rights
     reserved.

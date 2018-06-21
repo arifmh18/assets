@@ -18,7 +18,7 @@ class User extends CI_Controller {
 		$data['view'] = 'master_data/User/index';
 		$data['user'] = $this->m_global->get_data_all('user_karyawan');
 		$data['lokasi'] = $this->m_global->get_data_all('lokasi');
-		$data['unit'] = $this->m_global->get_data_all('unit_karyawan');
+		$data['unit'] = $this->m_global->get_data_all('unit');
 		$this->load->view('master_template', $data);
 	
 	}
@@ -29,7 +29,7 @@ public function add()
 		$data['judul'] = 'Tambah Data User';
 		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard active"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li><a href="'.base_url().'User">User</a></li><li class="active">Tambah data</li>';
 		$data['view'] = 'master_data/user/add';
-		$data['unit'] = $this->m_global->get_data_all('unit_karyawan');
+		$data['unit'] = $this->m_global->get_data_all('unit');
 		$data['lokasi'] = $this->m_global->get_data_all('lokasi');
 
 		$this->load->view('master_template', $data);
@@ -84,7 +84,7 @@ public function add()
 		$data['view'] = 'master_data/user/edit';
 
 		$data['detail'] = $this->m_global->get_data_all('user_karyawan', null, [strEncrypt('no_badge', TRUE) => $id]);
-		$data['unit'] = $this->m_global->get_data_all('unit_karyawan');
+		$data['unit'] = $this->m_global->get_data_all('unit');
 		$data['lokasi'] = $this->m_global->get_data_all('lokasi');
 
 		$this->load->view('master_template', $data);
