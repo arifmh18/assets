@@ -28,6 +28,7 @@ public function add()
 		$data['judul'] = 'Tambah Data Sewa';
 		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard active"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li><a href="'.base_url().'sewa">Sewa</a></li><li class="active">Tambah data</li>';
 		$data['view'] = 'master_data/sewa/add';
+		$data['model'] = $this->m_global->get_data_all('model');
 		$data['supplier'] = $this->m_global->get_data_all('supplier');
 		$this->load->view('master_template', $data);
 		
@@ -38,21 +39,21 @@ public function add()
 		$result = [];
 		$post = $this->input->post();
 
-		// $this->form_validation->set_rules('induk', 'No induk', 'trim|required|numeric|min_length[18]|max_length[18]');
 		$this->form_validation->set_rules('kode_barang', 'Kode Barang', 'trim|required');
 		$this->form_validation->set_rules('model_barang', 'Model Barang', 'trim|required');
 		$this->form_validation->set_rules('nama_barang', 'Nama Barang', 'trim|required');
-		$this->form_validation->set_rules('tgl_mulai_sewa', 'Tanggal Mulai Sewa', 'trim|required');
-		$this->form_validation->set_rules('tgl_akhir_sewa', 'Tanggal Akhir Sewa', 'trim|required');
+		$this->form_validation->set_rules('tgl_mulai_sewa', 'Tanggal Mulai Sewa', 'required');
+		$this->form_validation->set_rules('tgl_akhir_sewa', 'Tanggal Akhir Sewa', 'required');
 		$this->form_validation->set_rules('no_po', 'No PO', 'trim|required');
 		$this->form_validation->set_rules('supplier', 'Supplier', 'trim|required');
-		if ($this->form_validation->run() == true){
+
+		if ($this->form_validation->run() == true && $post['tgl_mulai_sewa'] <= $post['tgl_akhir_sewa']){
 			$data = array(
 				'kode_barang' => $post['kode_barang'],
 				'model_barang' => $post['model_barang'],
 				'nama_barang' => $post['nama_barang'],
-				'tgl_mulai_sewa' => $post['tgl_mulai_sewa'],
-				'tgl_akhir_sewa' => $post['tgl_akhir_sewa'],
+				'tgl_mulai_sewa' => date($post['tgl_mulai_sewa']),
+				'tgl_akhir_sewa' => date($post['tgl_akhir_sewa']),
 				'no_po' => $post['no_po'],
 				'supplier' => $post['supplier']
 				);
@@ -65,6 +66,10 @@ public function add()
 				$result['msg'] = 'Data Sewa gagal ditambahkan !';
 				$result['sts'] = '0';
 			}
+		}
+		elseif ($this->form_validation->run() == true && $post['tgl_mulai_sewa'] >= $post['tgl_akhir_sewa']) {
+				$result['msg'] = 'Tanggal Akhir Sewa tidak boleh sebelum Tanggal Mulai Sewa !';
+				$result['sts'] = '0';			
 		}
 		else {
 			$result['msg'] = validation_errors();
@@ -95,15 +100,14 @@ public function add()
 		$result = [];
 		$post = $this->input->post();
 
-		// $this->form_validation->set_rules('induk', 'No induk', 'trim|required|numeric|min_length[18]|max_length[18]');
 		$this->form_validation->set_rules('kode_barang', 'Kode Barang', 'trim|required');
 		$this->form_validation->set_rules('model_barang', 'Model Barang', 'trim|required');
 		$this->form_validation->set_rules('nama_barang', 'Nama Barang', 'trim|required');
 		$this->form_validation->set_rules('tgl_mulai_sewa', 'Tanggal Mulai Sewa', 'trim|required');
-		$this->form_validation->set_rules('tgl_akhir_sewal', 'Tanggal Akhir Sewa', 'trim|required');
+		$this->form_validation->set_rules('tgl_akhir_sewa', 'Tanggal Akhir Sewa', 'trim|required');
 		$this->form_validation->set_rules('no_po', 'No PO', 'trim|required');
 		$this->form_validation->set_rules('supplier', 'Supplier', 'trim|required');
-		if ($this->form_validation->run() == true){
+		if ($this->form_validation->run() == true && $post['tgl_mulai_sewa'] <= $post['tgl_akhir_sewa']){
 			$data = array(
 				'kode_barang' => $post['kode_barang'],
 				'model_barang' => $post['model_barang'],
@@ -144,6 +148,11 @@ public function add()
 				}
 			}
 		}
+		elseif ($this->form_validation->run() == true && $post['tgl_mulai_sewa'] >= $post['tgl_akhir_sewa']) {
+			$result['msg'] = 'Tanggal Akhir Sewa tidak boleh sebelum Tanggal Mulai Sewa !';
+			$result['sts'] = '0';			
+		}
+
 		else {
 			$result['msg'] = validation_errors();
 			$result['sts'] = '0';

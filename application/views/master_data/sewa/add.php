@@ -17,14 +17,26 @@
                     <input type="text" class="form-control" placeholder="Kode Barang" name="kode_barang">
                   </div>
                 </div>
-
-               <div class="form-group">
-                  <label class="col-sm-3 control-label">Model Barang<span style="color: red">*</span></label>
+              
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Model<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Model Barang" name="model_barang">
+                    <input type="text" class="form-control" placeholder="Model" name="model_barang">
                   </div>
                 </div>
 
+<!--                 <div class="form-group">
+                  <label class="col-sm-3 control-label">Model<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <select class="form-control select2" style="width: 100%;" name="model_barang">
+                      <option value="">- Pilih Model -</option>
+                      <?php foreach ($model as $key => $value) { ?>
+                      <option value="<?php echo $value->kode_model; ?>"><?php echo $value->model; ?></option>
+                      <?php } ?>
+                    </select>
+                  </div>
+                </div>
+ -->
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Nama Barang<span style="color: red">*</span></label>
                   <div class="col-sm-9">
@@ -49,7 +61,7 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">NO. PO<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="number" class="form-control" placeholder="NO. PO" name="no_po">
+                    <input type="number" class="form-control" placeholder="NO. PO" name="no_po" min="1">
                   </div>
                 </div>
 

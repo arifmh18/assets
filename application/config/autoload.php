@@ -64,7 +64,7 @@ $autoload['libraries'] = array('database', 'session', 'form_validation','upload'
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url','tglIndo','pdfspi');
+$autoload['helper'] = array('url','tglIndo');
 
 
 /*
