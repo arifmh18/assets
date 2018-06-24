@@ -19,6 +19,11 @@ class Dashboard extends CI_Controller {
 		$data['manufacturer'] = count($this->m_global->get_data_all('manufacturer', null));
 		$data['spesifikasi'] = count($this->m_global->get_data_all('spesifikasi', null));
 		$data['lokasi'] = count($this->m_global->get_data_all('lokasi', null));
+		$data['model'] = count($this->m_global->get_data_all('model', null));
+		$data['sewa'] = count($this->m_global->get_data_all('sewa', null));
+		$data['unit'] = count($this->m_global->get_data_all('unit', null));
+		$data['user'] = count($this->m_global->get_data_all('user', null));
+		$data['supplier'] = count($this->m_global->get_data_all('supplier', null));
 
 		$this->load->view('master_template', $data);
 	

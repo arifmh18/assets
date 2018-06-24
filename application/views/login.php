@@ -36,9 +36,9 @@
 <div class="lockscreen-wrapper">
 <?php echo $this->session->flashdata('pesan'); ?>
   <div class="lockscreen-logo">
-      <strong>IT ASSET MANAGEMENT</strong>
+      <strong style="color:white;">IT ASSET MANAGEMENT</strong>
   </div>
-  <div class="lockscreen-name">Silahkan Login</div>
+  <div class="lockscreen-name" style="color:white;">Silahkan Login</div>
 
   <div class="lockscreen-item">
     <div class="lockscreen-image">
