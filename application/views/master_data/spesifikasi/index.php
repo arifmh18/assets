@@ -10,7 +10,7 @@
         <div class="box-body">
       <div class="row">
             <!-- /.box-header -->
-            <div class="box-body">
+            <div class="box-body"  style="overflow-y: hidden; overflow-x: scroll;">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -20,6 +20,14 @@
                   <th>Product</th>
                   <th>Serial Number</th>
                   <th>Manufacturer</th>
+                  <th>Processor</th>
+                  <th>Memory Type</th>
+                  <th>Memory Size</th>
+                  <th>Memory Max</th>
+                  <th>Memory Dim1</th>
+                  <th>Memory Dim2</th>
+                  <th>Memory Dim3</th>
+                  <th>Memory Dim4</th>
                   <th width="200px" class="text-center">Action</th>
                 </tr>
                 </thead>
@@ -45,6 +53,14 @@
                       }
                      } 
                      ?>
+                  <td>Processor</td>
+                  <td>Processor</td>
+                  <td>Processor</td>
+                  <td>Processor</td>
+                  <td>Processor</td>
+                  <td>Processor</td>
+                  <td>Processor</td>
+                  <td>Processor</td>
                   <td class="text-center">
                     <a href="<?php echo base_url()?>spesifikasi/edit/<?php echo strEncrypt($value->hardware_IDS); ?>" class="btn btn-warning"><span class="fa fa-edit"></span> Edit</a>
                     <button type="button" value="<?php echo $value->hardware_IDS ?>" class="btn btn-danger confirm">
