@@ -102,7 +102,8 @@
         <li class="header">MAIN NAVIGATION</li>
         <li>
           <a href="<?php echo base_url(); ?>dashboard">
-            <i class="fa fa-dashboard"></i> Dashboard
+            <i class="fa fa-dashboard"></i> 
+            <span>Dashboard</span>
           </a>
         </li>
         <?php $level = $this->session->userdata('level'); if ($level == 'admin') { ?>
@@ -154,13 +155,13 @@
   </div>
   <!-- /.content-wrapper -->
 
-  <footer class="main-footer">
+ <!-- <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 1.0
     </div>
     <strong>Copyright &copy; 2018 All rights
     reserved.
-  </footer>
+  </footer> -->
 
   <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->

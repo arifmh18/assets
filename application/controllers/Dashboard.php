@@ -13,8 +13,8 @@ class Dashboard extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = 'Dashboard | IT Assets';
-		$data['judul'] = 'Dashboard';
-		$data['breadcumb'] = '<li><i class="fa fa-dashboard"></i> Dashboard</li>';
+		$data['breadcumb'] = '';
+		$data['judul']= '';
 		$data['view'] = 'dashboard';
 		$data['manufacturer'] = count($this->m_global->get_data_all('manufacturer', null));
 		$data['spesifikasi'] = count($this->m_global->get_data_all('spesifikasi', null));

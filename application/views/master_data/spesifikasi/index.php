@@ -53,14 +53,14 @@
                       }
                      } 
                      ?>
-                  <td>Processor</td>
-                  <td>Processor</td>
-                  <td>Processor</td>
-                  <td>Processor</td>
-                  <td>Processor</td>
-                  <td>Processor</td>
-                  <td>Processor</td>
-                  <td>Processor</td>
+                  <td><?php echo $value->processors ?></td>
+                  <td><?php echo $value->memorytype ?></td>
+                  <td><?php echo $value->memorysize ?></td>
+                  <td><?php echo $value->memorymax ?></td>
+                  <td><?php echo $value->memorydim1 ?></td>
+                  <td><?php echo $value->memorydim2 ?></td>
+                  <td><?php echo $value->memorydim3 ?></td>
+                  <td><?php echo $value->memorydim4 ?></td>
                   <td class="text-center">
                     <a href="<?php echo base_url()?>spesifikasi/edit/<?php echo strEncrypt($value->hardware_IDS); ?>" class="btn btn-warning"><span class="fa fa-edit"></span> Edit</a>
                     <button type="button" value="<?php echo $value->hardware_IDS ?>" class="btn btn-danger confirm">
