@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Spesifikasi extends CI_Controller {
+class Hardware extends CI_Controller {
 
 	public function __construct()
 	{
@@ -12,13 +12,14 @@ class Spesifikasi extends CI_Controller {
 
 	public function index()
 	{
-		$data['title'] = 'Spesifikasi | IT Assets';
-		$data['judul'] = 'Spesifikasi';
-		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li class="active">Spesifikasi</li>';
-		$data['view'] = 'master_data/spesifikasi/index';
+		$data['title'] = 'Hardware | IT Assets';
+		$data['judul'] = 'Hardware';
+		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li class="active">Hardware</li>';
+		$data['view'] = 'master_data/hardware/index';
 		$data['spesifikasi'] = $this->m_global->get_data_all('spesifikasi');
-		$data['model'] = $this->m_global->get_data_all('model');
-		$data['manufacturer'] = $this->m_global->get_data_all('manufacturer');
+		$data['supplier'] = $this->m_global->get_data_all('supplier');
+		$data['unitkerja'] = $this->m_global->get_data_all('unitkerja');
+		$data['windowsversion'] = $this->m_global->get_data_all('windowsversion');
 		$this->load->view('master_template', $data);
 	
 	}
@@ -26,11 +27,12 @@ class Spesifikasi extends CI_Controller {
 public function add()
 	{
 		$data['title'] = 'Tambah Data';
-		$data['judul'] = 'Tambah Data Spesifikasi';
-		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard active"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li><a href="'.base_url().'spesifikasi">Spesifikasi</a></li><li class="active">Tambah data</li>';
-		$data['view'] = 'master_data/spesifikasi/add';
-		$data['manufacturer'] = $this->m_global->get_data_all('manufacturer');
-		$data['model'] = $this->m_global->get_data_all('model');
+		$data['judul'] = 'Tambah Data Hardware';
+		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard active"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li><a href="'.base_url().'hardware">Hardware</a></li><li class="active">Tambah data</li>';
+		$data['view'] = 'master_data/hardware/add';
+		$data['supplier'] = $this->m_global->get_data_all('supplier');
+		$data['unitkerja'] = $this->m_global->get_data_all('unitkerja');
+		$data['windowsversion'] = $this->m_global->get_data_all('windowsversion');
 
 		$this->load->view('master_template', $data);
 		
@@ -43,10 +45,10 @@ public function add()
 
 		// $this->form_validation->set_rules('induk', 'No induk', 'trim|required|numeric|min_length[18]|max_length[18]');
 		$this->form_validation->set_rules('ID', 'Hardware ID', 'trim|required');
-		$this->form_validation->set_rules('model', 'Model', 'trim|required');
-		$this->form_validation->set_rules('product', 'Product', 'trim|required');
-		$this->form_validation->set_rules('serialnumber', 'Serial Number', 'trim|required');
-		$this->form_validation->set_rules('manufacturer', 'Manufacturer', 'trim|required');
+		$this->form_validation->set_rules('tglmsk', 'Model', 'trim|required');
+		$this->form_validation->set_rules('aset', 'Product', 'trim|required');
+		$this->form_validation->set_rules('status', 'Serial Number', 'trim|required');
+		$this->form_validation->set_rules('username', 'Manufacturer', 'trim|required');
 		$this->form_validation->set_rules('processors', 'Processors', 'trim|required');
 		$this->form_validation->set_rules('memorytype', 'Memory Type', 'trim|required');
 		$this->form_validation->set_rules('memorysize', 'Memory Size', 'trim|required');

@@ -15,8 +15,9 @@
                 <thead>
                 <tr>
                   <th width="10px">No</th>
-                  <th>Kode Supplier</th>
+                  <th>ID Supplier</th>
                   <th>Nama Supplier</th>
+                  <th>Status</th>
                   <th width="200px" class="text-center">Action</th>
                 </tr>
                 </thead>
@@ -26,11 +27,12 @@
                 ?>
                 <tr>
                   <td class="text-center"><?php echo $i ?></td>
-                  <td><?php echo $value->kode_supplier ?></td>
-                  <td><?php echo $value->supplier ?></td>
+                  <td><?php echo $value->idsupplier ?></td>
+                  <td><?php echo $value->namasup ?></td>
+                  <td><?php echo $value->status ?></td>
                   <td class="text-center">
-                    <a href="<?php echo base_url()?>supplier/edit/<?php echo strEncrypt($value->kode_supplier); ?>" class="btn btn-warning"><span class="fa fa-edit"></span> Edit</a>
-                    <button type="button" value="<?php echo $value->kode_supplier ?>" class="btn btn-danger confirm">
+                    <a href="<?php echo base_url()?>supplier/edit/<?php echo strEncrypt($value->idsupplier); ?>" class="btn btn-warning"><span class="fa fa-edit"></span> Edit</a>
+                    <button type="button" value="<?php echo $value->idsupplier ?>" class="btn btn-danger confirm">
                         <i class="fa fa-trash" aria-hidden="true"></i> Hapus
                     </button>
                   </td>

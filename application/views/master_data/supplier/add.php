@@ -12,16 +12,23 @@
               <div class="box-body">
               
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Kode Supplier<span style="color: red">*</span></label>
+                  <label class="col-sm-3 control-label">ID Supplier<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Kode Supplier" name="kode">
+                    <input type="text" class="form-control" placeholder="ID Supplier" name="kode">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Nama Supplier<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Supplier" name="nama">
+                    <input type="text" class="form-control" placeholder="Nama Supplier" name="nama">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Status<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" name="status">
                   </div>
                 </div>
 
@@ -60,7 +67,7 @@
           }    console.log(data);
         },
         error   : function(data) {
-          swal('Error', 'Kode Supplier Sudah Ada<br>, <b>Kode Supplier</b> TIDAK BOLEH SAMA!', 'error');
+          swal('Error', 'ID Supplier Sudah Ada<br>, <b>ID Supplier</b> TIDAK BOLEH SAMA!', 'error');
           console.log(data);
         }
       });

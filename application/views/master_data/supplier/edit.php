@@ -8,20 +8,27 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form id="tambah" class="form-horizontal" action="<?php echo base_url() ?>supplier/act_edit/<?php echo strEncrypt($detail[0]->kode_supplier); ?>" method="post">
+            <form id="tambah" class="form-horizontal" action="<?php echo base_url() ?>supplier/act_edit/<?php echo strEncrypt($detail[0]->idsupplier); ?>" method="post">
               <div class="box-body">
               
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Kode Supplier <span style="color: red">*</span></label>
+                  <label class="col-sm-3 control-label">ID Supplier <span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Kode Supplier" name="kode" value="<?php echo $detail[0]->kode_supplier; ?>">
+                    <input type="text" class="form-control" placeholder="ID Supplier" name="kode" value="<?php echo $detail[0]->idsupplier; ?>">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Nama Supplier <span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Nama Supplier" name="nama" value="<?php echo $detail[0]->supplier; ?>">
+                    <input type="text" class="form-control" placeholder="Nama Supplier" name="nama" value="<?php echo $detail[0]->namasup; ?>">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Status <span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" name="status" value="<?php echo $detail[0]->status; ?>">
                   </div>
                 </div>
 
@@ -60,7 +67,7 @@
           }    console.log(data);
         },
         error   : function(data) {
-          swal('Error', 'Kode Supplier Sudah Ada <br>, <b>Kode Supplier</b> TIDAK BOLEH SAMA!', 'error');
+          swal('Error', 'ID Supplier Sudah Ada <br>, <b>ID Supplier</b> TIDAK BOLEH SAMA!', 'error');
         }
       });
     });

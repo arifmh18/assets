@@ -116,14 +116,13 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url(); ?>spesifikasi"><i class="fa fa-circle-o text-aqua"></i> Spesifikasi</a></li>
-            <li><a href="<?php echo base_url(); ?>model"><i class="fa fa-circle-o text-aqua"></i> Model</a></li>
-            <li><a href="<?php echo base_url(); ?>manufacturer"><i class="fa fa-circle-o text-aqua"></i> Manufacturer</a></li>
-            <li><a href="<?php echo base_url(); ?>user"><i class="fa fa-circle-o text-aqua"></i> User</a></li>
-            <li><a href="<?php echo base_url(); ?>unit"><i class="fa fa-circle-o text-aqua"></i> Unit</a></li>
-            <li><a href="<?php echo base_url(); ?>lokasi"><i class="fa fa-circle-o text-aqua"></i> Lokasi</a></li>
-            <li><a href="<?php echo base_url(); ?>sewa"><i class="fa fa-circle-o text-aqua"></i> Sewa</a></li>
+            <li><a href="<?php echo base_url(); ?>hardware"><i class="fa fa-circle-o text-aqua"></i> Hardware</a></li>
             <li><a href="<?php echo base_url(); ?>supplier"><i class="fa fa-circle-o text-aqua"></i> Supplier</a></li>
+            <li><a href="<?php echo base_url(); ?>unit"><i class="fa fa-circle-o text-aqua"></i> Unit Kerja</a></li>
+            <li><a href="<?php echo base_url(); ?>network"><i class="fa fa-circle-o text-aqua"></i> Network</a></li>
+            <li><a href="<?php echo base_url(); ?>listipadd"><i class="fa fa-circle-o text-aqua"></i> List IP Address</a></li>
+            <li><a href="<?php echo base_url(); ?>servicehardware"><i class="fa fa-circle-o text-aqua"></i> Service Hardware</a></li>
+            <li><a href="<?php echo base_url(); ?>windowsversion"><i class="fa fa-circle-o text-aqua"></i> Windows Version</a></li>
           </ul>
         </li>
         <?php }?>

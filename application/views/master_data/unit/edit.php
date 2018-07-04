@@ -12,23 +12,23 @@
               <div class="box-body">
               
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Unit Code <span style="color: red">*</span></label>
+                  <label class="col-sm-3 control-label">Kode Unit<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Unit Code" name="kode" value="<?php echo $detail[0]->unitcode; ?>">
+                    <input type="text" class="form-control" placeholder="Kode Unit" name="kode" value="<?php echo $detail[0]->unitcode; ?>">
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Unit Name <span style="color: red">*</span></label>
+                  <label class="col-sm-3 control-label">Unit Kerja <span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Unit Name" name="nama" value="<?php echo $detail[0]->unitname; ?>">
+                    <input type="text" class="form-control" placeholder="Unit Kerja" name="nama" value="<?php echo $detail[0]->unitkerja; ?>">
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Departement <span style="color: red">*</span></label>
+                  <label class="col-sm-3 control-label">Lokasi <span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Departement" name="departement" value="<?php echo $detail[0]->departement; ?>">
+                    <input type="text" class="form-control" placeholder="Lokasi" name="lokasi" value="<?php echo $detail[0]->lokasi; ?>">
                   </div>
                 </div>
 
@@ -67,7 +67,7 @@
           }    console.log(data);
         },
         error   : function(data) {
-          swal('Error', 'Unit Code Sudah Ada <br>, <b>Unit Code</b> TIDAK BOLEH SAMA!', 'error');
+          swal('Error', 'Kode Unit Sudah Ada <br>, <b>Kode Unit</b> TIDAK BOLEH SAMA!', 'error');
         }
       });
     });

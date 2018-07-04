@@ -39,14 +39,16 @@ class Supplier extends CI_Controller {
 		$post = $this->input->post();
 
 		// $this->form_validation->set_rules('induk', 'No induk', 'trim|required|numeric|min_length[18]|max_length[18]');
-		$this->form_validation->set_rules('kode', 'Kode Supplier', 'trim|required');
+		$this->form_validation->set_rules('kode', 'ID Supplier', 'trim|required');
 		$this->form_validation->set_rules('nama', 'Nama Supplier', 'trim|required');
+		$this->form_validation->set_rules('status', 'Status', 'trim|required');
 
 
 		if ($this->form_validation->run() == true){
 			$data = array(
-				'kode_supplier' => $post['kode'],
-				'supplier' => $post['nama']
+				'idsupplier' => $post['kode'],
+				'namasup' => $post['nama'],
+				'status' => $post['status']
 				);
 			$proses = $this->m_global->insert('supplier', $data);
 			if($proses) {
@@ -74,7 +76,7 @@ class Supplier extends CI_Controller {
 		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li><a href="'.base_url().'supplier">Supplier</a></li><li class="active">Edit Data</li>';
 		$data['view'] = 'master_data/supplier/edit';
 
-		$data['detail'] = $this->m_global->get_data_all('supplier', null, [strEncrypt('kode_supplier', TRUE) => $id]);
+		$data['detail'] = $this->m_global->get_data_all('supplier', null, [strEncrypt('idsupplier', TRUE) => $id]);
 
 		$this->load->view('master_template', $data);
 
@@ -87,23 +89,25 @@ class Supplier extends CI_Controller {
 		$post = $this->input->post();
 
 		// $this->form_validation->set_rules('induk', 'No induk', 'trim|required|numeric|min_length[18]|max_length[18]');
-		$this->form_validation->set_rules('kode', 'Kode Supplier', 'trim|required');
+		$this->form_validation->set_rules('kode', 'ID Supplier', 'trim|required');
 		$this->form_validation->set_rules('nama', 'Nama Supplier', 'trim|required');
+		$this->form_validation->set_rules('status', 'Status', 'trim|required');
 
 		if ($this->form_validation->run() == true){
 			$data = array(
-					'kode_supplier' => $post['kode'],
-					'supplier' => $post['nama']
+					'idsupplier' => $post['kode'],
+					'namasup' => $post['nama'],
+					'status' => $post['status']
 					);				
 			
-			$x = $this->m_global->get_data_all('supplier', null, ['kode_supplier' => $data['kode_supplier']]);
+			$x = $this->m_global->get_data_all('supplier', null, ['idsupplier' => $data['idsupplier']]);
 			if($x) {
-				if(strEncrypt($x[0]->kode_supplier) !== $id) {
-					$result['msg'] = 'Kode Supplier sudah ada !';
+				if(strEncrypt($x[0]->idsupplier) !== $id) {
+					$result['msg'] = 'ID  Supplier sudah ada !';
 					$result['sts'] = '0';
 				}
 				else{
-					$proses = $this->m_global->update('supplier', $data, [strEncrypt('kode_supplier', TRUE) => $id]);
+					$proses = $this->m_global->update('supplier', $data, [strEncrypt('idsupplier', TRUE) => $id]);
 					if($proses) {
 						$result['msg'] = 'Data Supplier berhasil perbarui !';
 						$result['sts'] = '1';
@@ -115,7 +119,7 @@ class Supplier extends CI_Controller {
 				}
 			}
 			else{
-				$proses = $this->m_global->update('supplier', $data, [strEncrypt('kode_supplier', TRUE) => $id]);
+				$proses = $this->m_global->update('supplier', $data, [strEncrypt('idsupplier', TRUE) => $id]);
 				if($proses) {
 					$result['msg'] = 'Data Supplier berhasil perbarui !';
 					$result['sts'] = '1';
@@ -139,7 +143,7 @@ class Supplier extends CI_Controller {
 
 	public function hapus(){
 		$id = $this->input->post('id');
-		$proses = $this->m_global->delete('supplier',['kode_supplier'=>$id]);
+		$proses = $this->m_global->delete('supplier',['idsupplier'=>$id]);
 
 		if($proses) {
 			$result['msg'] = 'Data Supplier berhasil dihapus !';

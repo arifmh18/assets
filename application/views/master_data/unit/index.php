@@ -15,9 +15,9 @@
                 <thead>
                 <tr>
                   <th width="10px">No</th>
-                  <th>Unit Code</th>
-                  <th>Unit name</th>
-                  <th>Departement</th>                  
+                  <th>Kode Unit</th>
+                  <th>Unit Kerja</th>
+                  <th>Lokasi</th>                  
                   <th width="200px" class="text-center">Action</th>
                 </tr>
                 </thead>
@@ -28,8 +28,8 @@
                 <tr>
                   <td class="text-center"><?php echo $i ?></td>
                   <td><?php echo $value->unitcode ?></td>
-                  <td><?php echo $value->unitname ?></td>
-                  <td><?php echo $value->departement ?></td>
+                  <td><?php echo $value->unitkerja ?></td>
+                  <td><?php echo $value->lokasi ?></td>
                   <td class="text-center">
                     <a href="<?php echo base_url()?>unit/edit/<?php echo strEncrypt($value->unitcode); ?>" class="btn btn-warning"><span class="fa fa-edit"></span> Edit</a>
                     <button type="button" value="<?php echo $value->unitcode ?>" class="btn btn-danger confirm">

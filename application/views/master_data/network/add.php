@@ -8,34 +8,47 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form id="tambah" class="form-horizontal" action="<?php echo base_url() ?>unit/act_add" method="post" enctype="multipart/form-data">
+            <form id="tambah" class="form-horizontal" action="<?php echo base_url() ?>network/act_add" method="post" enctype="multipart/form-data">
               <div class="box-body">
               
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Kode Unit<span style="color: red">*</span></label>
+                  <label class="col-sm-3 control-label">ID Lokasi<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Kode Unit" name="kode">
+                    <input type="text" class="form-control" placeholder="ID Lokasi" name="kode">
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Unit Kerja<span style="color: red">*</span></label>
+                  <label class="col-sm-3 control-label">Server Area<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Unit Kerja" name="nama">
+                    <input type="text" class="form-control" placeholder="Server Area" name="nama">
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Lokasi<span style="color: red">*</span></label>
+                  <label class="col-sm-3 control-label">No Switch<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Lokasi" name="lokasi">
+                    <input type="text" class="form-control" placeholder="No Switch" name="no_switch">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">No Socket<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="No Socket" name="no_socket">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">No Kabel<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="No Kabel" name="no_kabel">
                   </div>
                 </div>
 
               </div>
               <!-- /.box-body -->
               <div class="box-footer">
-                <a href="<?php echo base_url() ?>unit" class="btn btn-default pull-right">Kembali</a>
+                <a href="<?php echo base_url() ?>network" class="btn btn-default pull-right">Kembali</a>
                 <button type="submit" class="btn btn-info pull-right">Tambah</button>
               </div>
               <!-- /.box-footer -->
@@ -61,13 +74,13 @@
         success : function(data) {
           if(data.sts == 1) {
             swal("Sukses!",data.msg,"success");
-            setTimeout("location.href='<?php echo base_url() ?>unit'", 1500);
+            setTimeout("location.href='<?php echo base_url() ?>network'", 1500);
           } else {
             $.notify({message: data.msg},{type: 'danger'});
           }    console.log(data);
         },
         error   : function(data) {
-          swal('Error', 'Kode Unit Sudah Ada<br>, <b>Kode Unit</b> TIDAK BOLEH SAMA!', 'error');
+          swal('Error', 'ID Network Sudah Ada<br>, <b>ID Network</b> TIDAK BOLEH SAMA!', 'error');
           console.log(data);
         }
       });
