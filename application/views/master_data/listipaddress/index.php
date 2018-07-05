@@ -1,11 +1,11 @@
       <div class="box">
         <div class="box-header with-border">
         <i class="fa fa-lightbulb-o"></i>
-          <h3 class="box-title">Data Sewa Barang</h3>
+          <h3 class="box-title">Master Data List IP Address</h3>
             <div class="pull-right box-tools">
             <!-- <button type="button" class="btn btn-success btn-sm" data-widget="remove" data-toggle="tooltip" title="Tambah Data"> -->
             <!-- <i class="fa fa-plus"></i></button> -->
-            <a href="<?php echo base_url(); ?>sewa/add" class="btn btn-success btn-sm" data-toggle="tooltip" title="Tambah Data">&nbsp;&nbsp;&nbsp;<i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp;</a>
+            <a href="<?php echo base_url(); ?>listipaddress/add" class="btn btn-success btn-sm" data-toggle="tooltip" title="Tambah Data">&nbsp;&nbsp;&nbsp;<i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp;</a>
         </div></div>
         <div class="box-body">
       <div class="row">
@@ -15,38 +15,36 @@
                 <thead>
                 <tr>
                   <th width="10px">No</th>
-                  <th>Kode Barang</th>
-                  <th>Model Barang</th>
-                  <th>Nama Barang</th>
-                  <th>Tanggal Mulai Sewa</th>
-                  <th>Tanggal Akhir Sewa</th>
-                  <th>No. PO</th>
-                  <th>Supplier</th>
+                  <th>IP Address</th>
+                  <th>Hardware ID</th>
+                  <th>Device Name</th>
+                  <th>Mac Address</th>
+                  <th>Mac Address Wifi</th>
+                  <th>Kode Unit</th>
+                  <th>Unit Kerja</th>
+                  <th>Lokasi</th>
+                  <th>Server Area</th>
                   <th width="200px" class="text-center">Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php $i=1;
-                  foreach ($sewa as $key => $value){ 
+                  foreach ($listipaddress as $key => $value){ 
                 ?>
                 <tr>
                   <td class="text-center"><?php echo $i ?></td>
-                  <td><?php echo $value->kode_barang ?></a></td>
-                  <td><?php echo $value->model_barang ?></td>
-                  <td><?php echo $value->nama_barang ?></td>
-                  <td><?php echo $value->tgl_mulai_sewa ?></a></td>
-                  <td><?php echo $value->tgl_akhir_sewa ?></td>
-                  <td><?php echo $value->no_po ?></td>
-                    <?php 
-                    foreach ($supplier as $key => $s) {
-                      if ($value->supplier == $s->kode_supplier) {
-                        echo "<td>".$s->supplier."</td>";
-                      }
-                     } 
-                     ?>
+                  <td><?php echo $value->IPadd ?></a></td>
+                  <td><?php echo $value->hardwareID ?></td>
+                  <td><?php echo $value->devicename ?></td>
+                  <td><?php echo $value->macadd ?></a></td>
+                  <td><?php echo $value->macaddwifi ?></td>
+                  <td><?php echo $value->unitcode ?></td>
+                  <td><?php echo $value->unitkerja ?></td>
+                  <td><?php echo $value->lokasi ?></td>
+                  <td><?php echo $value->server_area ?></td>
                   <td class="text-center">
-                    <a href="<?php echo base_url()?>sewa/edit/<?php echo strEncrypt($value->kode_barang); ?>" class="btn btn-warning"><span class="fa fa-edit"></span> Edit</a>
-                    <button type="button" value="<?php echo $value->kode_barang ?>" class="btn btn-danger confirm">
+                    <a href="<?php echo base_url()?>listipaddress/edit/<?php echo strEncrypt($value->IPadd); ?>" class="btn btn-warning"><span class="fa fa-edit"></span> Edit</a>
+                    <button type="button" value="<?php echo $value->IPadd ?>" class="btn btn-danger confirm">
                         <i class="fa fa-trash" aria-hidden="true"></i> Hapus
                     </button>
                   </td>
@@ -74,12 +72,12 @@
           closeOnConfirm: true,
       }).then(function(){
            $.ajax({
-              url:"<?php echo base_url()?>sewa/hapus",
+              url:"<?php echo base_url()?>listipaddress/hapus",
               type: "POST",
               data:{id:id},
               success: function(data){
                   swal("Sukses!",data.msg,"success");
-                  setTimeout("location.href='<?php echo base_url() ?>sewa'", 1500);
+                  setTimeout("location.href='<?php echo base_url() ?>listipaddress'", 1500);
                 console.log(data);
               }
            });

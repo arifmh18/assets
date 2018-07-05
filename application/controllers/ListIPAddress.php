@@ -12,11 +12,11 @@ class ListIPAddress extends CI_Controller {
 
 	public function index()
 	{
-		$data['title'] = 'Manufacturer | IT Assets';
-		$data['judul'] = 'Manufacturer';
-		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li class="active">Manufacturer</li>';
-		$data['view'] = 'master_data/manufacturer/index';
-		$data['manufacturer'] = $this->m_global->get_data_all('manufacturer');
+		$data['title'] = 'List IP Address | IT Assets';
+		$data['judul'] = 'List IP Address';
+		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li class="active">ListIPAddress</li>';
+		$data['view'] = 'master_data/listipaddress/index';
+		$data['listipaddress'] = $this->m_global->get_data_all('listipaddress');
 		$this->load->view('master_template', $data);
 	
 	}
@@ -25,9 +25,9 @@ class ListIPAddress extends CI_Controller {
 	public function add()
 	{
 		$data['title'] = 'Tambah Data';
-		$data['judul'] = 'Tambah Data Manufacturer';
-		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard active"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li><a href="'.base_url().'manufacturer">Manufacturer</a></li><li class="active">Tambah data</li>';
-		$data['view'] = 'master_data/manufacturer/add';
+		$data['judul'] = 'Tambah Data List IP Address';
+		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard active"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li><a href="'.base_url().'listipaddress">ListIPAddress</a></li><li class="active">Tambah data</li>';
+		$data['view'] = 'master_data/listipaddress/add';
 
 		$this->load->view('master_template', $data);
 		
@@ -39,22 +39,35 @@ class ListIPAddress extends CI_Controller {
 		$post = $this->input->post();
 
 		// $this->form_validation->set_rules('induk', 'No induk', 'trim|required|numeric|min_length[18]|max_length[18]');
-		$this->form_validation->set_rules('kode', 'Kode Manufacturer', 'trim|required');
-		$this->form_validation->set_rules('nama', 'Nama Manufacturer', 'trim|required');
-
+		$this->form_validation->set_rules('kode', 'IP Address', 'trim|required');
+		$this->form_validation->set_rules('nama', 'Hardware ID');
+		$this->form_validation->set_rules('devicename', 'Device Name');
+		$this->form_validation->set_rules('macadd', 'Mac Address');
+		$this->form_validation->set_rules('macaddwifi', 'Mac Address Wifi');
+		$this->form_validation->set_rules('unitcode', 'Unit Code');
+		$this->form_validation->set_rules('unitkerja', 'Unit Kerja');
+		$this->form_validation->set_rules('lokasi', 'Lokasi');
+		$this->form_validation->set_rules('server_area', 'Server Area');
 
 		if ($this->form_validation->run() == true){
 			$data = array(
-				'kode_manufacturer' => $post['kode'],
-				'manufacturer' => $post['nama']
+				'IPadd' => $post['kode'],
+				'hardwareID' => $post['nama'],
+				'devicename' => $post['devicename'],
+				'macadd' => $post['macadd'],
+				'macaddwifi' => $post['macaddwifi'],
+				'unitcode' => $post['unitcode'],
+				'unitkerja' => $post['unitkerja'],
+				'lokasi' => $post['lokasi'],
+				'server_area' => $post['server_area']
 				);
-			$proses = $this->m_global->insert('manufacturer', $data);
+			$proses = $this->m_global->insert('listipaddress', $data);
 			if($proses) {
-				$result['msg'] = 'Data manufacturer berhasil ditambahkan !';
+				$result['msg'] = 'Data List IP Address berhasil ditambahkan !';
 				$result['sts'] = '1';
 			} 
 			else {
-				$result['msg'] = 'Data manufacturer gagal ditambahkan !';
+				$result['msg'] = 'Data List IP Address gagal ditambahkan !';
 				$result['sts'] = '0';
 			}
 		}
@@ -70,11 +83,11 @@ class ListIPAddress extends CI_Controller {
 
 	public function edit($id){
 		$data['title'] = 'Edit Data ';
-		$data['judul'] = 'Edit Data Manufacturer';
-		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li><a href="'.base_url().'manufacturer">Manufacturer</a></li><li class="active">Edit Data</li>';
-		$data['view'] = 'master_data/manufacturer/edit';
+		$data['judul'] = 'Edit Data List IP Address';
+		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li><a href="'.base_url().'listipaddress">ListIPAddress</a></li><li class="active">Edit Data</li>';
+		$data['view'] = 'master_data/listipaddress/edit';
 
-		$data['detail'] = $this->m_global->get_data_all('manufacturer', null, [strEncrypt('kode_manufacturer', TRUE) => $id]);
+		$data['detail'] = $this->m_global->get_data_all('listipaddress', null, [strEncrypt('IPadd', TRUE) => $id]);
 
 		$this->load->view('master_template', $data);
 
@@ -87,41 +100,55 @@ class ListIPAddress extends CI_Controller {
 		$post = $this->input->post();
 
 		// $this->form_validation->set_rules('induk', 'No induk', 'trim|required|numeric|min_length[18]|max_length[18]');
-		$this->form_validation->set_rules('kode', 'Kode Manufacturer', 'trim|required');
-		$this->form_validation->set_rules('nama', 'Nama Manufacturer', 'trim|required');
+		$this->form_validation->set_rules('kode', 'IP Address', 'trim|required');
+		$this->form_validation->set_rules('nama', 'Hardware ID');
+		$this->form_validation->set_rules('devicename', 'Device Name');
+		$this->form_validation->set_rules('macadd', 'Mac Address');
+		$this->form_validation->set_rules('macaddwifi', 'Mac Address Wifi');
+		$this->form_validation->set_rules('unitcode', 'Unit Code');
+		$this->form_validation->set_rules('unitkerja', 'Unit Kerja');
+		$this->form_validation->set_rules('lokasi', 'Lokasi');
+		$this->form_validation->set_rules('server_area', 'Server Area');
 
 		if ($this->form_validation->run() == true){
 			$data = array(
-					'kode_manufacturer' => $post['kode'],
-					'manufacturer' => $post['nama']
-					);				
+				'IPadd' => $post['kode'],
+				'hardwareID' => $post['nama'],
+				'devicename' => $post['devicename'],
+				'macadd' => $post['macadd'],
+				'macaddwifi' => $post['macaddwifi'],
+				'unitcode' => $post['unitcode'],
+				'unitkerja' => $post['unitkerja'],
+				'lokasi' => $post['lokasi'],
+				'server_area' => $post['server_area']
+				);				
 			
-			$x = $this->m_global->get_data_all('manufacturer', null, ['kode_manufacturer' => $data['kode_manufacturer']]);
+			$x = $this->m_global->get_data_all('listipaddress', null, ['IPadd' => $data['IPadd']]);
 			if($x) {
-				if(strEncrypt($x[0]->kode_manufacturer) !== $id) {
-					$result['msg'] = 'Kode Manufacturer sudah ada !';
+				if(strEncrypt($x[0]->IPadd) !== $id) {
+					$result['msg'] = 'IP Address sudah ada !';
 					$result['sts'] = '0';
 				}
 				else{
-					$proses = $this->m_global->update('manufacturer', $data, [strEncrypt('kode_manufacturer', TRUE) => $id]);
+					$proses = $this->m_global->update('listipaddress', $data, [strEncrypt('IPadd', TRUE) => $id]);
 					if($proses) {
-						$result['msg'] = 'Data Manufacturer berhasil perbarui !';
+						$result['msg'] = 'Data List IP Address berhasil perbarui !';
 						$result['sts'] = '1';
 					} 
 					else {
-						$result['msg'] = 'Data Manufacturer gagal perbarui !';
+						$result['msg'] = 'Data List IP Address gagal perbarui !';
 						$result['sts'] = '0';
 					}
 				}
 			}
 			else{
-				$proses = $this->m_global->update('manufacturer', $data, [strEncrypt('kode_manufacturer', TRUE) => $id]);
+				$proses = $this->m_global->update('listipaddress', $data, [strEncrypt('IPadd', TRUE) => $id]);
 				if($proses) {
-					$result['msg'] = 'Data Manufacturer berhasil perbarui !';
+					$result['msg'] = 'Data List IP Address berhasil perbarui !';
 					$result['sts'] = '1';
 				} 
 				else {
-					$result['msg'] = 'Data Manufacturer gagal perbarui !';
+					$result['msg'] = 'Data List IP Address gagal perbarui !';
 					$result['sts'] = '0';
 				}
 			}
@@ -139,14 +166,14 @@ class ListIPAddress extends CI_Controller {
 
 	public function hapus(){
 		$id = $this->input->post('id');
-		$proses = $this->m_global->delete('manufacturer',['kode_manufacturer'=>$id]);
+		$proses = $this->m_global->delete('listipaddress',['IPadd'=>$id]);
 
 		if($proses) {
-			$result['msg'] = 'Data Manufacturer berhasil dihapus !';
+			$result['msg'] = 'Data List IP Address berhasil dihapus !';
 			$result['sts'] = '1';
 		} 
 		else {
-			$result['msg'] = 'Data Manufacturer gagal dihapus !';
+			$result['msg'] = 'Data List IP Address gagal dihapus !';
 			$result['sts'] = '0';
 		}
 
@@ -155,5 +182,5 @@ class ListIPAddress extends CI_Controller {
 
 }
 
-/* End of file Manufacturer.php */
-/* Location: ./application/controllers/Manufacturer.php */
+/* End of file ListIPAddress.php */
+/* Location: ./application/controllers/ListIPAddress.php */

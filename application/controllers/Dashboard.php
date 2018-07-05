@@ -20,7 +20,7 @@ class Dashboard extends CI_Controller {
 		$data['supplier'] = count($this->m_global->get_data_all('supplier', null));
 		$data['unit'] = count($this->m_global->get_data_all('unit', null));
 		$data['network'] = count($this->m_global->get_data_all('network', null));
-		$data['listipadd'] = count($this->m_global->get_data_all('listipadd', null));
+		$data['listipaddress'] = count($this->m_global->get_data_all('listipaddress', null));
 		$data['servicehardware'] = count($this->m_global->get_data_all('servicehardware', null));
 		$data['windowsversion'] = count($this->m_global->get_data_all('windowsversion', null));
 

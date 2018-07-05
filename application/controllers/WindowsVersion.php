@@ -26,7 +26,7 @@ class WindowsVersion extends CI_Controller {
 	{
 		$data['title'] = 'Tambah Data';
 		$data['judul'] = 'Tambah Data Windows Version';
-		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard active"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li><a href="'.base_url().'windowsversion">WindowsVersionW</a></li><li class="active">Tambah data</li>';
+		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard active"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li><a href="'.base_url().'windowsversion">WindowsVersion</a></li><li class="active">Tambah data</li>';
 		$data['view'] = 'master_data/windowsversion/add';
 
 		$this->load->view('master_template', $data);
@@ -49,7 +49,7 @@ class WindowsVersion extends CI_Controller {
 				'winversion' => $post['nama'],
 				'productkey' => $post['productkey']
 				);
-			$proses = $this->m_global->insert('winversion', $data);
+			$proses = $this->m_global->insert('windowsversion', $data);
 			if($proses) {
 				$result['msg'] = 'Data windows version berhasil ditambahkan !';
 				$result['sts'] = '1';
@@ -73,9 +73,9 @@ class WindowsVersion extends CI_Controller {
 		$data['title'] = 'Edit Data ';
 		$data['judul'] = 'Edit Data Windows Version';
 		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li><a href="'.base_url().'winversion">WindowsVersion</a></li><li class="active">Edit Data</li>';
-		$data['view'] = 'master_data/winversion/edit';
+		$data['view'] = 'master_data/windowsversion/edit';
 
-		$data['detail'] = $this->m_global->get_data_all('winversion', null, [strEncrypt('winID', TRUE) => $id]);
+		$data['detail'] = $this->m_global->get_data_all('windowsversion', null, [strEncrypt('winID', TRUE) => $id]);
 
 		$this->load->view('master_template', $data);
 
@@ -99,14 +99,14 @@ class WindowsVersion extends CI_Controller {
 				'productkey' => $post['productkey']
 				);			
 			
-			$x = $this->m_global->get_data_all('winversion', null, ['winID' => $data['winID']]);
+			$x = $this->m_global->get_data_all('windowsversion', null, ['winID' => $data['winID']]);
 			if($x) {
 				if(strEncrypt($x[0]->winID) !== $id) {
 					$result['msg'] = 'Windows ID sudah ada !';
 					$result['sts'] = '0';
 				}
 				else{
-					$proses = $this->m_global->update('winversion', $data, [strEncrypt('winID', TRUE) => $id]);
+					$proses = $this->m_global->update('windowsversion', $data, [strEncrypt('winID', TRUE) => $id]);
 					if($proses) {
 						$result['msg'] = 'Data Windows ID berhasil perbarui !';
 						$result['sts'] = '1';
@@ -118,7 +118,7 @@ class WindowsVersion extends CI_Controller {
 				}
 			}
 			else{
-				$proses = $this->m_global->update('winversion', $data, [strEncrypt('winID', TRUE) => $id]);
+				$proses = $this->m_global->update('windowsversion', $data, [strEncrypt('winID', TRUE) => $id]);
 				if($proses) {
 					$result['msg'] = 'Data Windows ID berhasil perbarui !';
 					$result['sts'] = '1';
@@ -142,7 +142,7 @@ class WindowsVersion extends CI_Controller {
 
 	public function hapus(){
 		$id = $this->input->post('id');
-		$proses = $this->m_global->delete('winversion',['winID'=>$id]);
+		$proses = $this->m_global->delete('windowsversion',['winID'=>$id]);
 
 		if($proses) {
 			$result['msg'] = 'Data Windows ID berhasil dihapus !';
@@ -158,5 +158,5 @@ class WindowsVersion extends CI_Controller {
 
 }
 
-/* End of file Windows Version.php */
-/* Location: ./application/controllers/Windows Version.php */
+/* End of file WindowsVersion.php */
+/* Location: ./application/controllers/WindowsVersion.php */

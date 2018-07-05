@@ -120,7 +120,7 @@
             <li><a href="<?php echo base_url(); ?>supplier"><i class="fa fa-circle-o text-aqua"></i> Supplier</a></li>
             <li><a href="<?php echo base_url(); ?>unit"><i class="fa fa-circle-o text-aqua"></i> Unit Kerja</a></li>
             <li><a href="<?php echo base_url(); ?>network"><i class="fa fa-circle-o text-aqua"></i> Network</a></li>
-            <li><a href="<?php echo base_url(); ?>listipadd"><i class="fa fa-circle-o text-aqua"></i> List IP Address</a></li>
+            <li><a href="<?php echo base_url(); ?>listipaddress"><i class="fa fa-circle-o text-aqua"></i> List IP Address</a></li>
             <li><a href="<?php echo base_url(); ?>servicehardware"><i class="fa fa-circle-o text-aqua"></i> Service Hardware</a></li>
             <li><a href="<?php echo base_url(); ?>windowsversion"><i class="fa fa-circle-o text-aqua"></i> Windows Version</a></li>
           </ul>

@@ -8,92 +8,77 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form id="tambah" class="form-horizontal" action="<?php echo base_url() ?>sewa/act_edit/<?php echo strEncrypt($detail[0]->kode_barang); ?>" method="post">
+            <form id="tambah" class="form-horizontal" action="<?php echo base_url() ?>listipaddress/act_edit/<?php echo strEncrypt($detail[0]->IPadd); ?>" method="post">
               <div class="box-body">
               
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Kode Barang<span style="color: red">*</span></label>
+                  <label class="col-sm-3 control-label">IP Address<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Kode Barang" name="kode_barang" value="<?php echo $detail[0]->kode_barang; ?>">
+                    <input type="text" class="form-control" placeholder="IP Address" name="kode" value="<?php echo $detail[0]->IPadd; ?>">
                   </div>
                 </div>
 
                 
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Model Barang<span style="color: red">*</span></label>
+                  <label class="col-sm-3 control-label">Hardware ID<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Model Barang" name="model_barang" value="<?php echo $detail[0]->model_barang; ?>">
+                    <input type="text" class="form-control" placeholder="Hardware ID" name="nama" value="<?php echo $detail[0]->hardwareID; ?>">
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Nama Barang<span style="color: red">*</span></label>
+                  <label class="col-sm-3 control-label">Device Name<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Nama Barang" name="nama_barang" value="<?php echo $detail[0]->nama_barang; ?>">
+                    <input type="text" class="form-control" placeholder="Device Name" name="devicename" value="<?php echo $detail[0]->devicename; ?>">
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Tanggal Mulai Sewa<span style="color: red">*</span></label>
+                  <label class="col-sm-3 control-label">Mac Address<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="date" class="form-control" name="tgl_mulai_sewa" value="<?php echo $detail[0]->tgl_mulai_sewa; ?>">
+                    <input type="text" class="form-control" placeholder="Mac Address" name="macadd" value="<?php echo $detail[0]->macadd; ?>">
                   </div>
                 </div>
               
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Tanggal Akhir Sewa<span style="color: red">*</span></label>
+                  <label class="col-sm-3 control-label">Mac Address Wifi<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="date" class="form-control" name="tgl_akhir_sewa" value="<?php echo $detail[0]->tgl_akhir_sewa; ?>">
+                    <input type="text" class="form-control" placeholder="Mac Address Wifi" name="macaddwifi" value="<?php echo $detail[0]->macaddwifi; ?>">
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">NO. PO<span style="color: red">*</span></label>
+                  <label class="col-sm-3 control-label">Kode Unit<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="number" class="form-control" placeholder="NO. PO" name="no_po" value="<?php echo $detail[0]->no_po; ?>">
+                    <input type="text" class="form-control" placeholder="Kode Unit" name="unitcode" value="<?php echo $detail[0]->unitcode; ?>">
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Supplier<span style="color: red">*</span></label>
+                  <label class="col-sm-3 control-label">Unit Kerja<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <select class="form-control select2" style="width: 100%;" name="supplier">
-                      <option value="">- Pilih Supplier -</option>
-                      <?php 
-                          foreach ($supplier as $key => $value) {
-                            echo "<option ".($value->kode_supplier == $detail[0]->supplier ? 'selected' : '')." value='".$value->kode_supplier."'>".$value->supplier."</option>";
-                          }
-
-                        ?>
-                    </select>
+                    <input type="text" class="form-control" placeholder="Unit Kerja" name="unitkerja" value="<?php echo $detail[0]->unitkerja; ?>">
                   </div>
                 </div>
-
-<!--                 <div class="form-group">
-                  <label class="col-sm-2 control-label">Photo Profil</label>
-                  <div class="col-sm-10">
-                    <input type="file" name="avatar" class="form-control avatar">
-                    <p><i>hanya file type jpg, png, gif</i></p>
-                  </div>
-                </div>
- -->
- <!--               <div class="form-group">
-                  <label class="col-sm-3 control-label">Jurusan<span style="color: red">*</span></label>
+              
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Lokasi<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <select class="form-control select2" style="width: 100%;" name="jurusan">
-                      <option value="">- Pilih Jurusan -</option>
-                      <?php foreach ($jurusan as $key => $value) { ?>
-                      <option value="<?php echo $value->kd_jurusan; ?>"><?php echo $value->nama_jurusan; ?></option>
-                      <?php } ?>
-                    </select>
+                    <input type="text" class="form-control" placeholder="Lokasi" name="lokasi" value="<?php echo $detail[0]->lokasi; ?>">
                   </div>
                 </div>
-              </div>
--->
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Server Area<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Server Area" name="server_area" value="<?php echo $detail[0]->server_area; ?>">
+                  </div>
+                </div>
+
               <!-- /.box-body -->
               <div class="box-footer">
                 <button type="submit" class="btn btn-info pull-right">Perbarui</button>
-                <a href="<?php echo base_url() ?>sewa" class="btn btn-default pull-right">Kembali</a>
+                <a href="<?php echo base_url() ?>listipaddress" class="btn btn-default pull-right">Kembali</a>
               </div>
               <!-- /.box-footer -->
             </form>
@@ -118,13 +103,13 @@
         success : function(data) {
           if(data.sts == 1) {
             swal("Sukses!",data.msg,"success");
-            setTimeout("location.href='<?php echo base_url() ?>sewa'", 1500);
+            setTimeout("location.href='<?php echo base_url() ?>listipaddress'", 1500);
           } else {
             $.notify({message: data.msg},{type: 'danger'});
           }    console.log(data);
         },
         error   : function(data) {
-          swal('Error', 'Kode Barang Sudah Ada<br>, <b>Kode Barang</b> TIDAK BOLEH SAMA!', 'error');
+          swal('Error', 'IP Address Sudah Ada<br>, <b>IP Address</b> TIDAK BOLEH SAMA!', 'error');
           console.log(data);
         }
       });

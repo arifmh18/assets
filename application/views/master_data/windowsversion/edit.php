@@ -8,20 +8,27 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form id="tambah" class="form-horizontal" action="<?php echo base_url() ?>model/act_edit/<?php echo strEncrypt($detail[0]->kode_model); ?>" method="post">
+            <form id="tambah" class="form-horizontal" action="<?php echo base_url() ?>windowsversion/act_edit/<?php echo strEncrypt($detail[0]->winID); ?>" method="post">
               <div class="box-body">
               
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Kode Model <span style="color: red">*</span></label>
+                  <label class="col-sm-3 control-label">Windows ID <span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Kode Model" name="kode" value="<?php echo $detail[0]->kode_model; ?>">
+                    <input type="text" class="form-control" placeholder="Windows ID" name="kode" value="<?php echo $detail[0]->winID; ?>">
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Nama Model <span style="color: red">*</span></label>
+                  <label class="col-sm-3 control-label">Windows Version <span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Nama Model" name="nama" value="<?php echo $detail[0]->model; ?>">
+                    <input type="text" class="form-control" placeholder="Windows Version" name="nama" value="<?php echo $detail[0]->winversion; ?>">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Product Key <span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Product Key" name="productkey" value="<?php echo $detail[0]->productkey; ?>">
                   </div>
                 </div>
 
@@ -29,7 +36,7 @@
               <!-- /.box-body -->
               <div class="box-footer">
                 <button type="submit" class="btn btn-info pull-right"> Perbarui</button>
-                <a href="<?php echo base_url()?>model" class="btn btn-default pull-right">Kembali</a>
+                <a href="<?php echo base_url()?>windowsversion" class="btn btn-default pull-right">Kembali</a>
               </div>
               <!-- /.box-footer -->
             </form>
@@ -54,13 +61,13 @@
         success : function(data) {
           if(data.sts == 1) {
             swal("Sukses!",data.msg,"success");
-            setTimeout("location.href='<?php echo base_url() ?>model'", 1500);
+            setTimeout("location.href='<?php echo base_url() ?>windowsversion'", 1500);
           } else {
             $.notify({message: data.msg},{type: 'danger'});
           }    console.log(data);
         },
         error   : function(data) {
-          swal('Error', 'Kode Model Sudah Ada <br>, <b>Kode Model</b> TIDAK BOLEH SAMA!', 'error');
+          swal('Error', 'WIndows ID Sudah Ada <br>, <b>WIndows ID</b> TIDAK BOLEH SAMA!', 'error');
         }
       });
     });

@@ -73,14 +73,14 @@
           <!-- small box -->
           <div class="small-box bg-purple">
             <div class="inner">
-              <h3><?php echo $listipadd; ?></h3>
+              <h3><?php echo $listipaddress; ?></h3>
 
               <p>List IP Address</p>
             </div>
             <div class="icon">
               <i class="ion ion-pin"></i>
             </div>
-            <a href="<?php echo base_url() ?>listipadd" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="<?php echo base_url() ?>listipaddress" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
