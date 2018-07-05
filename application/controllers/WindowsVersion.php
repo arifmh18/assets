@@ -12,10 +12,10 @@ class WindowsVersion extends CI_Controller {
 
 	public function index()
 	{
-		$data['title'] = 'WindowsVersion | IT Assets';
-		$data['judul'] = 'WindowsVersion';
+		$data['title'] = 'Windows Version | IT Assets'; // yang ditampilkan di title
+		$data['judul'] = 'Windows Version'; 
 		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li class="active">WindowsVersion </li>';
-		$data['view'] = 'master_data/windowsversion/index';
+		$data['view'] = 'master_data/windowsversion/index'; //yang ngelink jadi ngk usah pake spasi (tempat data viewnya)
 		$data['windowsversion'] = $this->m_global->get_data_all('windowsversion');
 		$this->load->view('master_template', $data);
 	
