@@ -28,7 +28,12 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Hardware ID<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Hardware ID" name="hardwareID">
+                    <select class="form-control select2" style="width: 100%;" name="hardwareID">
+                      <option value="">- Silahkan Pilih -</option>
+                      <?php foreach ($hardware as $key => $value) { ?>
+                      <option value="<?php echo $value->hardwareID; ?>"><?php echo $value->hardwareID.' - '.$value->product; ?></option>
+                      <?php } ?>
+                    </select>
                   </div>
                 </div>
 

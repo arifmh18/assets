@@ -8,35 +8,62 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form id="tambah" class="form-horizontal" action="<?php echo base_url() ?>spesifikasi/act_edit/<?php echo strEncrypt($detail[0]->hardware_IDS); ?>" method="post">
+            <form id="tambah" class="form-horizontal" action="<?php echo base_url() ?>servicehardware/act_edit/<?php echo strEncrypt($detail[0]->noservice); ?>" method="post">
               <div class="box-body">
               
                 <div class="form-group">
+                  <label class="col-sm-3 control-label">No Service<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="number" class="form-control" name="ID" value="<?php echo $detail[0]->noservice; ?>">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Tanggal Service<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="date" class="form-control" name="tglservice"  value="<?php echo $detail[0]->tglservice; ?>">
+                  </div>
+                </div>
+
+                <div class="form-group">
                   <label class="col-sm-3 control-label">Hardware ID<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Hardware ID" name="ID" value="<?php echo $detail[0]->hardware_IDS; ?>">
+                    <input type="text" class="form-control" placeholder="Hardware ID" name="hardwareID"  value="<?php echo $detail[0]->hardwareID; ?>">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Aset<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Aset" name="aset"  value="<?php echo $detail[0]->aset; ?>">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Username<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control"  placeholder="Username" name="username"  value="<?php echo $detail[0]->username; ?>">
+                  </div>
+                </div>
+              
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Kode Unit<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Kode Unit" name="unitcode" value="<?php echo $detail[0]->unitcode; ?>">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Unit Kerja<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Unit Kerja" name="unitkerja"  value="<?php echo $detail[0]->unitkerja; ?>">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Model<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <select class="form-control select2" style="width: 100%;" name="model">
-                      <option value="">- Pilih Model -</option>
-                      <?php 
-                          foreach ($model as $key => $value) {
-                            echo "<option ".($value->kode_model == $detail[0]->model ? 'selected' : '')." value='".$value->kode_model."'>".$value->model."</option>";
-                          }
-
-                        ?>
-                    </select>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Product<span style="color: red">*</span></label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Product" name="product" value="<?php echo $detail[0]->product; ?>">
+                    <input type="text" class="form-control" placeholder="Model" name="model"  value="<?php echo $detail[0]->model; ?>">
                   </div>
                 </div>
 
@@ -50,6 +77,41 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Manufacturer<span style="color: red">*</span></label>
                   <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Manufacturer" name="manufacturer"  value="<?php echo $detail[0]->manufacturer; ?>">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Product<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Product" name="product"  value="<?php echo $detail[0]->product; ?>">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Remarks<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Remarks" name="remarks"  value="<?php echo $detail[0]->remarks; ?>">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Status<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Status" name="status"  value="<?php echo $detail[0]->status; ?>">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Tanggal Keluar<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="date" class="form-control" name="tglkeluar"  value="<?php echo $detail[0]->tglkeluar; ?>">
+                  </div>
+                </div>
+
+<!--                 <div class="form-group">
+                  <label class="col-sm-3 control-label">Manufacturer<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
                     <select class="form-control select2" style="width: 100%;" name="manufacturer">
                       <option value="">- Pilih Manufacturer -</option>
                       <?php 
@@ -61,63 +123,7 @@
                     </select>
                   </div>
                 </div>
-
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Processors<span style="color: red">*</span></label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control"  placeholder="Processors" name="processors" value="<?php echo $detail[0]->processors; ?>">
-                  </div>
-                </div>
-              
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Memory Type<span style="color: red">*</span></label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Memory Type" name="memorytype" value="<?php echo $detail[0]->memorytype; ?>">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Memory Size<span style="color: red">*</span></label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Memory Size" name="memorysize" value="<?php echo $detail[0]->memorysize; ?>">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Memory Max<span style="color: red">*</span></label>
-                  <div class="col-sm-9">
-                    <input type-"number" class="form-control" placeholder="Memory Max" name="memorymax" value="<?php echo $detail[0]->memorymax; ?>">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Memory DIM 1<span style="color: red">*</span></label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Memory DIM 1" name="memorydim1" value="<?php echo $detail[0]->memorydim1; ?>">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Memory DIM 2<span style="color: red">*</span></label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Memory DIM 2" name="memorydim2" value="<?php echo $detail[0]->memorydim2; ?>">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Memory DIM 3<span style="color: red">*</span></label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Memory DIM 3" name="memorydim3" value="<?php echo $detail[0]->memorydim3; ?>">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Memory DIM 4<span style="color: red">*</span></label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Memory DIM 4" name="memorydim4" value="<?php echo $detail[0]->memorydim4; ?>">
-                  </div>
-                </div>
-
+ -->
 <!--                 <div class="form-group">
                   <label class="col-sm-2 control-label">Photo Profil</label>
                   <div class="col-sm-10">
@@ -167,7 +173,7 @@
         success : function(data) {
           if(data.sts == 1) {
             swal("Sukses!",data.msg,"success");
-            setTimeout("location.href='<?php echo base_url() ?>spesifikasi'", 1500);
+            setTimeout("location.href='<?php echo base_url() ?>servicehardware'", 1500);
           } else {
             $.notify({message: data.msg},{type: 'danger'});
           }    console.log(data);
