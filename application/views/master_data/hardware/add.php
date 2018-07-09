@@ -8,7 +8,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form id="tambah" class="form-horizontal" action="<?php echo base_url() ?>spesifikasi/act_add" method="post" enctype="multipart/form-data">
+            <form id="tambah" class="form-horizontal" action="<?php echo base_url() ?>hardware/act_add" method="post" enctype="multipart/form-data">
               <div class="box-body">
               
                 <div class="form-group">
@@ -19,14 +19,72 @@
                 </div>
 
                 <div class="form-group">
+                  <label class="col-sm-3 control-label">Tanggal Masuk<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="date" class="form-control" name="tglmsk">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Aset<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Aset" name="aset">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Status<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Status" name="status">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Username<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Username" name="username">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Kode Unit<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Kode Unit" name="unitcode">
+                  </div>
+                </div>
+
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Unit Kerja<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Unit Kerja" name="unitkerja">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Computer Name<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Computer Name" name="compname">
+                  </div>
+                </div>
+
+                <div class="form-group">
                   <label class="col-sm-3 control-label">Model<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <select class="form-control select2" style="width: 100%;" name="model">
-                      <option value="">- Pilih Model -</option>
-                      <?php foreach ($model as $key => $value) { ?>
-                      <option value="<?php echo $value->kode_model; ?>"><?php echo $value->model; ?></option>
-                      <?php } ?>
-                    </select>
+                    <input type="text" class="form-control" placeholder="Model" name="model">
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Serial Number<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Serial Number" name="serialnumber">
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Manufacturer<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Manufacturer" name="manufacturer">
                   </div>
                 </div>
 
@@ -38,28 +96,23 @@
                 </div>
 
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Serial Number<span style="color: red">*</span></label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Serial Number" name="serialnumber">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Manufacturer<span style="color: red">*</span></label>
-                  <div class="col-sm-9">
-                    <select class="form-control select2" style="width: 100%;" name="manufacturer">
-                      <option value="">- Pilih Manufacturer -</option>
-                      <?php foreach ($manufacturer as $key => $value) { ?>
-                      <option value="<?php echo $value->kode_manufacturer; ?>"><?php echo $value->manufacturer; ?></option>
-                      <?php } ?>
-                    </select>
-                  </div>
-                </div>
-
-                <div class="form-group">
                   <label class="col-sm-3 control-label">Processors<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control"  placeholder="Processors" name="processors">
+                    <input type="text" class="form-control" placeholder="Processors" name="processors">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Mac Address<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Mac Address" name="macadd">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Mac Address Wifi<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Mac Address Wifi" name="macaddwifi">
                   </div>
                 </div>
               
@@ -112,10 +165,51 @@
                   </div>
                 </div>
 
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Windows OS ID<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Windows OS ID" name="winOSID">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Windows OS Version<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Windows OS Version" name="winOSver">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Windows OS Product Key<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Windows OS Product Key" name="winOSpk">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Windows Label ID<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Windows Label ID" name="winlabelID">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Windows Label Version<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Windows Label Version" name="winlabelver">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Windows Label Product Key<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Windows Label Product Key" name="winlabelpk">
+                  </div>
+                </div>
               <!-- /.box-body -->
               <div class="box-footer">
                 <button type="submit" class="btn btn-info pull-right">Tambah</button>
-                <a href="<?php echo base_url() ?>spesifikasi" class="btn btn-default pull-right">Kembali</a>
+                <a href="<?php echo base_url() ?>hardware" class="btn btn-default pull-right">Kembali</a>
               </div>
               <!-- /.box-footer -->
             </form>
@@ -140,7 +234,7 @@
         success : function(data) {
           if(data.sts == 1) {
             swal("Sukses!",data.msg,"success");
-            setTimeout("location.href='<?php echo base_url() ?>spesifikasi'", 1500);
+            setTimeout("location.href='<?php echo base_url() ?>hardware'", 1500);
           } else {
             $.notify({message: data.msg},{type: 'danger'});
           }    console.log(data);

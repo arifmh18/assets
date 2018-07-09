@@ -1,11 +1,11 @@
       <div class="box">
         <div class="box-header with-border">
         <i class="fa fa-lightbulb-o"></i>
-          <h3 class="box-title">Data Spesifikasi Assets</h3>
+          <h3 class="box-title">Data Hardware Assets</h3>
             <div class="pull-right box-tools">
             <!-- <button type="button" class="btn btn-success btn-sm" data-widget="remove" data-toggle="tooltip" title="Tambah Data"> -->
             <!-- <i class="fa fa-plus"></i></button> -->
-            <a href="<?php echo base_url(); ?>spesifikasi/add" class="btn btn-success btn-sm" data-toggle="tooltip" title="Tambah Data">&nbsp;&nbsp;&nbsp;<i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp;</a>
+            <a href="<?php echo base_url(); ?>hardware/add" class="btn btn-success btn-sm" data-toggle="tooltip" title="Tambah Data">&nbsp;&nbsp;&nbsp;<i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp;</a>
         </div></div>
         <div class="box-body">
       <div class="row">
@@ -16,11 +16,20 @@
                 <tr>
                   <th width="10px">No</th>
                   <th>Hardware ID</th>
+                  <th>Tanggal Masuk</th>
+                  <th>Aset</th>
+                  <th>Status</th>
+                  <th>Username</th>
+                  <th>Kode Unit</th>
+                  <th>Unit Kerja</th>
+                  <th>Computer Name</th>
                   <th>Model</th>
-                  <th>Product</th>
                   <th>Serial Number</th>
                   <th>Manufacturer</th>
+                  <th>Product</th>
                   <th>Processor</th>
+                  <th>Mac Address</th>
+                  <th>Mac Address Wifi</th>
                   <th>Memory Type</th>
                   <th>Memory Size</th>
                   <th>Memory Max</th>
@@ -28,32 +37,36 @@
                   <th>Memory Dim2</th>
                   <th>Memory Dim3</th>
                   <th>Memory Dim4</th>
+                  <th>Windows OS ID</th>
+                  <th>Windows OS Version</th>
+                  <th>Windows OS Product Key</th>
+                  <th>Windows Label ID</th>
+                  <th>Windows Label Version</th>
+                  <th>Windows Label Product Key</th>
                   <th width="200px" class="text-center">Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php $i=1;
-                  foreach ($spesifikasi as $key => $value){ 
+                  foreach ($hardware as $key => $value){ 
                 ?>
                 <tr>
-                  <td class="text-center"><?php echo $i ?></td>
-                  <td><a href="<?php echo base_url()?>spesifikasi/detail/<?php echo strEncrypt($value->hardware_IDS); ?>"><?php echo $value->hardware_IDS ?></a></td>
-                    <?php 
-                    foreach ($model as $key => $m) {
-                      if ($value->model == $m->kode_model) {
-                        echo "<td>".$m->model."</td>";
-                      }
-                     } ?>
-                  <td><?php echo $value->product ?></td>
+                <td class="text-center"><?php echo $i ?></td>
+                  <td><a href="<?php echo base_url()?>hardware/detail/<?php echo strEncrypt($value->hardwareID); ?>"><?php echo $value->hardwareID ?></a></td>
+                  <td><?php echo $value->tglmsk ?></td>
+                  <td><?php echo $value->aset ?></td>
+                  <td><?php echo $value->status ?></td>
+                  <td><?php echo $value->username ?></td>
+                  <td><?php echo $value->unitcode ?></td>
+                  <td><?php echo $value->unitkerja ?></td>
+                  <td><?php echo $value->compname ?></td>
+                  <td><?php echo $value->model ?></td>
                   <td><?php echo $value->serialnumber ?></td>
-                  <?php
-                     foreach ($manufacturer as $key => $mn) {
-                      if ($value->manufacturer == $mn->kode_manufacturer) {
-                        echo "<td>".$mn->manufacturer."</td>";
-                      }
-                     } 
-                     ?>
+                  <td><?php echo $value->manufacturer ?></td>
+                  <td><?php echo $value->product ?></td>
                   <td><?php echo $value->processors ?></td>
+                  <td><?php echo $value->macadd ?></td>
+                  <td><?php echo $value->macaddwifi ?></td>
                   <td><?php echo $value->memorytype ?></td>
                   <td><?php echo $value->memorysize ?></td>
                   <td><?php echo $value->memorymax ?></td>
@@ -61,9 +74,15 @@
                   <td><?php echo $value->memorydim2 ?></td>
                   <td><?php echo $value->memorydim3 ?></td>
                   <td><?php echo $value->memorydim4 ?></td>
+                  <td><?php echo $value->winOSID ?></td>
+                  <td><?php echo $value->winOSver ?></td>
+                  <td><?php echo $value->winOSpk ?></td>
+                  <td><?php echo $value->winlabelID ?></td>
+                  <td><?php echo $value->winlabelver ?></td>
+                  <td><?php echo $value->winlabelpk ?></td>
                   <td class="text-center">
-                    <a href="<?php echo base_url()?>spesifikasi/edit/<?php echo strEncrypt($value->hardware_IDS); ?>" class="btn btn-warning"><span class="fa fa-edit"></span> Edit</a>
-                    <button type="button" value="<?php echo $value->hardware_IDS ?>" class="btn btn-danger confirm">
+                    <a href="<?php echo base_url()?>hardware/edit/<?php echo strEncrypt($value->hardwareID); ?>" class="btn btn-warning"><span class="fa fa-edit"></span> Edit</a>
+                    <button type="button" value="<?php echo $value->hardwareID ?>" class="btn btn-danger confirm">
                         <i class="fa fa-trash" aria-hidden="true"></i> Hapus
                     </button>
                   </td>
@@ -91,12 +110,12 @@
           closeOnConfirm: true,
       }).then(function(){
            $.ajax({
-              url:"<?php echo base_url()?>spesifikasi/hapus",
+              url:"<?php echo base_url()?>hardware/hapus",
               type: "POST",
               data:{id:id},
               success: function(data){
                   swal("Sukses!",data.msg,"success");
-                  setTimeout("location.href='<?php echo base_url() ?>spesifikasi'", 1500);
+                  setTimeout("location.href='<?php echo base_url() ?>hardware'", 1500);
                 console.log(data);
               }
            });

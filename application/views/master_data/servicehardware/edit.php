@@ -148,7 +148,7 @@
               <!-- /.box-body -->
               <div class="box-footer">
                 <button type="submit" class="btn btn-info pull-right">Perbarui</button>
-                <a href="<?php echo base_url() ?>spesifikasi" class="btn btn-default pull-right">Kembali</a>
+                <a href="<?php echo base_url() ?>servicehardware" class="btn btn-default pull-right">Kembali</a>
               </div>
               <!-- /.box-footer -->
             </form>

@@ -148,7 +148,7 @@
         success : function(data) {
           if(data.sts == 1) {
             $.notify({message: data.msg},{type: 'success'});
-            setTimeout("location.href='<?php echo base_url() ?>siswa'", 2000);
+            setTimeout("location.href='<?php echo base_url() ?>servicehardware'", 2000);
           } else {
             $.notify({message: data.msg},{type: 'danger'});
           }    console.log(data);

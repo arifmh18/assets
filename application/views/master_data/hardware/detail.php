@@ -4,7 +4,7 @@
           <div class="box box-info">
 
             <div class="box-header with-border">
-              <h3 class="box-title">Data Spesifikasi</h3>
+              <h3 class="box-title">Data Hardware</h3>
 <!--               <div class="pull-right box-tools">
                 <a href="<?php base_url()?>siswa/cetak" class="btn btn-info pull-right" data-toggle="tooltip" title="Print Data siswa"><span class="fa fa-print"></span> Print</a>
               </div>
@@ -19,21 +19,62 @@
                 <div class="form-group">
                   <label class="col-sm-6 control-label">Hardware ID<span style="color: red">*</span></label>
                   <div class="col-sm-6">
-                    <?php echo $detail[0]->hardware_IDS ?>
+                    <?php echo $detail[0]->hardwareID ?>
                   </div>
                 </div>
 
+                <div class="form-group">
+                  <label class="col-sm-6 control-label">Tanggal Masuk<span style="color: red">*</span></label>
+                  <div class="col-sm-6">
+                    <?php echo $detail[0]->tglmsk ?>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-6 control-label">Aset<span style="color: red">*</span></label>
+                  <div class="col-sm-6">
+                    <?php echo $detail[0]->aset ?>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-6 control-label">Status<span style="color: red">*</span></label>
+                  <div class="col-sm-6">
+                    <?php echo $detail[0]->status ?>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-6 control-label">Username<span style="color: red">*</span></label>
+                  <div class="col-sm-6">
+                    <?php echo $detail[0]->username ?>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-6 control-label">Kode Unit<span style="color: red">*</span></label>
+                  <div class="col-sm-6">
+                    <?php echo $detail[0]->codeunit ?>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-6 control-label">Unit Kerja<span style="color: red">*</span></label>
+                  <div class="col-sm-6">
+                    <?php echo $detail[0]->unitkerja ?>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-6 control-label">Computer Name<span style="color: red">*</span></label>
+                  <div class="col-sm-6">
+                    <?php echo $detail[0]->compname ?>
+                  </div>
+                </div>
                 <div class="form-group">
                   <label class="col-sm-6 control-label">Model<span style="color: red">*</span></label>
                   <div class="col-sm-6">
                     <?php echo $detail[0]->model ?>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="col-sm-6 control-label">Product<span style="color: red">*</span></label>
-                  <div class="col-sm-6">
-                    <?php echo $detail[0]->product ?>
                   </div>
                 </div>
 
@@ -52,12 +93,35 @@
                 </div>
 
                 <div class="form-group">
+                  <label class="col-sm-6 control-label">Product<span style="color: red">*</span></label>
+                  <div class="col-sm-6">
+                    <?php echo $detail[0]->product ?>
+                  </div>
+                </div>
+
+                <div class="form-group">
                   <label class="col-sm-6 control-label">Processors<span style="color: red">*</span></label>
                   <div class="col-sm-6">
                     <?php echo $detail[0]->processors ?>
                   </div>
                 </div>
               
+                <div class="form-group">
+                  <label class="col-sm-6 control-label">Mac Address<span style="color: red">*</span></label>
+                  <div class="col-sm-6">
+                    <?php echo $detail[0]->macadd ?>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 invoice-col">
+
+                <div class="form-group">
+                  <label class="col-sm-6 control-label">Mac Address Wifi<span style="color: red">*</span></label>
+                  <div class="col-sm-6">
+                    <?php echo $detail[0]->macaddwifi ?>
+                  </div>
+                </div>
+
                 <div class="form-group">
                   <label class="col-sm-6 control-label">Memory Type<span style="color: red">*</span></label>
                   <div class="col-sm-6">
@@ -72,8 +136,6 @@
                   </div>
                 </div>
               </div>
-
-                <div class="col-sm-6 invoice-col">
 
                 <div class="form-group">
                   <label class="col-sm-6 control-label">Memory Max<span style="color: red">*</span></label>
@@ -109,6 +171,49 @@
                     <?php echo $detail[0]->memorydim4 ?>
                   </div>
                 </div>
+
+                <div class="form-group">
+                  <label class="col-sm-6 control-label">Windows OS ID<span style="color: red">*</span></label>
+                  <div class="col-sm-6">
+                    <?php echo $detail[0]->winOSID ?>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-6 control-label">Windows OS Version<span style="color: red">*</span></label>
+                  <div class="col-sm-6">
+                    <?php echo $detail[0]->winOSver ?>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-6 control-label">Win OS Product Key<span style="color: red">*</span></label>
+                  <div class="col-sm-6">
+                    <?php echo $detail[0]->winOSpk ?>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-6 control-label">Windows Label ID<span style="color: red">*</span></label>
+                  <div class="col-sm-6">
+                    <?php echo $detail[0]->winlabelID ?>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-6 control-label">Windows Label Version<span style="color: red">*</span></label>
+                  <div class="col-sm-6">
+                    <?php echo $detail[0]->winlabelver ?>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-6 control-label">Windows Label Product Key<span style="color: red">*</span></label>
+                  <div class="col-sm-6">
+                    <?php echo $detail[0]->winlabelpk ?>
+                  </div>
+                </div>
+
               </div>
             </div>
 

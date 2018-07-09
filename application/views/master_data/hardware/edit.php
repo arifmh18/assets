@@ -8,28 +8,84 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form id="tambah" class="form-horizontal" action="<?php echo base_url() ?>spesifikasi/act_edit/<?php echo strEncrypt($detail[0]->hardware_IDS); ?>" method="post">
+            <form id="tambah" class="form-horizontal" action="<?php echo base_url() ?>Hardware/act_edit/<?php echo strEncrypt($detail[0]->hardwareID); ?>" method="post">
               <div class="box-body">
               
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Hardware ID<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Hardware ID" name="ID" value="<?php echo $detail[0]->hardware_IDS; ?>">
+                    <input type="text" class="form-control" placeholder="Hardware ID" name="ID" value="<?php echo $detail[0]->hardwareID; ?>">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Tanggal Masuk<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="date" class="form-control" name="tglmsk" value="<?php echo $detail[0]->tglmsk; ?>">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Aset<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Aset" name="aset" value="<?php echo $detail[0]->aset; ?>">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Status<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Status" name="status" value="<?php echo $detail[0]->status; ?>">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Username<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Username" name="username" value="<?php echo $detail[0]->username; ?>">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Kode Unit<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Kode Unit" name="unitcode" value="<?php echo $detail[0]->unitcode; ?>">
+                  </div>
+                </div>
+
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Unit Kerja<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Unit Kerja" name="unitkerja" value="<?php echo $detail[0]->unitkerja; ?>">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Computer Name<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Computer Name" name="compname" value="<?php echo $detail[0]->compname; ?>">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Model<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <select class="form-control select2" style="width: 100%;" name="model">
-                      <option value="">- Pilih Model -</option>
-                      <?php 
-                          foreach ($model as $key => $value) {
-                            echo "<option ".($value->kode_model == $detail[0]->model ? 'selected' : '')." value='".$value->kode_model."'>".$value->model."</option>";
-                          }
-
-                        ?>
-                    </select>
+                    <input type="text" class="form-control" placeholder="Model" name="model" value="<?php echo $detail[0]->model; ?>">
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Serial Number<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Serial Number" name="serialnumber" value="<?php echo $detail[0]->serialnumber; ?>">
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Manufacturer<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Manufacturer" name="manufacturer" value="<?php echo $detail[0]->manufacturer; ?>">
                   </div>
                 </div>
 
@@ -41,31 +97,23 @@
                 </div>
 
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Serial Number<span style="color: red">*</span></label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Serial Number" name="serialnumber" value="<?php echo $detail[0]->serialnumber; ?>">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Manufacturer<span style="color: red">*</span></label>
-                  <div class="col-sm-9">
-                    <select class="form-control select2" style="width: 100%;" name="manufacturer">
-                      <option value="">- Pilih Manufacturer -</option>
-                      <?php 
-                          foreach ($manufacturer as $key => $value) {
-                            echo "<option ".($value->kode_manufacturer == $detail[0]->manufacturer ? 'selected' : '')." value='".$value->kode_manufacturer."'>".$value->manufacturer."</option>";
-                          }
-
-                        ?>
-                    </select>
-                  </div>
-                </div>
-
-                <div class="form-group">
                   <label class="col-sm-3 control-label">Processors<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control"  placeholder="Processors" name="processors" value="<?php echo $detail[0]->processors; ?>">
+                    <input type="text" class="form-control" placeholder="Processors" name="processors" value="<?php echo $detail[0]->processors; ?>">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Mac Address<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Mac Address" name="macadd" value="<?php echo $detail[0]->macadd; ?>">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Mac Address Wifi<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Mac Address Wifi" name="macaddwifi" value="<?php echo $detail[0]->macaddwifi; ?>">
                   </div>
                 </div>
               
@@ -118,6 +166,48 @@
                   </div>
                 </div>
 
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Windows OS ID<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Windows OS ID" name="winOSID" value="<?php echo $detail[0]->winOSID; ?>">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Windows OS Version<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Windows OS Version" name="winOSver" value="<?php echo $detail[0]->winOSver; ?>">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Windows OS Product Key<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Windows OS Product Key" name="winOSpk" value="<?php echo $detail[0]->winOSpk; ?>">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Windows Label ID<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Windows Label ID" name="winlabelID" value="<?php echo $detail[0]->winlabelID; ?>">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Windows Label Version<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Windows Label Version" name="winlabelver" value="<?php echo $detail[0]->winlabelver; ?>">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Windows Label Product Key<span style="color: red">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Windows Label Product Key" name="winlabelpk" value="<?php echo $detail[0]->winlabelpk; ?>">
+                  </div>
+                </div>
+
 <!--                 <div class="form-group">
                   <label class="col-sm-2 control-label">Photo Profil</label>
                   <div class="col-sm-10">
@@ -142,7 +232,7 @@
               <!-- /.box-body -->
               <div class="box-footer">
                 <button type="submit" class="btn btn-info pull-right">Perbarui</button>
-                <a href="<?php echo base_url() ?>spesifikasi" class="btn btn-default pull-right">Kembali</a>
+                <a href="<?php echo base_url() ?>hardware" class="btn btn-default pull-right">Kembali</a>
               </div>
               <!-- /.box-footer -->
             </form>
@@ -167,7 +257,7 @@
         success : function(data) {
           if(data.sts == 1) {
             swal("Sukses!",data.msg,"success");
-            setTimeout("location.href='<?php echo base_url() ?>spesifikasi'", 1500);
+            setTimeout("location.href='<?php echo base_url() ?>hardware'", 1500);
           } else {
             $.notify({message: data.msg},{type: 'danger'});
           }    console.log(data);
