@@ -54,7 +54,7 @@
                 <div class="form-group">
                   <label class="col-sm-6 control-label">Kode Unit<span style="color: red">*</span></label>
                   <div class="col-sm-6">
-                    <?php echo $detail[0]->codeunit ?>
+                    <?php echo $detail[0]->unitcode ?>
                   </div>
                 </div>
 
@@ -113,7 +113,7 @@
                   </div>
                 </div>
 
-                <div class="col-sm-6 invoice-col">
+                
 
                 <div class="form-group">
                   <label class="col-sm-6 control-label">Mac Address Wifi<span style="color: red">*</span></label>
@@ -129,6 +129,8 @@
                   </div>
                 </div>
 
+            
+
                 <div class="form-group">
                   <label class="col-sm-6 control-label">Memory Size<span style="color: red">*</span></label>
                   <div class="col-sm-6">
@@ -136,7 +138,7 @@
                   </div>
                 </div>
               </div>
-
+<div class="col-sm-6 invoice-col">
                 <div class="form-group">
                   <label class="col-sm-6 control-label">Memory Max<span style="color: red">*</span></label>
                   <div class="col-sm-6">
@@ -220,7 +222,7 @@
               </div>
               <!-- /.box-body -->
               <div class="box-footer">
-                <a href="<?php echo base_url()?>spesifikasi/edit/<?php echo strEncrypt($detail[0]->hardware_IDS); ?>" class="btn btn-info">Edit Data</a>
+                <a href="<?php echo base_url()?>hardware/edit/<?php echo strEncrypt($detail[0]->hardwareID); ?>" class="btn btn-info">Edit Data</a>
                 <input action="action" onclick="window.history.go(-1); return false;" type="button" value="Kembali" class="btn btn-default pull-right" />
               </div>
               <!-- /.box-footer -->
@@ -246,7 +248,7 @@
         success : function(data) {
           if(data.sts == 1) {
             $.notify({message: data.msg},{type: 'success'});
-            setTimeout("location.href='<?php echo base_url() ?>siswa'", 2000);
+            setTimeout("location.href='<?php echo base_url() ?>hardware'", 2000);
           } else {
             $.notify({message: data.msg},{type: 'danger'});
           }    console.log(data);

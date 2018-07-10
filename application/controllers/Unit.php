@@ -39,7 +39,7 @@ class Unit extends CI_Controller {
 		$post = $this->input->post();
 
 		// $this->form_validation->set_rules('induk', 'No induk', 'trim|required|numeric|min_length[18]|max_length[18]');
-		$this->form_validation->set_rules('kode', 'Kode Unit', 'trim|required');
+		$this->form_validation->set_rules('kode', 'Kode Unit', 'trim|required|numeric');
 		$this->form_validation->set_rules('nama', 'Unit Kerja', 'trim|required');
 		$this->form_validation->set_rules('lokasi', 'Lokasi', 'trim|required');
 
@@ -88,7 +88,7 @@ class Unit extends CI_Controller {
 		$post = $this->input->post();
 
 		// $this->form_validation->set_rules('induk', 'No induk', 'trim|required|numeric|min_length[18]|max_length[18]');
-		$this->form_validation->set_rules('kode', 'Kode Unit', 'trim|required');
+		$this->form_validation->set_rules('kode', 'Kode Unit', 'trim|required|numeric');
 		$this->form_validation->set_rules('nama', 'Unit Kerja', 'trim|required');
 		$this->form_validation->set_rules('lokasi', 'Lokasi', 'trim|required');
 

@@ -28,7 +28,14 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Aset<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Aset" name="aset" value="<?php echo $detail[0]->aset; ?>">
+                    <option value="">- Pilih Aset -</option>
+                      <?php 
+                          foreach ($supplier as $key => $value) {
+                            echo "<option ".($value->idsupplier == $detail[0]->aset ? 'selected' : '')." value='".$value->idsupplier."'>".$value->namasup."</option>";
+                          }
+
+                        ?>
+                    </select>
                   </div>
                 </div>
 

@@ -17,6 +17,7 @@ class ServiceHardware extends CI_Controller {
 		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li class="active">Service Hardware</li>';
 		$data['view'] = 'master_data/servicehardware/index';
 		$data['servicehardware'] = $this->m_global->get_data_all('servicehardware');
+		$data['hardware'] = $this->m_global->get_data_all('hardware');
 		$this->load->view('master_template', $data);
 	
 	}
@@ -38,7 +39,7 @@ public function add()
 		$post = $this->input->post();
 
 		// $this->form_validation->set_rules('induk', 'No induk', 'trim|required|numeric|min_length[18]|max_length[18]');
-		$this->form_validation->set_rules('ID', 'No Service', 'trim|required');
+		$this->form_validation->set_rules('ID', 'No Service', 'trim|required|numeric');
 		$this->form_validation->set_rules('tglservice', 'Tanggal Service', 'trim|required');
 		$this->form_validation->set_rules('hardwareID', 'Hardware ID', 'trim|required');
 		$this->form_validation->set_rules('aset', 'Aset', 'trim|required');
@@ -101,7 +102,7 @@ public function add()
 		$data['view'] = 'master_data/servicehardware/edit';
 
 		$data['detail'] = $this->m_global->get_data_all('servicehardware', null, [strEncrypt('noservice', TRUE) => $id]);
-
+		$data['hardware'] = $this->m_global->get_data_all('hardware');
 		$this->load->view('master_template', $data);
 
 
@@ -113,7 +114,7 @@ public function add()
 		$post = $this->input->post();
 
 		// $this->form_validation->set_rules('induk', 'No induk', 'trim|required|numeric|min_length[18]|max_length[18]');
-		$this->form_validation->set_rules('ID', 'No Service', 'trim|required');
+		$this->form_validation->set_rules('ID', 'No Service', 'trim|required|numeric');
 		$this->form_validation->set_rules('tglservice', 'Tanggal Service', 'trim|required');
 		$this->form_validation->set_rules('hardwareID', 'Hardware ID', 'trim|required');
 		$this->form_validation->set_rules('aset', 'Aset', 'trim|required');
@@ -121,7 +122,7 @@ public function add()
 		$this->form_validation->set_rules('unitcode', 'Kode Unit', 'trim|required');
 		$this->form_validation->set_rules('unitkerja', 'Unit Kerja', 'trim|required');
 		$this->form_validation->set_rules('model', 'Model', 'trim|required');
-		$this->form_validation->set_rules('serialnumber', 'Serial Number', 'trim|required|numeric');
+		$this->form_validation->set_rules('serialnumber', 'Serial Number', 'trim|required');
 		$this->form_validation->set_rules('manufacturer', 'Manufacturer', 'trim|required');
 		$this->form_validation->set_rules('product', 'Product', 'trim|required');
 		$this->form_validation->set_rules('remarks', 'Remark', 'trim|required');
@@ -196,8 +197,8 @@ public function add()
 		$data['judul'] = 'Detail Data Service Hardware';
 		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li><a href="'.base_url().'servicehardware">Service Hardware</a></li><li class="active">Detail Data</li>';
 		$data['view'] = 'master_data/servicehardware/detail';
-		$data['detail'] = $this->m_global->get_data_all('servicehardware');
-
+		
+		$data['detail'] = $this->m_global->get_data_all('servicehardware', [['hardware','servicehardware.hardware = hardwareID'],['manufacturer']], [strEncrypt('hardwareID', TRUE) => $id]);
 		$this->load->view('master_template', $data);
 
 	}

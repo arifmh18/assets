@@ -39,7 +39,7 @@ class WindowsVersion extends CI_Controller {
 		$post = $this->input->post();
 
 		// $this->form_validation->set_rules('induk', 'No induk', 'trim|required|numeric|min_length[18]|max_length[18]');
-		$this->form_validation->set_rules('kode', 'Windows ID', 'trim|required');
+		$this->form_validation->set_rules('kode', 'Windows ID', 'trim|required|numeric');
 		$this->form_validation->set_rules('nama', 'Windows Version', 'trim|required');
 		$this->form_validation->set_rules('productkey', 'Product Key', 'trim|required');
 
@@ -88,7 +88,7 @@ class WindowsVersion extends CI_Controller {
 		$post = $this->input->post();
 
 		// $this->form_validation->set_rules('induk', 'No induk', 'trim|required|numeric|min_length[18]|max_length[18]');
-		$this->form_validation->set_rules('kode', 'Windows ID', 'trim|required');
+		$this->form_validation->set_rules('kode', 'Windows ID', 'trim|required|numeric');
 		$this->form_validation->set_rules('nama', 'Windows Version', 'trim|required');
 		$this->form_validation->set_rules('productkey', 'Product Key', 'trim|required');
 

@@ -25,13 +25,13 @@
                   </div>
                 </div>
 
-                <div class="form-group">
+                 <div class="form-group">
                   <label class="col-sm-3 control-label">Hardware ID<span style="color: red">*</span></label>
                   <div class="col-sm-9">
                     <select class="form-control select2" style="width: 100%;" name="hardwareID">
-                      <option value="">- Silahkan Pilih -</option>
+                      <option value="">- Pilih Hardware ID -</option>
                       <?php foreach ($hardware as $key => $value) { ?>
-                      <option value="<?php echo $value->hardwareID; ?>"><?php echo $value->hardwareID.' - '.$value->product; ?></option>
+                      <option value="<?php echo $value->hardwareID; ?>"><?php echo $value->hardwareID; ?></option>
                       <?php } ?>
                     </select>
                   </div>
@@ -40,7 +40,12 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Aset<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Aset" name="aset">
+                    <select class="form-control select2" style="width: 100%;" name="hardwareID">
+                      <option value="">- Pilih Aset -</option>
+                      <?php foreach ($hardware as $key => $value) { ?>
+                      <option value="<?php echo $value->hardwareID; ?>"><?php echo $value->aset; ?></option>
+                      <?php } ?>
+                    </select>
                   </div>
                 </div>
 

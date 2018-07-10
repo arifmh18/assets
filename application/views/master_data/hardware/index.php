@@ -1,7 +1,7 @@
       <div class="box">
         <div class="box-header with-border">
         <i class="fa fa-lightbulb-o"></i>
-          <h3 class="box-title">Data Hardware Assets</h3>
+          <h3 class="box-title">Master Data Hardware</h3>
             <div class="pull-right box-tools">
             <!-- <button type="button" class="btn btn-success btn-sm" data-widget="remove" data-toggle="tooltip" title="Tambah Data"> -->
             <!-- <i class="fa fa-plus"></i></button> -->
@@ -54,7 +54,12 @@
                 <td class="text-center"><?php echo $i ?></td>
                   <td><a href="<?php echo base_url()?>hardware/detail/<?php echo strEncrypt($value->hardwareID); ?>"><?php echo $value->hardwareID ?></a></td>
                   <td><?php echo $value->tglmsk ?></td>
-                  <td><?php echo $value->aset ?></td>
+                  <?php 
+                    foreach ($supplier as $key => $m) {
+                      if ($value->aset == $m->idsupplier) {
+                        echo "<td>".$m->namasup."</td>";
+                      }
+                     } ?>
                   <td><?php echo $value->status ?></td>
                   <td><?php echo $value->username ?></td>
                   <td><?php echo $value->unitcode ?></td>

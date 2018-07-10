@@ -16,8 +16,8 @@ class Hardware extends CI_Controller {
 		$data['judul'] = 'Hardware';
 		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li class="active">Hardware</li>';
 		$data['view'] = 'master_data/hardware/index';
-		// $data['spesifikasi'] = $this->m_global->get_data_all('spesifikasi');
-		//$data['supplier'] = $this->m_global->get_data_all('supplier');
+		$data['hardware'] = $this->m_global->get_data_all('hardware');
+		$data['supplier'] = $this->m_global->get_data_all('supplier');
 		// $data['unitkerja'] = $this->m_global->get_data_all('unitkerja');
 		//$data['windowsversion'] = $this->m_global->get_data_all('windowsversion');
 		$this->load->view('master_template', $data);
@@ -30,7 +30,7 @@ public function add()
 		$data['judul'] = 'Tambah Data Hardware';
 		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard active"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li><a href="'.base_url().'hardware">Hardware</a></li><li class="active">Tambah data</li>';
 		$data['view'] = 'master_data/hardware/add';
-		
+		$data['supplier'] = $this->m_global->get_data_all('supplier');
 
 		$this->load->view('master_template', $data);
 		
@@ -43,7 +43,7 @@ public function add()
 
 		// $this->form_validation->set_rules('induk', 'No induk', 'trim|required|numeric|min_length[18]|max_length[18]');
 		$this->form_validation->set_rules('ID', 'Hardware ID', 'trim|required');
-		$this->form_validation->set_rules('tglmsk', 'Tanggal Masuk');
+		$this->form_validation->set_rules('tglmsk', 'Tanggal Masuk', 'trim|required');
 		$this->form_validation->set_rules('aset', 'Aset', 'trim|required');
 		$this->form_validation->set_rules('status', 'Status', 'trim|required');
 		$this->form_validation->set_rules('username', 'Username', 'trim|required');
@@ -128,6 +128,7 @@ public function add()
 		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li><a href="'.base_url().'hardware">Hardware</a></li><li class="active">Edit Data</li>';
 		$data['view'] = 'master_data/hardware/edit';
 
+		$data['supplier'] = $this->m_global->get_data_all('supplier');
 		$data['detail'] = $this->m_global->get_data_all('hardware', null, [strEncrypt('hardwareID', TRUE) => $id]);
 	
 
@@ -247,7 +248,7 @@ public function add()
 		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li><a href="'.base_url().'hardware">Hardware</a></li><li class="active">Detail Data</li>';
 		$data['view'] = 'master_data/hardware/detail';
 		$data['detail'] = $this->m_global->get_data_all('hardware');
-		
+		$data['detail'] = $this->m_global->get_data_all('hardware', [['supplier','hardware.supplier = idsupplier']], [strEncrypt('idsupplier', TRUE) => $id]);
 		$this->load->view('master_template', $data);
 
 	}

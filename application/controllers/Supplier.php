@@ -39,7 +39,7 @@ class Supplier extends CI_Controller {
 		$post = $this->input->post();
 
 		// $this->form_validation->set_rules('induk', 'No induk', 'trim|required|numeric|min_length[18]|max_length[18]');
-		$this->form_validation->set_rules('kode', 'ID Supplier', 'trim|required');
+		$this->form_validation->set_rules('kode', 'ID Supplier', 'trim|required|numeric');
 		$this->form_validation->set_rules('nama', 'Nama Supplier', 'trim|required');
 		$this->form_validation->set_rules('status', 'Status', 'trim|required');
 
@@ -89,7 +89,7 @@ class Supplier extends CI_Controller {
 		$post = $this->input->post();
 
 		// $this->form_validation->set_rules('induk', 'No induk', 'trim|required|numeric|min_length[18]|max_length[18]');
-		$this->form_validation->set_rules('kode', 'ID Supplier', 'trim|required');
+		$this->form_validation->set_rules('kode', 'ID Supplier', 'trim|required|numeric');
 		$this->form_validation->set_rules('nama', 'Nama Supplier', 'trim|required');
 		$this->form_validation->set_rules('status', 'Status', 'trim|required');
 

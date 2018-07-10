@@ -28,7 +28,12 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Aset<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Aset" name="aset">
+                    <select class="form-control select2" style="width: 100%;" name="aset">
+                      <option value="">- Pilih Aset -</option>
+                      <?php foreach ($supplier as $key => $value) { ?>
+                      <option value="<?php echo $value->idsupplier; ?>"><?php echo $value->namasup; ?></option>
+                      <?php } ?>
+                    </select>
                   </div>
                 </div>
 
