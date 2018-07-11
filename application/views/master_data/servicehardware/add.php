@@ -40,7 +40,7 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Aset<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <select class="form-control select2" style="width: 100%;" name="hardwareID">
+                    <select class="form-control select2" style="width: 100%;" name="aset">
                       <option value="">- Pilih Aset -</option>
                       <?php foreach ($hardware as $key => $value) { ?>
                       <option value="<?php echo $value->hardwareID; ?>"><?php echo $value->aset; ?></option>
