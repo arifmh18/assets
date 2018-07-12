@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 04 Jul 2018 pada 10.50
+-- Generation Time: 12 Jul 2018 pada 10.26
 -- Versi Server: 10.1.30-MariaDB
 -- PHP Version: 5.6.33
 
@@ -59,13 +59,21 @@ CREATE TABLE `hardware` (
   `winlabelpk` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `hardware`
+--
+
+INSERT INTO `hardware` (`hardwareID`, `tglmsk`, `aset`, `status`, `username`, `unitcode`, `unitkerja`, `compname`, `model`, `serialnumber`, `manufacturer`, `product`, `processors`, `macadd`, `macaddwifi`, `memorytype`, `memorysize`, `memorymax`, `memorydim1`, `memorydim2`, `memorydim3`, `memorydim4`, `winOSID`, `winOSver`, `winOSpk`, `winlabelID`, `winlabelver`, `winlabelpk`) VALUES
+('A0401001', '2018-07-20', '111', 'a', 'a', 'a', 'a', 'a', 'aa', 'a', 'a', 'a', 'a', 'a', 'aa', 'a', 'a', 2, 'a', 'aa', 'a', 'a', 'a', 'a', 'aa', 'a', 'a', 'a'),
+('A0659221A1', '2018-07-08', '1', 'aktif', 'admin', 'a', 'h', 'h', 'az', 'q', 'e', 'e', 'r', 'j', 'j', 'j', 'j', 4, 'h', 'h', 'k', 'h', 'h', 'h', 'h', 'k', 'k', 'l');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `listipadd`
+-- Struktur dari tabel `listipaddress`
 --
 
-CREATE TABLE `listipadd` (
+CREATE TABLE `listipaddress` (
   `IPadd` varchar(50) NOT NULL,
   `hardwareID` varchar(50) NOT NULL,
   `devicename` varchar(50) NOT NULL,
@@ -76,6 +84,15 @@ CREATE TABLE `listipadd` (
   `lokasi` varchar(50) NOT NULL,
   `server_area` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `listipaddress`
+--
+
+INSERT INTO `listipaddress` (`IPadd`, `hardwareID`, `devicename`, `macadd`, `macaddwifi`, `unitcode`, `unitkerja`, `lokasi`, `server_area`) VALUES
+('192.168.1.1', '', '', '', '', '', '', '', ''),
+('192.168.1.2', '1', '1', '1', '1', '1', '1', '1', '1'),
+('192.168.1.3', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -113,13 +130,20 @@ CREATE TABLE `servicehardware` (
   `unitcode` varchar(50) NOT NULL,
   `unitkerja` varchar(50) NOT NULL,
   `model` varchar(50) NOT NULL,
-  `serial number` varchar(50) NOT NULL,
+  `serialnumber` varchar(50) NOT NULL,
   `manufacturer` varchar(50) NOT NULL,
   `product` varchar(50) NOT NULL,
   `remarks` varchar(200) NOT NULL,
   `status` varchar(50) NOT NULL,
   `tglkeluar` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `servicehardware`
+--
+
+INSERT INTO `servicehardware` (`noservice`, `tglservice`, `hardwareID`, `aset`, `username`, `unitcode`, `unitkerja`, `model`, `serialnumber`, `manufacturer`, `product`, `remarks`, `status`, `tglkeluar`) VALUES
+(123, '2018-07-20', 'A0401001', 'A0401001', 'admin', 'h', 'h', 'az', 's', 's', 's', 's', 's', '2018-07-29');
 
 -- --------------------------------------------------------
 
@@ -138,7 +162,8 @@ CREATE TABLE `supplier` (
 --
 
 INSERT INTO `supplier` (`idsupplier`, `namasup`, `status`) VALUES
-(1, 'PT. X', 'sewa');
+(1, 'PT. X', 'sewa'),
+(111, 'PT AAA', 'aktif');
 
 -- --------------------------------------------------------
 
@@ -192,6 +217,13 @@ CREATE TABLE `windowsversion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data untuk tabel `windowsversion`
+--
+
+INSERT INTO `windowsversion` (`winID`, `winversion`, `productkey`) VALUES
+(1, 'Windows 7', 'XXAD4');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -202,9 +234,9 @@ ALTER TABLE `hardware`
   ADD PRIMARY KEY (`hardwareID`);
 
 --
--- Indexes for table `listipadd`
+-- Indexes for table `listipaddress`
 --
-ALTER TABLE `listipadd`
+ALTER TABLE `listipaddress`
   ADD PRIMARY KEY (`IPadd`);
 
 --
@@ -251,7 +283,7 @@ ALTER TABLE `windowsversion`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
