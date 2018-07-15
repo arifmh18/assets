@@ -40,7 +40,11 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Status<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Status" name="status">
+                    <select name="status" class="form-control">
+                      <option value="">- Pilih Status -</option>
+                      <option value="Service">Service</option>
+                      <option value="Selesai">Selesai</option>
+                    </select>
                   </div>
                 </div>
 
@@ -53,7 +57,7 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Kode Unit<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Kode Unit" name="unitcode">
+                    <input type="text" class="form-control" placeholder="Kode Unit" name="unitcode" id="unitcode">
                   </div>
                 </div>
 
@@ -61,7 +65,7 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Unit Kerja<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Unit Kerja" name="unitkerja">
+                    <input type="text" class="form-control" placeholder="Unit Kerja" name="unitkerja" id="unitkerja">
                   </div>
                 </div>
 
@@ -224,6 +228,29 @@
 <script src="<?php echo base_url(); ?>assets/sweet-alert/js/sweetalert2.min.js"></script>
 <script type="text/javascript">
   $(document).ready(function(){
+        $("#unitcode").autocomplete({
+          source: function (request, response){
+            $.ajax({
+              url: "<?php echo site_url('hardware/unit/?');?>",
+              dataType: 'json',
+              data: request,
+              success: function (data){
+                response(data.map(function(item){
+                  return{
+                    'label':  item.unitcode,
+                    'unitkerja': item.unitkerja,
+                    'value': item.unitcode
+                  };
+                }));
+              },
+            });
+          },
+              select: function (event, ui){
+                $("#unitkerja").val(ui.item.unitkerja);
+              }
+        });
+
+
     $('#tambah').on('submit', function(e){
       e.preventDefault();
 

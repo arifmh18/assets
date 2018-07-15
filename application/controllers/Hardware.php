@@ -122,6 +122,24 @@ public function add()
 
 	}
 
+	public function unit()
+	{
+		$this->load->model('m_autocomplete');
+		if (isset($_GET['term'])) {
+            $result = $this->m_autocomplete->get_data('unit', $_GET['term'], 'unitcode');
+            								//get_data('nama table', biarin gitu,'field yang dibuat kondisi');
+            if (count($result) > 0) {
+				foreach ($result as $row)
+				$arr_result[] = array(
+					'unitcode' => $row->unitcode,
+					'unitkerja' => $row->unitkerja,
+					);
+				echo json_encode($arr_result);
+				}
+        }
+	}
+
+
 	public function edit($id){
 		$data['title'] = 'Edit Data ';
 		$data['judul'] = 'Edit Data Hardware';
@@ -248,7 +266,7 @@ public function add()
 		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li><a href="'.base_url().'hardware">Hardware</a></li><li class="active">Detail Data</li>';
 		$data['view'] = 'master_data/hardware/detail';
 		$data['detail'] = $this->m_global->get_data_all('hardware');
-		$data['detail'] = $this->m_global->get_data_all('hardware', [['supplier','hardware.supplier = idsupplier']], [strEncrypt('idsupplier', TRUE) => $id]);
+		$data['detail'] = $this->m_global->get_data_all('hardware', null, [strEncrypt('hardwareID', TRUE) => $id]);
 		$this->load->view('master_template', $data);
 
 	}

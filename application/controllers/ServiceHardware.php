@@ -22,7 +22,7 @@ class ServiceHardware extends CI_Controller {
 	
 	}
 
-public function add()
+	public function add()
 	{
 		$data['title'] = 'Tambah Data';
 		$data['judul'] = 'Tambah Data Service Hardware';
@@ -31,6 +31,30 @@ public function add()
 		$data['hardware'] = $this->m_global->get_data_all('hardware');
 		$this->load->view('master_template', $data);
 		
+	}
+
+	public function hardware()
+	{
+		$this->load->model('m_autocomplete');
+		if (isset($_GET['term'])) {
+            $result = $this->m_autocomplete->get_data('hardware', $_GET['term'], 'hardwareID');
+            								//get_data('nama table', biarin gitu,'field yang dibuat kondisi');
+            if (count($result) > 0) {
+				foreach ($result as $row)
+				$arr_result[] = array(
+					'hardwareID' => $row->hardwareID,
+					'aset' => $row->aset,
+					'username' => $row->username,
+					'unitcode' => $row->unitcode,
+					'unitkerja' => $row->unitkerja,
+					'model' => $row->model,
+					'serialnumber' => $row->serialnumber,
+					'manufacturer' => $row->manufacturer,
+					'product' => $row->product,
+					);
+				echo json_encode($arr_result);
+				}
+        }
 	}
 
 	public function act_add()
@@ -198,7 +222,7 @@ public function add()
 		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li><a href="'.base_url().'servicehardware">Service Hardware</a></li><li class="active">Detail Data</li>';
 		$data['view'] = 'master_data/servicehardware/detail';
 		
-		$data['detail'] = $this->m_global->get_data_all('servicehardware', [['hardware','servicehardware.hardware = hardwareID'],['manufacturer']], [strEncrypt('hardwareID', TRUE) => $id]);
+		$data['detail'] = $this->m_global->get_data_all('servicehardware', null, [strEncrypt('noservice', TRUE) => $id]);
 		$this->load->view('master_template', $data);
 
 	}

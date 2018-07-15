@@ -7,40 +7,39 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
+
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/bootstrap/dist/css/bootstrap.min.css">
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/iCheck/all.css">
-  <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/Ionicons/css/ionicons.min.css">
-  <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/AdminLTE.min.css">
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/animate.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/jquery-ui.css">
+  <!-- <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.css"> -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/skins/_all-skins.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/sweet-alert/css/sweetalert2.min.css">
-  <script src="<?php echo base_url(); ?>assets/sweet-alert/js/sweetalert2.min.js"></script>
+
+  <!-- <script src="<?php echo base_url(); ?>assets/sweet-alert/js/sweetalert2.min.js"></script> -->
 
   <!-- jQuery 3 -->
   <script src="<?php echo base_url(); ?>assets/jquery/dist/jquery.min.js"></script>
-  <!-- Bootstrap 3.3.7 -->
   <script src="<?php echo base_url(); ?>assets/bootstrap/dist/js/bootstrap.min.js"></script>
-  <!-- SlimScroll -->
+  <!-- <script src="<?php echo base_url(); ?>assets/js/bootstrap.js"></script> -->
+  <script src="<?php echo base_url(); ?>assets/js/jquery-3.3.1.js"></script>
+  <script src="<?php echo base_url(); ?>assets/js/jquery-ui.js"></script>
   <script src="<?php echo base_url(); ?>assets/sweet-alert/js/sweetalert2.min.js"></script>
   
   <script src="<?php echo base_url(); ?>assets/iCheck/icheck.min.js"></script>
   
   <script src="<?php echo base_url(); ?>assets/fastclick/lib/fastclick.js"></script>
-  <!-- AdminLTE App -->
   <script src="<?php echo base_url(); ?>assets/js/adminlte.min.js"></script>
-  <!-- AdminLTE for demo purposes -->
-  <script src="<?php echo base_url(); ?>assets/js/demo.js"></script>
 
   <script src="<?php echo base_url(); ?>assets/input-mask/jquery.inputmask.js"></script>
 
   <script src="<?php echo base_url(); ?>assets/js/select2.full.min.js"></script>
 
   <script src="<?php echo base_url(); ?>assets/bootstrap-notify-master/bootstrap-notify.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/js/demo.js"></script>
 
 
   <!-- Google Font -->
@@ -172,7 +171,7 @@
 </html>
 <script>
   $(function () {
-    $('#example1').DataTable()
+    $('#example1').DataTable().
     $('#example2').DataTable({
       'paging'      : true,
       'lengthChange': false,

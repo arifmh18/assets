@@ -40,20 +40,8 @@
                 <td class="text-center"><?php echo $i ?></td>
                   <td><a href="<?php echo base_url()?>servicehardware/detail/<?php echo strEncrypt($value->noservice); ?>"><?php echo $value->noservice ?></a></td>
                   <td><?php echo $value->tglservice ?></td>
-                  
-                  <?php 
-                    foreach ($hardware as $key => $m) {
-                      if ($value->hardwareID == $m->hardwareID) {
-                        echo "<td>".$m->hardwareID."</td>";
-                      }
-                     } ?>
-
-                  <?php 
-                    foreach ($hardware as $key => $m) {
-                      if ($value->aset == $m->hardwareID) {
-                        echo "<td>".$m->aset."</td>";
-                      }
-                     } ?>
+                  <td><?php echo $value->hardwareID ?></td>
+                  <td><?php echo $value->aset ?></td>
                   <td><?php echo $value->username ?></td>
                   <td><?php echo $value->unitcode ?></td>
                   <td><?php echo $value->unitkerja ?></td>
@@ -105,16 +93,5 @@
            });
       });
   });
-  $(function () {
-    $('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-    })
-  })
 
 </script>
