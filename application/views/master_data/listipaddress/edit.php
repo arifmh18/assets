@@ -22,7 +22,7 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Hardware ID<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Hardware ID" name="nama" value="<?php echo $detail[0]->hardwareID; ?>">
+                    <input type="text" class="form-control" placeholder="Hardware ID" name="hardwareID" value="<?php echo $detail[0]->hardwareID; ?>">
                   </div>
                 </div>
 
@@ -71,7 +71,12 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Server Area<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Server Area" name="server_area" value="<?php echo $detail[0]->server_area; ?>">
+                    <select class="form-control select2" style="width: 100%;" name="server_area" value="<?php echo $detail[0]->server_area; ?>">
+                      <option value="">- Pilih Server Area -</option>
+                      <?php foreach ($network as $key => $value) { ?>
+                      <option value="<?php echo $value->idnetwork; ?>"><?php echo $value->server_area; ?></option>
+                      <?php } ?>
+                    </select>
                   </div>
                 </div>
 

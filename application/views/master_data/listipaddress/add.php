@@ -21,28 +21,28 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Hardware ID<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Hardware ID" name="nama">
+                    <input type="text" class="form-control" name="hardwareID" id="hardwareID" placeholder="hardware ID">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Device Name<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Device Name" name="devicename">
+                    <input type="text" class="form-control" id="devicename" placeholder="Device Name" name="devicename">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Mac Address<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Mac Address" name="macadd">
+                    <input type="text" class="form-control" id="macadd" placeholder="Mac Address" name="macadd">
                   </div>
                 </div>
               
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Mac Address Wifi<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Mac Address Wifi" name="macaddwifi">
+                    <input type="text" class="form-control" id="macaddwifi" placeholder="Mac Address Wifi" name="macaddwifi">
                   </div>
                 </div>
 
@@ -70,7 +70,12 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Server Area<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Server Area" name="server_area">
+                  <select class="form-control select2" style="width: 100%;" name="server_area">
+                      <option value="">- Pilih Server Area -</option>
+                      <?php foreach ($network as $key => $value) { ?>
+                      <option value="<?php echo $value->idnetwork; ?>"><?php echo $value->server_area; ?></option>
+                      <?php } ?>
+                    </select>
                   </div>
                 </div>
 
@@ -87,6 +92,32 @@
 <script src="<?php echo base_url(); ?>assets/sweet-alert/js/sweetalert2.min.js"></script>
 <script type="text/javascript">
   $(document).ready(function(){
+    $("#hardwareID").autocomplete({
+          source: function (request, response){
+            $.ajax({
+              url: "<?php echo site_url('listipaddress/hardware/?');?>",
+              dataType: 'json',
+              data: request,
+              success: function (data){
+                response(data.map(function(item){
+                  return{
+                    'label':  item.hardwareID,
+                    'devicename': item.devicename,
+                    'macadd': item.macadd,
+                    'macaddwifi': item.macaddwifi,
+                    'value': item.hardwareID
+                  };
+                }));
+              },
+            });
+          },
+              select: function (event, ui){
+                $("#devicename").val(ui.item.devicename);
+                $("#macadd").val(ui.item.macadd);
+                $("#macaddwifi").val(ui.item.macaddwifi);
+              }
+        });
+
     $('#tambah').on('submit', function(e){
       e.preventDefault();
 

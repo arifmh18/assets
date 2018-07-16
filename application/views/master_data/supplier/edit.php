@@ -28,7 +28,11 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Status <span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" name="status" value="<?php echo $detail[0]->status; ?>">
+                    <select name="status" class="form-control" value="<?php echo $detail[0]->status; ?>">
+                      <option value="">- Pilih Status -</option>
+                      <option value="Aset">Aset</option>
+                      <option value="Sewa">Sewa</option>
+                    </select>
                   </div>
                 </div>
 

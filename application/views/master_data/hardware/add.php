@@ -42,8 +42,10 @@
                   <div class="col-sm-9">
                     <select name="status" class="form-control">
                       <option value="">- Pilih Status -</option>
-                      <option value="Service">Service</option>
-                      <option value="Selesai">Selesai</option>
+                      <option value="Service">Service IT</option>
+                      <option value="Selesai">Used</option>
+                      <option value="Service">Afval</option>
+                      <option value="Selesai">Unknown</option>
                     </select>
                   </div>
                 </div>
@@ -79,7 +81,12 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Model<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Model" name="model">
+                    <select name="model" class="form-control">
+                      <option value="">- Pilih Model -</option>
+                      <option value="PC Dekstop">PC Dekstop</option>
+                      <option value="Notebook">Notebook</option>
+                      
+                    </select>
                   </div>
                 </div>
                 

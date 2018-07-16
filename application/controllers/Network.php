@@ -39,11 +39,11 @@ class Network extends CI_Controller {
 		$post = $this->input->post();
 
 		// $this->form_validation->set_rules('induk', 'No induk', 'trim|required|numeric|min_length[18]|max_length[18]');
-		$this->form_validation->set_rules('kode', 'ID Network', 'trim|required');
-		$this->form_validation->set_rules('nama', 'Server Area', 'trim|required');
-		$this->form_validation->set_rules('no_switch', 'No Switch', 'trim|required');
-		$this->form_validation->set_rules('no_socket', 'No Socket', 'trim|required');
-		$this->form_validation->set_rules('no_kabel', 'No Kabel', 'trim|required');
+		$this->form_validation->set_rules('kode', 'ID Network');
+		$this->form_validation->set_rules('nama', 'Server Area');
+		$this->form_validation->set_rules('no_switch', 'No Switch');
+		$this->form_validation->set_rules('no_socket', 'No Socket');
+		$this->form_validation->set_rules('no_kabel', 'No Kabel');
 
 		if ($this->form_validation->run() == true){
 			$data = array(
@@ -92,11 +92,11 @@ class Network extends CI_Controller {
 		$post = $this->input->post();
 
 		// $this->form_validation->set_rules('induk', 'No induk', 'trim|required|numeric|min_length[18]|max_length[18]');
-		$this->form_validation->set_rules('kode', 'ID Network', 'trim|required');
-		$this->form_validation->set_rules('nama', 'Server Area', 'trim|required');
-		$this->form_validation->set_rules('no_switch', 'No Switch', 'trim|required');
-		$this->form_validation->set_rules('no_socket', 'No Socket', 'trim|required');
-		$this->form_validation->set_rules('no_kabel', 'No Kabel', 'trim|required');
+		$this->form_validation->set_rules('kode', 'ID Network');
+		$this->form_validation->set_rules('nama', 'Server Area');
+		$this->form_validation->set_rules('no_switch', 'No Switch');
+		$this->form_validation->set_rules('no_socket', 'No Socket');
+		$this->form_validation->set_rules('no_kabel', 'No Kabel');
 
 		if ($this->form_validation->run() == true){
 			$data = array(

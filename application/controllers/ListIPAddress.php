@@ -17,6 +17,8 @@ class ListIPAddress extends CI_Controller {
 		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li class="active">ListIPAddress</li>';
 		$data['view'] = 'master_data/listipaddress/index';
 		$data['listipaddress'] = $this->m_global->get_data_all('listipaddress');
+		$data['hardware'] = $this->m_global->get_data_all('hardware');
+		$data['network'] = $this->m_global->get_data_all('network');
 		$this->load->view('master_template', $data);
 	
 	}
@@ -28,9 +30,29 @@ class ListIPAddress extends CI_Controller {
 		$data['judul'] = 'Tambah Data List IP Address';
 		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard active"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li><a href="'.base_url().'listipaddress">ListIPAddress</a></li><li class="active">Tambah data</li>';
 		$data['view'] = 'master_data/listipaddress/add';
-
+		$data['hardware'] = $this->m_global->get_data_all('hardware');
+		$data['network'] = $this->m_global->get_data_all('network');
 		$this->load->view('master_template', $data);
 		
+	}
+
+	public function hardware()
+	{
+		$this->load->model('m_autocomplete');
+		if (isset($_GET['term'])) {
+            $result = $this->m_autocomplete->get_data('hardware', $_GET['term'], 'hardwareID');
+            								
+            if (count($result) > 0) {
+				foreach ($result as $row)
+				$arr_result[] = array(
+					'hardwareID' => $row->hardwareID,
+					'devicename' => $row->devicename,
+					'macadd' => $row->macadd,
+					'macaddwifi' => $row->macaddwifi,
+					);
+				echo json_encode($arr_result);
+				}
+        }
 	}
 
 	public function act_add()
@@ -40,7 +62,7 @@ class ListIPAddress extends CI_Controller {
 
 		// $this->form_validation->set_rules('induk', 'No induk', 'trim|required|numeric|min_length[18]|max_length[18]');
 		$this->form_validation->set_rules('kode', 'IP Address', 'trim|required');
-		$this->form_validation->set_rules('nama', 'Hardware ID');
+		$this->form_validation->set_rules('hardwareID', 'Hardware ID');
 		$this->form_validation->set_rules('devicename', 'Device Name');
 		$this->form_validation->set_rules('macadd', 'Mac Address');
 		$this->form_validation->set_rules('macaddwifi', 'Mac Address Wifi');
@@ -52,7 +74,7 @@ class ListIPAddress extends CI_Controller {
 		if ($this->form_validation->run() == true){
 			$data = array(
 				'IPadd' => $post['kode'],
-				'hardwareID' => $post['nama'],
+				'hardwareID' => $post['hardwareID'],
 				'devicename' => $post['devicename'],
 				'macadd' => $post['macadd'],
 				'macaddwifi' => $post['macaddwifi'],
@@ -86,7 +108,8 @@ class ListIPAddress extends CI_Controller {
 		$data['judul'] = 'Edit Data List IP Address';
 		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li><a href="'.base_url().'listipaddress">ListIPAddress</a></li><li class="active">Edit Data</li>';
 		$data['view'] = 'master_data/listipaddress/edit';
-
+		$data['hardware'] = $this->m_global->get_data_all('hardware');
+		$data['network'] = $this->m_global->get_data_all('network');
 		$data['detail'] = $this->m_global->get_data_all('listipaddress', null, [strEncrypt('IPadd', TRUE) => $id]);
 
 		$this->load->view('master_template', $data);
@@ -101,7 +124,7 @@ class ListIPAddress extends CI_Controller {
 
 		// $this->form_validation->set_rules('induk', 'No induk', 'trim|required|numeric|min_length[18]|max_length[18]');
 		$this->form_validation->set_rules('kode', 'IP Address', 'trim|required');
-		$this->form_validation->set_rules('nama', 'Hardware ID');
+		$this->form_validation->set_rules('hardwareID', 'Hardware ID');
 		$this->form_validation->set_rules('devicename', 'Device Name');
 		$this->form_validation->set_rules('macadd', 'Mac Address');
 		$this->form_validation->set_rules('macaddwifi', 'Mac Address Wifi');
@@ -113,7 +136,7 @@ class ListIPAddress extends CI_Controller {
 		if ($this->form_validation->run() == true){
 			$data = array(
 				'IPadd' => $post['kode'],
-				'hardwareID' => $post['nama'],
+				'hardwareID' => $post['hardwareID'],
 				'devicename' => $post['devicename'],
 				'macadd' => $post['macadd'],
 				'macaddwifi' => $post['macaddwifi'],
