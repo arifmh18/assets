@@ -60,6 +60,7 @@
                         echo "<td>".$m->namasup."</td>";
                       }
                      } ?>
+                  <td><?php echo $value->aset ?></td>
                   <td><?php echo $value->status ?></td>
                   <td><?php echo $value->username ?></td>
                   <td><?php echo $value->unitcode ?></td>

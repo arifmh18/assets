@@ -46,7 +46,7 @@ class ListIPAddress extends CI_Controller {
 				foreach ($result as $row)
 				$arr_result[] = array(
 					'hardwareID' => $row->hardwareID,
-					'devicename' => $row->devicename,
+					'compname' => $row->compname,
 					'macadd' => $row->macadd,
 					'macaddwifi' => $row->macaddwifi,
 					);

@@ -28,7 +28,7 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Device Name<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" id="devicename" placeholder="Device Name" name="devicename">
+                    <input type="text" class="form-control" id="compname" placeholder="Device Name" name="compname">
                   </div>
                 </div>
 
@@ -102,17 +102,17 @@
                 response(data.map(function(item){
                   return{
                     'label':  item.hardwareID,
-                    'devicename': item.devicename,
+                    'compname': item.compname,
                     'macadd': item.macadd,
                     'macaddwifi': item.macaddwifi,
-                    'value': item.hardwareID
+                    'value': item.hardwareID,
                   };
                 }));
               },
             });
           },
               select: function (event, ui){
-                $("#devicename").val(ui.item.devicename);
+                $("#compname").val(ui.item.compname);
                 $("#macadd").val(ui.item.macadd);
                 $("#macaddwifi").val(ui.item.macaddwifi);
               }
