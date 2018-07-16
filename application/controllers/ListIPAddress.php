@@ -49,6 +49,9 @@ class ListIPAddress extends CI_Controller {
 					'compname' => $row->compname,
 					'macadd' => $row->macadd,
 					'macaddwifi' => $row->macaddwifi,
+					'unitcode' => $row->unitcode,
+					'unitkerja' => $row->unitkerja,
+				//	'lokasi' => $row->lokasi,
 					);
 				echo json_encode($arr_result);
 				}

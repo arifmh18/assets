@@ -184,42 +184,42 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Windows OS ID<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Windows OS ID" name="winOSID">
+                    <input type="text" class="form-control" id="winID" placeholder="Windows OS ID" name="winID">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Windows OS Version<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Windows OS Version" name="winOSver">
+                    <input type="text" class="form-control" id="winversion" placeholder="Windows OS Version" name="winversion">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Windows OS Product Key<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Windows OS Product Key" name="winOSpk">
+                    <input type="text" class="form-control" id="productkey" placeholder="Windows OS Product Key" name="productkey">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Windows Label ID<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Windows Label ID" name="winlabelID">
+                    <input type="text" class="form-control" id="winID" placeholder="Windows Label ID" name="winID">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Windows Label Version<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Windows Label Version" name="winlabelver">
+                    <input type="text" class="form-control" id="winversion" placeholder="Windows Label Version" name="winversion">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Windows Label Product Key<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Windows Label Product Key" name="winlabelpk">
+                    <input type="text" class="form-control" id="productkey" placeholder="Windows Label Product Key" name="productkey">
                   </div>
                 </div>
               <!-- /.box-body -->
@@ -257,7 +257,31 @@
               }
         });
 
+        $("#winID").autocomplete({
+          source: function (request, response){
+            $.ajax({
+              url: "<?php echo site_url('hardware/windowsversion/?');?>",
+              dataType: 'json',
+              data: request,
+              success: function (data){
+                response(data.map(function(item){
+                  return{
+                    'label':  item.winID,
+                    'winversion': item.winversion,
+                    'productkey': item.productkey,
+                    'value': item.winID,
+                  };
+                }));
+              },
+            });
+          },
+              select: function (event, ui){
+                $("#winversion").val(ui.item.winversion);
+                $("#productkey").val(ui.item.productkey);
+              }
+        });
 
+        
     $('#tambah').on('submit', function(e){
       e.preventDefault();
 

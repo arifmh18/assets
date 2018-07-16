@@ -98,7 +98,7 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Status<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <select name="status" class="form-control" value="<?php echo $detail[0]->status; ?>">
+                    <select name="status" class="form-control">
                       <option value="">- Pilih Status -</option>
                       <option value="Service">Service</option>
                       <option value="Selesai">Selesai</option>
@@ -124,6 +124,14 @@
                           }
 
                         ?>
+
+
+
+
+
+
+
+                        
                     </select>
                   </div>
                 </div>

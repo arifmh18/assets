@@ -18,6 +18,7 @@ class Hardware extends CI_Controller {
 		$data['view'] = 'master_data/hardware/index';
 		$data['hardware'] = $this->m_global->get_data_all('hardware');
 		$data['supplier'] = $this->m_global->get_data_all('supplier');
+		$data['windowsversion'] = $this->m_global->get_data_all('windowsversion');
 		// $data['unitkerja'] = $this->m_global->get_data_all('unitkerja');
 		//$data['windowsversion'] = $this->m_global->get_data_all('windowsversion');
 		$this->load->view('master_template', $data);
@@ -31,7 +32,7 @@ public function add()
 		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard active"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li><a href="'.base_url().'hardware">Hardware</a></li><li class="active">Tambah data</li>';
 		$data['view'] = 'master_data/hardware/add';
 		$data['supplier'] = $this->m_global->get_data_all('supplier');
-
+		$data['windowsversion'] = $this->m_global->get_data_all('windowsversion');
 		$this->load->view('master_template', $data);
 		
 	}
@@ -139,6 +140,23 @@ public function add()
         }
 	}
 
+public function windowsversion()
+	{
+		$this->load->model('m_autocomplete');
+		if (isset($_GET['term'])) {
+            $result = $this->m_autocomplete->get_data('windowsversion', $_GET['term'], 'winID');
+            								
+            if (count($result) > 0) {
+				foreach ($result as $row)
+				$arr_result[] = array(
+					'winID' => $row->winID,
+					'winversion' => $row->winversion,
+					'productkey' => $row->productkey,
+					);
+				echo json_encode($arr_result);
+				}
+        }
+	}
 
 	public function edit($id){
 		$data['title'] = 'Edit Data ';
@@ -147,6 +165,7 @@ public function add()
 		$data['view'] = 'master_data/hardware/edit';
 
 		$data['supplier'] = $this->m_global->get_data_all('supplier');
+		$data['windowsversion'] = $this->m_global->get_data_all('windowsversion');
 		$data['detail'] = $this->m_global->get_data_all('hardware', null, [strEncrypt('hardwareID', TRUE) => $id]);
 
 		$this->load->view('master_template', $data);

@@ -28,7 +28,7 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Aset<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                  <select class="form-control select2" style="width: 100%;" name="aset" value="<?php echo $detail[0]->aset; ?>">
+                  <select class="form-control select2" style="width: 100%;" name="aset">
                       <option value="">- Pilih Aset -</option>
                       <?php 
                           foreach ($supplier as $key => $value) {
@@ -43,7 +43,7 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Status<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <select name="status" class="form-control" value="<?php echo $detail[0]->status; ?>">
+                    <select name="status" class="form-control">
                       <option value="">- Pilih Status -</option>
                       <option value="Service IT">Service IT</option>
                       <option value="Used">Used</option>
@@ -85,7 +85,7 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Model<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                     <select name="model" class="form-control" value="<?php echo $detail[0]->model; ?>">
+                     <select name="model" class="form-control">
                       <option value="">- Pilih Model -</option>
                       <option value="PC Dekstop">PC Dekstop</option>
                       <option value="Notebook">Notebook</option>

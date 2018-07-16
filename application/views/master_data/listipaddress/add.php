@@ -49,21 +49,21 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Kode Unit<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Kode Unit" name="unitcode">
+                    <input type="text" class="form-control" id="unitcode" placeholder="Kode Unit" name="unitcode">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Unit kerja<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Unit Kerja" name="unitkerja">
+                    <input type="text" class="form-control" id="unitkerja" placeholder="Unit Kerja" name="unitkerja">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Lokasi<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Lokasi" name="lokasi">
+                    <input type="text" class="form-control" id="lokasi" placeholder="Lokasi" name="lokasi">
                   </div>
                 </div>
 
@@ -105,6 +105,9 @@
                     'compname': item.compname,
                     'macadd': item.macadd,
                     'macaddwifi': item.macaddwifi,
+                    'unitcode': item.unitcode,
+                    'unitkerja': item.unitkerja,
+              //      'lokasi': item.lokasi,
                     'value': item.hardwareID,
                   };
                 }));
@@ -115,6 +118,9 @@
                 $("#compname").val(ui.item.compname);
                 $("#macadd").val(ui.item.macadd);
                 $("#macaddwifi").val(ui.item.macaddwifi);
+                $("#unitcode").val(ui.item.unitcode);
+                $("#unitkerja").val(ui.item.unitkerja);
+           //     $("#lokasi").val(ui.item.lokasi);
               }
         });
 
