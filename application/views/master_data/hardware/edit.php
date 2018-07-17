@@ -32,7 +32,7 @@
                       <option value="">- Pilih Aset -</option>
                       <?php 
                           foreach ($supplier as $key => $value) {
-                            echo "<option ".($value->idsupplier == $detail[0]->supplier ? 'selected' : '')." value='".$value->idsupplier."'>".$value->namasup."</option>";
+                            echo "<option ".($value->idsupplier == $detail[0]->namasup ? 'selected' : '')." value='".$value->idsupplier."'>".$value->namasup."</option>";
                           }
 
                         ?>
@@ -45,10 +45,18 @@
                   <div class="col-sm-9">
                     <select name="status" class="form-control">
                       <option value="">- Pilih Status -</option>
-                      <option value="Service IT">Service IT</option>
-                      <option value="Used">Used</option>
-                      <option value="AFVAL">AFVAL</option>
-                      <option value="Unknown">Unknown</option>
+                      <option value="Service IT"<?php if ($detail[0]->status == 'Service IT' || $detail[0]->status == 'service IT') {
+                        echo 'selected';
+                      } ?>>Service IT</option>
+                      <option value="Used"<?php if ($detail[0]->status == 'Used' || $detail[0]->status == 'used') {
+                        echo 'selected';
+                      } ?>>Used</option>
+                      <option value="Afval"<?php if ($detail[0]->status == 'AFVAL' || $detail[0]->status == 'Afval') {
+                        echo 'selected';
+                      } ?>>Afval</option>
+                      <option value="Unknown"<?php if ($detail[0]->status == 'Unknown' || $detail[0]->status == 'unknown') {
+                        echo 'selected';
+                      } ?>>Unknown</option>
                     </select>
                   </div>
                 </div>

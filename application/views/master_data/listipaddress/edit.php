@@ -73,13 +73,15 @@
                   <div class="col-sm-9">
                     <select class="form-control select2" style="width: 100%;" name="server_area">
                       <option value="">- Pilih Server Area -</option>
-                      <?php foreach ($network as $key => $value) { ?>
-                      <option value="<?php echo $value->idnetwork; ?>"><?php echo $value->server_area; ?></option>
-                      <?php } ?>
+                      <?php 
+                          foreach ($network as $key => $value) {
+                            echo "<option ".($value->idnetwork == $detail[0]->server_area ? 'selected' : '')." value='".$value->idnetwork."'>".$value->server_area."</option>";
+                          } ?>
                     </select>
                   </div>
                 </div>
-
+  
+                
               <!-- /.box-body -->
               <div class="box-footer">
                 <button type="submit" class="btn btn-info pull-right">Perbarui</button>

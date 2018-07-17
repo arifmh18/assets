@@ -66,11 +66,11 @@ public function add()
 		$this->form_validation->set_rules('memorydim3', 'Memory Dim 3'); //validasainya mana???
 		$this->form_validation->set_rules('memorydim4', 'Memory Dim 4'); //validasainya mana???
 		$this->form_validation->set_rules('winOSID', 'Windows OS ID'); //validasainya mana???
-		$this->form_validation->set_rules('winOSver', 'Windows OS Version'); //validasainya mana???
-		$this->form_validation->set_rules('winOSpk', 'Windows OS Product Key'); //validasainya mana???
-		$this->form_validation->set_rules('winlabelID', 'Windows Label ID'); //validasainya mana???
-		$this->form_validation->set_rules('winlabelversion', 'Windows Label Version'); //validasainya mana???
-		$this->form_validation->set_rules('winlabelpk', 'WIndows Label Poduct Key'); //validasainya mana???
+		$this->form_validation->set_rules('winOSver', 'Win OS Ver'); //validasainya mana???
+		$this->form_validation->set_rules('winOSpk', 'Win OS PK'); //validasainya mana???
+		$this->form_validation->set_rules('winlabelID', 'Win Label ID'); //validasainya mana???
+		$this->form_validation->set_rules('winlabelversion', 'Win Label Ver'); //validasainya mana???
+		$this->form_validation->set_rules('winlabelpk', 'Win Label PK'); //validasainya mana???
 		if ($this->form_validation->run() == true){
 			$data = array(
 				'hardwareID' => $post['ID'],
@@ -201,12 +201,12 @@ public function windowsversion()
 		$this->form_validation->set_rules('memorydim2', 'Memory Dim 2');
 		$this->form_validation->set_rules('memorydim3', 'Memory Dim 3');
 		$this->form_validation->set_rules('memorydim4', 'Memory Dim 4');
-		$this->form_validation->set_rules('winOSID', 'Windows OS ID');
-		$this->form_validation->set_rules('winOSver', 'Windows OS Version');
-		$this->form_validation->set_rules('winOSpk', 'Windows OS Product Key');
-		$this->form_validation->set_rules('winlabelID', 'Windows Label ID');
-		$this->form_validation->set_rules('winlabelver', 'Windows Label Version');
-		$this->form_validation->set_rules('winlabelpk', 'WIndows Label Poduct Key');
+		$this->form_validation->set_rules('winOSID', 'Win OS ID');
+		$this->form_validation->set_rules('winOSver', 'Win OS Ver');
+		$this->form_validation->set_rules('winOSpk', 'Win OS PK');
+		$this->form_validation->set_rules('winlabelID', 'Win Label ID');
+		$this->form_validation->set_rules('winlabelver', 'Win Label Ver');
+		$this->form_validation->set_rules('winlabelpk', 'Win Label PK');
 		if ($this->form_validation->run() == true){
 			$data = array(
 				'hardwareID' => $post['ID'],

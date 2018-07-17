@@ -100,8 +100,12 @@
                   <div class="col-sm-9">
                     <select name="status" class="form-control">
                       <option value="">- Pilih Status -</option>
-                      <option value="Service">Service</option>
-                      <option value="Selesai">Selesai</option>
+                      <option value="Service"<?php if ($detail[0]->status == 'Service' || $detail[0]->status == 'service') {
+                        echo 'selected';
+                      } ?>>Service</option>
+                      <option value="Selesai"<?php if ($detail[0]->status == 'Selesai' || $detail[0]->status == 'selesai') {
+                        echo 'selected';
+                      } ?>>Selesai</option>
                     </select>
                   </div>
                 </div>

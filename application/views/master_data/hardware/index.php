@@ -22,14 +22,14 @@
                   <th>Username</th>
                   <th>Kode Unit</th>
                   <th>Unit Kerja</th>
-                  <th>Computer Name</th>
+                  <th>Comp Name</th>
                   <th>Model</th>
                   <th>Serial Number</th>
                   <th>Manufacturer</th>
                   <th>Product</th>
                   <th>Processor</th>
                   <th>Mac Address</th>
-                  <th>Mac Address Wifi</th>
+                  <th>Mac Add Wifi</th>
                   <th>Memory Type</th>
                   <th>Memory Size</th>
                   <th>Memory Max</th>
@@ -37,12 +37,12 @@
                   <th>Memory Dim2</th>
                   <th>Memory Dim3</th>
                   <th>Memory Dim4</th>
-                  <th>Windows OS ID</th>
-                  <th>Windows OS Version</th>
-                  <th>Windows OS Product Key</th>
-                  <th>Windows Label ID</th>
-                  <th>Windows Label Version</th>
-                  <th>Windows Label Product Key</th>
+                  <th>Win OS ID</th>
+                  <th>Win OS Vers</th>
+                  <th>Win OS PK</th>
+                  <th>Win Label ID</th>
+                  <th>Win Label Ver</th>
+                  <th>Win Label PK</th>
                   <th width="200px" class="text-center">Action</th>
                 </tr>
                 </thead>
