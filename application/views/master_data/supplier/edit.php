@@ -30,8 +30,12 @@
                   <div class="col-sm-9">
                     <select name="status" class="form-control">
                       <option value="">- Pilih Status -</option>
-                      <option value="Aset">Aset</option>
-                      <option value="Sewa">Sewa</option>
+                      <option value="Aset" <?php if ($detail[0]->status == 'Aset' || $detail[0]->status == 'aset') {
+                        echo 'selected';
+                      } ?>>Aset</option>
+                      <option value="Sewa"  <?php if ($detail[0]->status == 'Sewa' || $detail[0]->status == 'sewa') {
+                        echo 'selected';
+                      } ?>>Sewa</option>
                     </select>
                   </div>
                 </div>

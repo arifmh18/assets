@@ -21,7 +21,7 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Tanggal Masuk<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="date" class="form-control" name="tglmsk">
+                    <input type="date" class="form-control" name="tglmsk" value="<?php echo date('Y-m-d'); ?>">
                   </div>
                 </div>
 
@@ -205,21 +205,21 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Windows Label ID<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" id="winID" placeholder="Windows Label ID" name="winID">
+                    <input type="text" class="form-control" id="winlabel" placeholder="Windows Label ID" name="winlabelID">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Windows Label Version<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" id="winversion" placeholder="Windows Label Version" name="winversion">
+                    <input type="text" class="form-control" id="winlabelversion" placeholder="Windows Label Version" name="winlabelversion">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Windows Label Product Key<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" id="productkey" placeholder="Windows Label Product Key" name="productkey">
+                    <input type="text" class="form-control" id="labelproductkey" placeholder="Windows Label Product Key" name="winlabelpk">
                   </div>
                 </div>
               <!-- /.box-body -->
@@ -278,6 +278,30 @@
               select: function (event, ui){
                 $("#winversion").val(ui.item.winversion);
                 $("#productkey").val(ui.item.productkey);
+              }
+        });
+
+        $("#winlabel").autocomplete({
+          source: function (request, response){
+            $.ajax({
+              url: "<?php echo site_url('hardware/windowsversion/?');?>",
+              dataType: 'json',
+              data: request,
+              success: function (data){
+                response(data.map(function(item){
+                  return{
+                    'label':  item.winID,
+                    'winversion': item.winversion,
+                    'productkey': item.productkey,
+                    'value': item.winID,
+                  };
+                }));
+              },
+            });
+          },
+              select: function (event, ui){
+                $("#winlabelversion").val(ui.item.winversion);
+                $("#labelproductkey").val(ui.item.productkey);
               }
         });
 
