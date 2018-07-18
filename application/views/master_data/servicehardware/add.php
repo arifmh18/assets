@@ -21,7 +21,7 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Tanggal Service<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="date" class="form-control" name="tglservice">
+                    <input type="date" class="form-control" name="tglservice" value="<?php echo date('Y-m-d'); ?>">
                   </div>
                 </div>
                  <div class="form-group">
@@ -108,7 +108,7 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Tanggal Keluar<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="date" class="form-control" name="tglkeluar">
+                    <input type="date" class="form-control" name="tglkeluar" value="<?php echo date('Y-m-d'); ?>">
                   </div>
                 </div>
 

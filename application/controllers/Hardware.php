@@ -43,34 +43,34 @@ public function add()
 		$post = $this->input->post();
 
 		// $this->form_validation->set_rules('induk', 'No induk', 'trim|required|numeric|min_length[18]|max_length[18]');
-		$this->form_validation->set_rules('ID', 'Hardware ID'); //validasainya mana???
-		$this->form_validation->set_rules('tglmsk', 'Tanggal Masuk'); //validasainya mana???
-		$this->form_validation->set_rules('aset', 'Aset'); //validasainya mana???
-		$this->form_validation->set_rules('status', 'Status'); //validasainya mana???
-		$this->form_validation->set_rules('username', 'Username'); //validasainya mana???
-		$this->form_validation->set_rules('unitcode', 'Kode Unit'); //validasainya mana???
-		$this->form_validation->set_rules('unitkerja', 'Unit Kerja'); //validasainya mana???
-		$this->form_validation->set_rules('compname', 'Computer Name'); //validasainya mana???
-		$this->form_validation->set_rules('model', 'Model'); //validasainya mana???
-		$this->form_validation->set_rules('serialnumber', 'Serial Number'); //validasainya mana???
-		$this->form_validation->set_rules('manufacturer', 'Manufacturer'); //validasainya mana???
-		$this->form_validation->set_rules('product', 'Product'); //validasainya mana???
-		$this->form_validation->set_rules('processors', 'Processors'); //validasainya mana???
-		$this->form_validation->set_rules('macadd', 'Mac Address'); //validasainya mana???
-		$this->form_validation->set_rules('macaddwifi', 'Mac Address Wifi'); //validasainya mana???
-		$this->form_validation->set_rules('memorytype', 'Memory Type'); //validasainya mana???
-		$this->form_validation->set_rules('memorysize', 'Memory Size'); //validasainya mana???
-		$this->form_validation->set_rules('memorymax', 'Memory Max','numeric'); //validasainya mana???
-		$this->form_validation->set_rules('memorydim1', 'Memory Dim 1'); //validasainya mana???
-		$this->form_validation->set_rules('memorydim2', 'Memory Dim 2'); //validasainya mana???
-		$this->form_validation->set_rules('memorydim3', 'Memory Dim 3'); //validasainya mana???
-		$this->form_validation->set_rules('memorydim4', 'Memory Dim 4'); //validasainya mana???
-		$this->form_validation->set_rules('winOSID', 'Windows OS ID'); //validasainya mana???
-		$this->form_validation->set_rules('winOSver', 'Win OS Ver'); //validasainya mana???
-		$this->form_validation->set_rules('winOSpk', 'Win OS PK'); //validasainya mana???
-		$this->form_validation->set_rules('winlabelID', 'Win Label ID'); //validasainya mana???
-		$this->form_validation->set_rules('winlabelversion', 'Win Label Ver'); //validasainya mana???
-		$this->form_validation->set_rules('winlabelpk', 'Win Label PK'); //validasainya mana???
+		$this->form_validation->set_rules('ID', 'Hardware ID', 'trim');
+		$this->form_validation->set_rules('tglmsk', 'Tanggal Masuk', 'trim');
+		$this->form_validation->set_rules('aset', 'Aset', 'trim');
+		$this->form_validation->set_rules('status', 'Status', 'trim');
+		$this->form_validation->set_rules('username', 'Username', 'trim');
+		$this->form_validation->set_rules('unitcode', 'Kode Unit', 'trim');
+		$this->form_validation->set_rules('unitkerja', 'Unit Kerja', 'trim');
+		$this->form_validation->set_rules('compname', 'Computer Name', 'trim');
+		$this->form_validation->set_rules('model', 'Model', 'trim');
+		$this->form_validation->set_rules('serialnumber', 'Serial Number', 'trim');
+		$this->form_validation->set_rules('manufacturer', 'Manufacturer', 'trim');
+		$this->form_validation->set_rules('product', 'Product', 'trim');
+		$this->form_validation->set_rules('processors', 'Processors', 'trim');
+		$this->form_validation->set_rules('macadd', 'Mac Address', 'trim');
+		$this->form_validation->set_rules('macaddwifi', 'Mac Address Wifi', 'trim');
+		$this->form_validation->set_rules('memorytype', 'Memory Type', 'trim');
+		$this->form_validation->set_rules('memorysize', 'Memory Size', 'trim');
+		$this->form_validation->set_rules('memorymax', 'Memory Max','numeric', 'trim|numeric');
+		$this->form_validation->set_rules('memorydim1', 'Memory Dim 1', 'trim');
+		$this->form_validation->set_rules('memorydim2', 'Memory Dim 2', 'trim');
+		$this->form_validation->set_rules('memorydim3', 'Memory Dim 3', 'trim');
+		$this->form_validation->set_rules('memorydim4', 'Memory Dim 4', 'trim');
+		$this->form_validation->set_rules('winOSID', 'Windows OS ID', 'trim');
+		$this->form_validation->set_rules('winOSver', 'Win OS Ver', 'trim');
+		$this->form_validation->set_rules('winOSpk', 'Win OS PK', 'trim');
+		$this->form_validation->set_rules('winlabelID', 'Win Label ID', 'trim');
+		$this->form_validation->set_rules('winlabelversion', 'Win Label Ver', 'trim');
+		$this->form_validation->set_rules('winlabelpk', 'Win Label PK', 'trim');
 		if ($this->form_validation->run() == true){
 			$data = array(
 				'hardwareID' => $post['ID'],
@@ -179,34 +179,34 @@ public function windowsversion()
 		$post = $this->input->post();
 
 		// $this->form_validation->set_rules('induk', 'No induk', 'trim|required|numeric|min_length[18]|max_length[18]');
-		$this->form_validation->set_rules('ID', 'Hardware ID');
-		$this->form_validation->set_rules('tglmsk', 'Tanggal Masuk');
-		$this->form_validation->set_rules('aset', 'Aset');
-		$this->form_validation->set_rules('status', 'Status');
-		$this->form_validation->set_rules('username', 'Username');
-		$this->form_validation->set_rules('unitcode', 'Kode Unit');
-		$this->form_validation->set_rules('unitkerja', 'Unit Kerja');
-		$this->form_validation->set_rules('compname', 'Computer Name');
-		$this->form_validation->set_rules('model', 'Model');
-		$this->form_validation->set_rules('serialnumber', 'Serial Number');
-		$this->form_validation->set_rules('manufacturer', 'Manufacturer');
-		$this->form_validation->set_rules('product', 'Product');
-		$this->form_validation->set_rules('processors', 'Processors');
-		$this->form_validation->set_rules('macadd', 'Mac Address');
-		$this->form_validation->set_rules('macaddwifi', 'Mac Address Wifi');
-		$this->form_validation->set_rules('memorytype', 'Memory Type');
-		$this->form_validation->set_rules('memorysize', 'Memory Size');
-		$this->form_validation->set_rules('memorymax', 'Memory Max','numeric');
-		$this->form_validation->set_rules('memorydim1', 'Memory Dim 1');
-		$this->form_validation->set_rules('memorydim2', 'Memory Dim 2');
-		$this->form_validation->set_rules('memorydim3', 'Memory Dim 3');
-		$this->form_validation->set_rules('memorydim4', 'Memory Dim 4');
-		$this->form_validation->set_rules('winOSID', 'Win OS ID');
-		$this->form_validation->set_rules('winOSver', 'Win OS Ver');
-		$this->form_validation->set_rules('winOSpk', 'Win OS PK');
-		$this->form_validation->set_rules('winlabelID', 'Win Label ID');
-		$this->form_validation->set_rules('winlabelver', 'Win Label Ver');
-		$this->form_validation->set_rules('winlabelpk', 'Win Label PK');
+		$this->form_validation->set_rules('ID', 'Hardware ID', 'trim');
+		$this->form_validation->set_rules('tglmsk', 'Tanggal Masuk', 'trim');
+		$this->form_validation->set_rules('aset', 'Aset', 'trim');
+		$this->form_validation->set_rules('status', 'Status', 'trim');
+		$this->form_validation->set_rules('username', 'Username', 'trim');
+		$this->form_validation->set_rules('unitcode', 'Kode Unit', 'trim');
+		$this->form_validation->set_rules('unitkerja', 'Unit Kerja', 'trim');
+		$this->form_validation->set_rules('compname', 'Computer Name', 'trim');
+		$this->form_validation->set_rules('model', 'Model', 'trim');
+		$this->form_validation->set_rules('serialnumber', 'Serial Number', 'trim');
+		$this->form_validation->set_rules('manufacturer', 'Manufacturer', 'trim');
+		$this->form_validation->set_rules('product', 'Product', 'trim');
+		$this->form_validation->set_rules('processors', 'Processors', 'trim');
+		$this->form_validation->set_rules('macadd', 'Mac Address', 'trim');
+		$this->form_validation->set_rules('macaddwifi', 'Mac Address Wifi', 'trim');
+		$this->form_validation->set_rules('memorytype', 'Memory Type', 'trim');
+		$this->form_validation->set_rules('memorysize', 'Memory Size', 'trim');
+		$this->form_validation->set_rules('memorymax', 'Memory Max','numeric', 'trim|numeric');
+		$this->form_validation->set_rules('memorydim1', 'Memory Dim 1', 'trim');
+		$this->form_validation->set_rules('memorydim2', 'Memory Dim 2', 'trim');
+		$this->form_validation->set_rules('memorydim3', 'Memory Dim 3', 'trim');
+		$this->form_validation->set_rules('memorydim4', 'Memory Dim 4', 'trim');
+		$this->form_validation->set_rules('winOSID', 'Windows OS ID', 'trim');
+		$this->form_validation->set_rules('winOSver', 'Win OS Ver', 'trim');
+		$this->form_validation->set_rules('winOSpk', 'Win OS PK', 'trim');
+		$this->form_validation->set_rules('winlabelID', 'Win Label ID', 'trim');
+		$this->form_validation->set_rules('winlabelversion', 'Win Label Ver', 'trim');
+		$this->form_validation->set_rules('winlabelpk', 'Win Label PK', 'trim');
 		if ($this->form_validation->run() == true){
 			$data = array(
 				'hardwareID' => $post['ID'],
