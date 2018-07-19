@@ -168,6 +168,9 @@ public function windowsversion()
 		$data['windowsversion'] = $this->m_global->get_data_all('windowsversion');
 		$data['detail'] = $this->m_global->get_data_all('hardware', null, [strEncrypt('hardwareID', TRUE) => $id]);
 
+		// echo "<pre>";
+		// print_r ($data);
+		// echo "</pre>";
 		$this->load->view('master_template', $data);
 
 
@@ -283,7 +286,7 @@ public function windowsversion()
 		$data['judul'] = 'Detail Data Hardware';
 		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li><a href="'.base_url().'hardware">Hardware</a></li><li class="active">Detail Data</li>';
 		$data['view'] = 'master_data/hardware/detail';
-		$data['detail'] = $this->m_global->get_data_all('hardware');
+		$data['supplier'] = $this->m_global->get_data_all('supplier');
 		$data['detail'] = $this->m_global->get_data_all('hardware', null, [strEncrypt('hardwareID', TRUE) => $id]);
 		$this->load->view('master_template', $data);
 

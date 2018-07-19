@@ -32,7 +32,7 @@
                       <option value="">- Pilih Aset -</option>
                       <?php 
                           foreach ($supplier as $key => $value) {
-                            echo "<option ".($value->idsupplier == $detail[0]->namasup ? 'selected' : '')." value='".$value->idsupplier."'>".$value->namasup."</option>";
+                            echo "<option ".($value->idsupplier == $detail[0]->aset ? 'selected' : '')." value='".$value->idsupplier."'>".$value->namasup."</option>";
                           }
 
                         ?>
@@ -95,8 +95,12 @@
                   <div class="col-sm-9">
                      <select name="model" class="form-control">
                       <option value="">- Pilih Model -</option>
-                      <option value="PC Dekstop">PC Dekstop</option>
-                      <option value="Notebook">Notebook</option>
+                      <option value="PC Dekstop" <?php if ($detail[0]->model == 'PC Dekstop' || $detail[0]->model == 'pc dekstop') {
+                        echo 'selected';
+                      } ?>>PC Dekstop</option>
+                      <option value="Notebook" <?php if ($detail[0]->model == 'Notebook' || $detail[0]->model == 'notebook') {
+                        echo 'selected';
+                      } ?>>Notebook</option>
                       
                     </select>
                   </div>

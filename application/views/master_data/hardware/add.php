@@ -42,10 +42,10 @@
                   <div class="col-sm-9">
                     <select name="status" class="form-control">
                       <option value="">- Pilih Status -</option>
-                      <option value="Service">Service IT</option>
-                      <option value="Selesai">Used</option>
-                      <option value="Service">Afval</option>
-                      <option value="Selesai">Unknown</option>
+                      <option value="Service IT">Service IT</option>
+                      <option value="Used">Used</option>
+                      <option value="Afval">Afval</option>
+                      <option value="Unknown">Unknown</option>
                     </select>
                   </div>
                 </div>
@@ -184,21 +184,21 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Windows OS ID<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" id="winID" placeholder="Windows OS ID" name="winID">
+                    <input type="text" class="form-control" id="winID" placeholder="Windows OS ID" name="winOSID">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Windows OS Version<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" id="winversion" placeholder="Windows OS Version" name="winversion">
+                    <input type="text" class="form-control" id="winversion" placeholder="Windows OS Version" name="winOSver">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Windows OS Product Key<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" id="productkey" placeholder="Windows OS Product Key" name="productkey">
+                    <input type="text" class="form-control" id="productkey" placeholder="Windows OS Product Key" name="winOSpk">
                   </div>
                 </div>
 

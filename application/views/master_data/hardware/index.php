@@ -54,13 +54,13 @@
                 <td class="text-center"><?php echo $i ?></td>
                   <td><a href="<?php echo base_url()?>hardware/detail/<?php echo strEncrypt($value->hardwareID); ?>"><?php echo $value->hardwareID ?></a></td>
                   <td><?php echo $value->tglmsk ?></td>
-                  <?php 
+                  <td><?php
                     foreach ($supplier as $key => $m) {
                       if ($value->aset == $m->idsupplier) {
-                        echo "<td>".$m->namasup."</td>";
+                        echo $m->namasup;
                       }
-                     } ?>
-                  <td><?php echo $value->aset ?></td>
+                     }
+                   ?></td>
                   <td><?php echo $value->status ?></td>
                   <td><?php echo $value->username ?></td>
                   <td><?php echo $value->unitcode ?></td>

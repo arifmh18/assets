@@ -18,6 +18,7 @@ class ServiceHardware extends CI_Controller {
 		$data['view'] = 'master_data/servicehardware/index';
 		$data['servicehardware'] = $this->m_global->get_data_all('servicehardware');
 		$data['hardware'] = $this->m_global->get_data_all('hardware');
+		$data['supplier'] = $this->m_global->get_data_all('supplier');
 		$this->load->view('master_template', $data);
 	
 	}
@@ -221,6 +222,7 @@ class ServiceHardware extends CI_Controller {
 		$data['judul'] = 'Detail Data Service Hardware';
 		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li><a href="'.base_url().'servicehardware">Service Hardware</a></li><li class="active">Detail Data</li>';
 		$data['view'] = 'master_data/servicehardware/detail';
+		$data['supplier'] = $this->m_global->get_data_all('supplier');
 		
 		$data['detail'] = $this->m_global->get_data_all('servicehardware', null, [strEncrypt('noservice', TRUE) => $id]);
 		$this->load->view('master_template', $data);

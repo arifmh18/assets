@@ -18,10 +18,25 @@ class ListIPAddress extends CI_Controller {
 		$data['view'] = 'master_data/listipaddress/index';
 		$data['listipaddress'] = $this->m_global->get_data_all('listipaddress');
 		$data['hardware'] = $this->m_global->get_data_all('hardware');
+		$data['unit'] = $this->m_global->get_data_all('unit');
 		$data['network'] = $this->m_global->get_data_all('network');
 		$this->load->view('master_template', $data);
 	
 	}
+
+	public function detail($id){
+		$data['title'] = 'Detail List IP Address';
+		$data['judul'] = 'Detail List IP Address';
+		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li><a href="'.base_url().'listipaddress">List IP Address</a></li><li class="active">Detail Data</li>';
+		$data['view'] = 'master_data/listipaddress/detail';
+				$data['unit'] = $this->m_global->get_data_all('unit');
+		$data['network'] = $this->m_global->get_data_all('network');
+		$data['unit'] = $this->m_global->get_data_all('unit');
+		$data['detail'] = $this->m_global->get_data_all('listipaddress', null, [strEncrypt('IPadd', TRUE) => $id]);
+		$this->load->view('master_template', $data);
+
+	}
+
 
 
 	public function add()
@@ -71,7 +86,7 @@ class ListIPAddress extends CI_Controller {
 		$this->form_validation->set_rules('macaddwifi', 'Mac Address Wifi');
 		$this->form_validation->set_rules('unitcode', 'Unit Code');
 		$this->form_validation->set_rules('unitkerja', 'Unit Kerja');
-		$this->form_validation->set_rules('lokasi', 'Lokasi');
+		// $this->form_validation->set_rules('lokasi', 'Lokasi');
 		$this->form_validation->set_rules('server_area', 'Server Area');
 
 		if ($this->form_validation->run() == true){
@@ -83,7 +98,7 @@ class ListIPAddress extends CI_Controller {
 				'macaddwifi' => $post['macaddwifi'],
 				'unitcode' => $post['unitcode'],
 				'unitkerja' => $post['unitkerja'],
-				'lokasi' => $post['lokasi'],
+				// 'lokasi' => $post['lokasi'],
 				'server_area' => $post['server_area']
 				);
 			$proses = $this->m_global->insert('listipaddress', $data);
@@ -133,7 +148,7 @@ class ListIPAddress extends CI_Controller {
 		$this->form_validation->set_rules('macaddwifi', 'Mac Address Wifi');
 		$this->form_validation->set_rules('unitcode', 'Unit Code');
 		$this->form_validation->set_rules('unitkerja', 'Unit Kerja');
-		$this->form_validation->set_rules('lokasi', 'Lokasi');
+		// $this->form_validation->set_rules('lokasi', 'Lokasi');
 		$this->form_validation->set_rules('server_area', 'Server Area');
 
 		if ($this->form_validation->run() == true){
@@ -145,7 +160,7 @@ class ListIPAddress extends CI_Controller {
 				'macaddwifi' => $post['macaddwifi'],
 				'unitcode' => $post['unitcode'],
 				'unitkerja' => $post['unitkerja'],
-				'lokasi' => $post['lokasi'],
+				// 'lokasi' => $post['lokasi'],
 				'server_area' => $post['server_area']
 				);				
 			

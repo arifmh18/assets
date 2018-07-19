@@ -40,7 +40,12 @@
                 <div class="form-group">
                   <label class="col-sm-6 control-label">Aset<span style="color: red">*</span></label>
                   <div class="col-sm-6">
-                    <?php echo $detail[0]->aset ?>
+                    <?php foreach ($supplier as $key => $m) {
+                      if ($detail[0]->aset == $m->idsupplier) {
+                        echo $m->namasup;
+                      }
+                     }
+                  ?>
                   </div>
                 </div>
 

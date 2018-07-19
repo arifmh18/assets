@@ -41,7 +41,16 @@
                   <td><a href="<?php echo base_url()?>servicehardware/detail/<?php echo strEncrypt($value->noservice); ?>"><?php echo $value->noservice ?></a></td>
                   <td><?php echo $value->tglservice ?></td>
                   <td><?php echo $value->hardwareID ?></td>
-                  <td><?php echo $value->aset ?></td>
+                  <td><?php                     
+                  foreach ($supplier as $key => $m) {
+                      if ($value->aset == $m->idsupplier) {
+                        echo $m->namasup;
+                      }
+                      else {
+                        echo $value->aset;
+                      }
+                     }
+                  ?></td>
                   <td><?php echo $value->username ?></td>
                   <td><?php echo $value->unitcode ?></td>
                   <td><?php echo $value->unitkerja ?></td>

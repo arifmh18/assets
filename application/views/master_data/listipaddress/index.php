@@ -33,15 +33,28 @@
                 ?>
                 <tr>
                   <td class="text-center"><?php echo $i ?></td>
-                  <td><?php echo $value->IPadd ?></a></td>
+                  <td><a href="<?php echo base_url()?>listipaddress/detail/<?php echo strEncrypt($value->IPadd); ?>"><?php echo $value->IPadd ?></a></td>
                   <td><?php echo $value->hardwareID ?></td>
                   <td><?php echo $value->devicename ?></td>
                   <td><?php echo $value->macadd ?></a></td>
                   <td><?php echo $value->macaddwifi ?></td>
                   <td><?php echo $value->unitcode ?></td>
                   <td><?php echo $value->unitkerja ?></td>
-                  <td><?php echo $value->lokasi ?></td>
-                  <td><?php echo $value->server_area ?></td>
+                  <td><?php 
+                    foreach ($unit as $key => $m) {
+                      if ($value->unitcode == $m->unitcode) {
+                        echo $m->lokasi;
+                      }
+                     }
+
+                  ?></td>
+                  <td><?php 
+                  foreach ($network as $key => $n) {
+                      if ($value->server_area == $n->idnetwork) {
+                        echo $n->server_area;
+                      }
+                     }
+                  ?></td>
                   <td class="text-center">
                     <a href="<?php echo base_url()?>listipaddress/edit/<?php echo strEncrypt($value->IPadd); ?>" class="btn btn-warning"><span class="fa fa-edit"></span> Edit</a>
                     <button type="button" value="<?php echo $value->IPadd ?>" class="btn btn-danger confirm">
