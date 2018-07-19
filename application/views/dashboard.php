@@ -15,7 +15,7 @@
             <div class="inner">
               <h3><?php echo $hardware; ?></h3>
 
-              <p>Hardware</p>
+              <p>Hardware Aset</p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
@@ -26,7 +26,69 @@
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-green">
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3><?php echo $hardware; ?></h3>
+
+              <p>Hardware Sewa</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-bag"></i>
+            </div>
+            <a href="<?php echo base_url() ?>hardware" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3><?php echo $hardware; ?></h3>
+
+              <p>Hardware PC Dekstop</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-bag"></i>
+            </div>
+            <a href="<?php echo base_url() ?>hardware" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3><?php echo $hardware; ?></h3>
+
+              <p>Hardware Notebook</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-bag"></i>
+            </div>
+            <a href="<?php echo base_url() ?>hardware" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+
+
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3><?php echo $servicehardware; ?></h3>
+
+              <p>Status Sevice</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-bag"></i>
+            </div>
+            <a href="<?php echo base_url() ?>servicehardware" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+
+
+   <!--     <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+   <!--       <div class="small-box bg-green">
             <div class="inner">
               <h3><?php echo $supplier;?></h3>
 
@@ -39,9 +101,9 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
+  <!--      <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-yellow">
+ <!--         <div class="small-box bg-yellow">
             <div class="inner">
               <h3><?php echo $unit; ?></h3>
 
@@ -54,9 +116,9 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
+     <!--   <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-maroon">
+      <!--    <div class="small-box bg-maroon">
             <div class="inner">
               <h3><?php echo $network; ?></h3>
 
@@ -69,9 +131,9 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
+ <!--       <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-purple">
+ <!--         <div class="small-box bg-purple">
             <div class="inner">
               <h3><?php echo $listipaddress; ?></h3>
 
@@ -84,9 +146,9 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
+<!--        <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-teal">
+<!--          <div class="small-box bg-teal">
             <div class="inner">
               <h3><?php echo $servicehardware; ?></h3>
 
@@ -99,9 +161,9 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
+ <!--       <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-red">
+ <!--         <div class="small-box bg-red">
             <div class="inner">
               <h3><?php echo $windowsversion; ?></h3>
 

@@ -16,13 +16,13 @@ class Dashboard extends CI_Controller {
 		$data['breadcumb'] = '';
 		$data['judul']= '';
 		$data['view'] = 'dashboard';
-		$data['hardware'] = count($this->m_global->get_data_all('hardware', null));
-		$data['supplier'] = count($this->m_global->get_data_all('supplier', null));
-		$data['unit'] = count($this->m_global->get_data_all('unit', null));
-		$data['network'] = count($this->m_global->get_data_all('network', null));
-		$data['listipaddress'] = count($this->m_global->get_data_all('listipaddress', null));
-		$data['servicehardware'] = count($this->m_global->get_data_all('servicehardware', null));
-		$data['windowsversion'] = count($this->m_global->get_data_all('windowsversion', null));
+		$data['hardware'] = count($this->m_global->get_data_all('hardware', null, ['aset'=>'Aset']));
+		$data['hardware'] = count($this->m_global->get_data_all('hardware', null, ['aset'=>'Sewa']));
+		$data['hardware'] = count($this->m_global->get_data_all('hardware', null, ['model'=>'PC Dekstop']));
+		$data['hardware'] = count($this->m_global->get_data_all('hardware', null, ['model'=>'Notebook']));
+		$data['servicehardware'] = count($this->m_global->get_data_all('servicehardware', null, ['status'=>'Service']));
+	//	$data['servicehardware'] = count($this->m_global->get_data_all('servicehardware', null));
+	//	$data['windowsversion'] = count($this->m_global->get_data_all('windowsversion', null));
 
 		$this->load->view('master_template', $data);
 	

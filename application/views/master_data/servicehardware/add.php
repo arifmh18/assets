@@ -90,7 +90,7 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Remarks<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Remarks" name="remarks">
+                    <textarea class="form-control" placeholder="Remarks" name="remarks"></textarea>
                   </div>
                 </div>
 
