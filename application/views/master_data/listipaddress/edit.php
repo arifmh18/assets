@@ -22,49 +22,42 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Hardware ID<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Hardware ID" name="hardwareID" value="<?php echo $detail[0]->hardwareID; ?>">
+                    <input type="text" class="form-control" placeholder="Hardware ID" id="hardwareID" name="hardwareID" value="<?php echo $detail[0]->hardwareID; ?>">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Device Name<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Device Name" name="devicename" value="<?php echo $detail[0]->devicename; ?>">
+                    <input type="text" class="form-control" placeholder="Device Name" id="devicename" name="devicename" value="<?php echo $detail[0]->devicename; ?>">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Mac Address<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Mac Address" name="macadd" value="<?php echo $detail[0]->macadd; ?>">
+                    <input type="text" class="form-control" placeholder="Mac Address" id="macadd" name="macadd" value="<?php echo $detail[0]->macadd; ?>">
                   </div>
                 </div>
               
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Mac Address Wifi<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Mac Address Wifi" name="macaddwifi" value="<?php echo $detail[0]->macaddwifi; ?>">
+                    <input type="text" class="form-control" placeholder="Mac Address Wifi" id="mac add wifi" name="macaddwifi" value="<?php echo $detail[0]->macaddwifi; ?>">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Kode Unit<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Kode Unit" name="unitcode" value="<?php echo $detail[0]->unitcode; ?>">
+                    <input type="text" class="form-control" placeholder="Kode Unit" id="unitcode" name="unitcode" value="<?php echo $detail[0]->unitcode; ?>">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Unit Kerja<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Unit Kerja" name="unitkerja" value="<?php echo $detail[0]->unitkerja; ?>">
-                  </div>
-                </div>
-              
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Lokasi<span style="color: red">*</span></label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Lokasi" name="lokasi" value="<?php echo $detail[0]->lokasi; ?>">
+                    <input type="text" class="form-control" placeholder="Unit Kerja" id="unitkerja" name="unitkerja" value="<?php echo $detail[0]->unitkerja; ?>">
                   </div>
                 </div>
 
@@ -95,6 +88,37 @@
 <script src="<?php echo base_url(); ?>assets/sweet-alert/js/sweetalert2.min.js"></script>
 <script type="text/javascript">
   $(document).ready(function(){
+  	$("#hardwareID").autocomplete({
+          source: function (request, response){
+            $.ajax({
+              url: "<?php echo site_url('listipaddress/hardware/?');?>",
+              dataType: 'json',
+              data: request,
+              success: function (data){
+                response(data.map(function(item){
+                  return{
+                    'label':  item.hardwareID,
+                    'compname': item.compname,
+                    'macadd': item.macadd,
+                    'macaddwifi': item.macaddwifi,
+                    'unitcode': item.unitcode,
+                    'unitkerja': item.unitkerja,
+              //      'lokasi': item.lokasi,
+                    'value': item.hardwareID,
+                  };
+                }));
+              },
+            });
+          },
+              select: function (event, ui){
+                $("#compname").val(ui.item.compname);
+                $("#macadd").val(ui.item.macadd);
+                $("#macaddwifi").val(ui.item.macaddwifi);
+                $("#unitcode").val(ui.item.unitcode);
+                $("#unitkerja").val(ui.item.unitkerja);
+           //     $("#lokasi").val(ui.item.lokasi);
+              }
+        });
     $('#tambah').on('submit', function(e){
       e.preventDefault();
 

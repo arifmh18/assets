@@ -28,63 +28,63 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Hardware ID<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Hardware ID" name="hardwareID"  value="<?php echo $detail[0]->hardwareID; ?>">
+                    <input type="text" class="form-control" placeholder="Hardware ID" id="hardwareID" name="hardwareID"  value="<?php echo $detail[0]->hardwareID; ?>">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Aset<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Aset" name="aset"  value="<?php echo $detail[0]->aset; ?>">
+                    <input type="text" class="form-control" placeholder="Aset" id="aset" name="aset"  value="<?php echo $detail[0]->aset; ?>">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Username<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control"  placeholder="Username" name="username"  value="<?php echo $detail[0]->username; ?>">
+                    <input type="text" class="form-control"  placeholder="Username" id="username" name="username"  value="<?php echo $detail[0]->username; ?>">
                   </div>
                 </div>
               
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Kode Unit<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Kode Unit" name="unitcode" value="<?php echo $detail[0]->unitcode; ?>">
+                    <input type="text" class="form-control" placeholder="Kode Unit" id="unitcode" name="unitcode" value="<?php echo $detail[0]->unitcode; ?>">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Unit Kerja<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Unit Kerja" name="unitkerja"  value="<?php echo $detail[0]->unitkerja; ?>">
+                    <input type="text" class="form-control" placeholder="Unit Kerja" id="unitkerja" name="unitkerja"  value="<?php echo $detail[0]->unitkerja; ?>">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Model<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Model" name="model"  value="<?php echo $detail[0]->model; ?>">
+                    <input type="text" class="form-control" placeholder="Model" id="model" name="model" value="<?php echo $detail[0]->model; ?>">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Serial Number<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Serial Number" name="serialnumber" value="<?php echo $detail[0]->serialnumber; ?>">
+                    <input type="text" class="form-control" placeholder="Serial Number" id="serialnumber" name="serialnumber" value="<?php echo $detail[0]->serialnumber; ?>">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Manufacturer<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Manufacturer" name="manufacturer"  value="<?php echo $detail[0]->manufacturer; ?>">
+                    <input type="text" class="form-control" placeholder="Manufacturer" id="manufacturer" name="manufacturer"  value="<?php echo $detail[0]->manufacturer; ?>">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Product<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Product" name="product"  value="<?php echo $detail[0]->product; ?>">
+                    <input type="text" class="form-control" placeholder="Product" id="product" name="product" value="<?php echo $detail[0]->product; ?>">
                   </div>
                 </div>
 
@@ -174,6 +174,41 @@
 <script src="<?php echo base_url(); ?>assets/sweet-alert/js/sweetalert2.min.js"></script>
 <script type="text/javascript">
   $(document).ready(function(){
+    $("#hardwareID").autocomplete({
+          source: function (request, response){
+            $.ajax({
+              url: "<?php echo site_url('servicehardware/hardware/?');?>",
+              dataType: 'json',
+              data: request,
+              success: function (data){
+                response(data.map(function(item){
+                  return{
+                    'label':  item.hardwareID,
+                    'aset': item.aset,
+                    'username': item.username,
+                    'unitcode': item.unitcode,
+                    'unitkerja': item.unitkerja,
+                    'model': item.model,
+                    'serialnumber': item.serialnumber,
+                    'manufacturer': item.manufacturer,
+                    'product': item.product,
+                    'value': item.hardwareID
+                  };
+                }));
+              },
+            });
+          },
+              select: function (event, ui){
+                $("#aset").val(ui.item.aset);
+                $("#username").val(ui.item.username);
+                $("#unitcode").val(ui.item.unitcode);
+                $("#unitkerja").val(ui.item.unitkerja);
+                $("#model").val(ui.item.model);
+                $("#serialnumber").val(ui.item.serialnumber);
+                $("#manufacturer").val(ui.item.manufacturer);
+                $("#product").val(ui.item.product);
+              }
+        });
     $('#tambah').on('submit', function(e){
       e.preventDefault();
 

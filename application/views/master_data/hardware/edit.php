@@ -71,7 +71,7 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Kode Unit<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Kode Unit" name="unitcode" value="<?php echo $detail[0]->unitcode; ?>">
+                    <input type="text" class="form-control" placeholder="Kode Unit" id="unitcode" name="unitcode" value="<?php echo $detail[0]->unitcode; ?>">
                   </div>
                 </div>
 
@@ -79,7 +79,7 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Unit Kerja<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Unit Kerja" name="unitkerja" value="<?php echo $detail[0]->unitkerja; ?>">
+                    <input type="text" class="form-control" placeholder="Unit Kerja" id="unitkerja" name="unitkerja" value="<?php echo $detail[0]->unitkerja; ?>">
                   </div>
                 </div>
 
@@ -200,42 +200,42 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Windows OS ID<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Windows OS ID" name="winOSID" value="<?php echo $detail[0]->winOSID; ?>">
+                    <input type="text" class="form-control" placeholder="Windows OS ID" id="winID" name="winOSID" value="<?php echo $detail[0]->winOSID; ?>">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Windows OS Version<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Windows OS Version" name="winOSver" value="<?php echo $detail[0]->winOSver; ?>">
+                    <input type="text" class="form-control" placeholder="Windows OS Version" id="winversion" name="winOSver" value="<?php echo $detail[0]->winOSver; ?>">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Windows OS Product Key<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Windows OS Product Key" name="winOSpk" value="<?php echo $detail[0]->winOSpk; ?>">
+                    <input type="text" class="form-control" placeholder="Windows OS Product Key" id="productkey" name="winOSpk" value="<?php echo $detail[0]->winOSpk; ?>">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Windows Label ID<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Windows Label ID" name="winlabelID" value="<?php echo $detail[0]->winlabelID; ?>">
+                    <input type="text" class="form-control" placeholder="Windows Label ID" id="winlabel" name="winlabelID" value="<?php echo $detail[0]->winlabelID; ?>">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Windows Label Version<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Windows Label Version" name="winlabelver" value="<?php echo $detail[0]->winlabelver; ?>">
+                    <input type="text" class="form-control" placeholder="Windows Label Version" id="winlabelversion" name="winlabelver" value="<?php echo $detail[0]->winlabelver; ?>">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Windows Label Product Key<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Windows Label Product Key" name="winlabelpk" value="<?php echo $detail[0]->winlabelpk; ?>">
+                    <input type="text" class="form-control" placeholder="Windows Label Product Key" id="labelproductkey" name="winlabelpk" value="<?php echo $detail[0]->winlabelpk; ?>">
                   </div>
                 </div>
 
@@ -273,6 +273,75 @@
 <script src="<?php echo base_url(); ?>assets/sweet-alert/js/sweetalert2.min.js"></script>
 <script type="text/javascript">
   $(document).ready(function(){
+    $("#unitcode").autocomplete({
+          source: function (request, response){
+            $.ajax({
+              url: "<?php echo site_url('hardware/unit/?');?>",
+              dataType: 'json',
+              data: request,
+              success: function (data){
+                response(data.map(function(item){
+                  return{
+                    'label':  item.unitcode,
+                    'unitkerja': item.unitkerja,
+                    'value': item.unitcode
+                  };
+                }));
+              },
+            });
+          },
+              select: function (event, ui){
+                $("#unitkerja").val(ui.item.unitkerja);
+              }
+        });
+
+        $("#winID").autocomplete({
+          source: function (request, response){
+            $.ajax({
+              url: "<?php echo site_url('hardware/windowsversion/?');?>",
+              dataType: 'json',
+              data: request,
+              success: function (data){
+                response(data.map(function(item){
+                  return{
+                    'label':  item.winID,
+                    'winversion': item.winversion,
+                    'productkey': item.productkey,
+                    'value': item.winID,
+                  };
+                }));
+              },
+            });
+          },
+              select: function (event, ui){
+                $("#winversion").val(ui.item.winversion);
+                $("#productkey").val(ui.item.productkey);
+              }
+        });
+
+        $("#winlabel").autocomplete({
+          source: function (request, response){
+            $.ajax({
+              url: "<?php echo site_url('hardware/windowsversion/?');?>",
+              dataType: 'json',
+              data: request,
+              success: function (data){
+                response(data.map(function(item){
+                  return{
+                    'label':  item.winID,
+                    'winversion': item.winversion,
+                    'productkey': item.productkey,
+                    'value': item.winID,
+                  };
+                }));
+              },
+            });
+          },
+              select: function (event, ui){
+                $("#winlabelversion").val(ui.item.winversion);
+                $("#labelproductkey").val(ui.item.productkey);
+              }
+        });
     $('#tambah').on('submit', function(e){
       e.preventDefault();
 
