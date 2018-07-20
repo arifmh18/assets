@@ -13,14 +13,14 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3><?php echo $hardware; ?></h3>
+              <h3><?php echo $hardwareAset; ?></h3>
 
               <p>Hardware Aset</p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
             </div>
-            <a href="<?php echo base_url() ?>hardware" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="<?php echo base_url() ?>dashboard/detail/aset" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -28,14 +28,14 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3><?php echo $hardware; ?></h3>
+              <h3><?php echo $hardwareSewa; ?></h3>
 
               <p>Hardware Sewa</p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
             </div>
-            <a href="<?php echo base_url() ?>hardware" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="<?php echo base_url() ?>dashboard/detail/sewa" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
 
@@ -43,14 +43,14 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3><?php echo $hardware; ?></h3>
+              <h3><?php echo $hardwarePC; ?></h3>
 
               <p>Hardware PC Dekstop</p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
             </div>
-            <a href="<?php echo base_url() ?>hardware" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="<?php echo base_url() ?>dashboard/detail/pc" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
 
@@ -58,14 +58,14 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3><?php echo $hardware; ?></h3>
+              <h3><?php echo $hardwareNote; ?></h3>
 
               <p>Hardware Notebook</p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
             </div>
-            <a href="<?php echo base_url() ?>hardware" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="<?php echo base_url() ?>dashboard/detail/notebook" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
 
@@ -81,7 +81,7 @@
             <div class="icon">
               <i class="ion ion-bag"></i>
             </div>
-            <a href="<?php echo base_url() ?>servicehardware" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <!-- <a href="<?php echo base_url() ?>servicehardware" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> -->
           </div>
         </div>
 

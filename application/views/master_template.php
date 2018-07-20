@@ -75,7 +75,7 @@
           <!-- User Account: style can be found in dropdown.less -->
 
           <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="<?php echo base_url(); ?>login/profile" class="dropdown-toggle">
               <span class="hidden-xs"><?php echo strtoupper($this->session->userdata('username')); ?></span></a>
 <!--                   <a href="<?php echo base_url()?>profile/edit/<?php echo strEncrypt($this->session->userdata('id')); ?>" class="btn btn-default btn-flat">Profile</a>
  -->            
