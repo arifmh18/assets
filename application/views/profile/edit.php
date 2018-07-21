@@ -11,7 +11,7 @@
               <img class="img-circle" src="<?php echo base_url() ?>assets/img/avatar/<?php echo $profile[0]->avatar ?>" alt="User Avatar">
             </div>
 -->            <div class="box-footer">
-            <form id="tambah" class="form-horizontal" action="" method="post">
+            <form id="tambah" class="form-horizontal" action="<?php echo base_url() ?>login/act_profile/<?php echo strEncrypt($profile[0]->id); ?>" method="post">
               <ul class="list-group list-group-unbordered">
                 <li class="list-group-item">
                   <div class="form-group">
@@ -26,7 +26,7 @@
                   <div class="form-group">
                     <label class="col-sm-4 control-label">Password<span style="color: red">*</span></label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" placeholder="Password" name="password" value="">
+                      <input type="password" class="form-control" placeholder="Password" name="password" value="">
                       <small style="color: red;"><i>*Kosongi apabila tidak ingin merubah password</i></small>
                     </div>
                   </div>
@@ -36,7 +36,7 @@
                   <div class="form-group">
                     <label class="col-sm-4 control-label">Ulangi Password<span style="color: red">*</span></label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" placeholder="Retype Password" name="repass" value="">
+                      <input type="password" class="form-control" placeholder="Retype Password" name="repass" value="">
                       <small style="color: red;"><i>*Kosongi apabila tidak ingin merubah password</i></small>
                     </div>
                   </div>
@@ -70,7 +70,7 @@
             swal("Sukses!",data.msg,"success");
             // $.notify({message: data.msg},{type: 'success'});
             // console.log(data);
-            setTimeout("location.href='<?php echo base_url() ?>profile/edit/<?php echo $profile[0]->id; ?>'", 1500);
+            setTimeout("location.href='<?php echo base_url() ?>login/profile/'", 1500);
           } else {
             $.notify({message: data.msg},{type: 'danger'});
           }   

@@ -35,15 +35,8 @@ public function __construct()
 		$post = $this->input->post();
 		$password = $post['password'];
 
-		$this->form_validation->set_rules('induk', 'No induk', 'trim|required|numeric');
 		$this->form_validation->set_rules('username', 'Username', 'trim|required');
-		$this->form_validation->set_rules('nama_lengkap', 'Nama Lengkap', 'trim|required');
-		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
-		$this->form_validation->set_rules('no', 'No HP/Telp', 'trim|required|numeric');
-		$this->form_validation->set_rules('domisili', 'Kota Domisili', 'trim|required');
-		$this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
-		$this->form_validation->set_rules('jurusan', 'Jurusan', 'trim|required');
-		if (!empty($password)) {
+		if (!empty($password) || !empty($post['repass'])) {
 			$this->form_validation->set_rules('password', 'Password', 'trim|required');
 			$this->form_validation->set_rules('repass', 'Ulangi Password', 'trim|required|matches[password]');			
 		}
@@ -54,37 +47,19 @@ public function __construct()
 		if ($this->form_validation->run() == true){
 			if ($password == '') {
 				$data = array(
-					'no_induk' => $post['induk'],
-					'username' => $post['username'],
-					'email' => $post['email'],
-					'nama_lengkap' => $post['nama_lengkap'],
-					'hp' => $post['no'],
-					'domisili' => $post['domisili'],
-					'alamat' => $post['alamat'],
-					'update_at' => $hari.', '.$tgl,
-					'status' => $post['status'],
-					'jurusan' => $post['jurusan']
+					'username' => $post['username']
 					);
 			}
 			else{
 				$data = array(
-					'no_induk' => $post['induk'],
 					'username' => $post['username'],
-					'password' => md5($post['password']),
-					'email' => $post['email'],
-					'nama_lengkap' => $post['nama_lengkap'],
-					'hp' => $post['no'],
-					'domisili' => $post['domisili'],
-					'alamat' => $post['alamat'],
-					'update_at' => $hari.', '.$tgl,
-					'status' => $post['status'],
-					'jurusan' => $post['jurusan']
+					'password' => md5($post['password'])
 					);				
 			}
-			$x = $this->m_global->get_data_all('user', null, ['no_induk'=>$data['no_induk']]);
+			$x = $this->m_global->get_data_all('user', null, [strEncrypt('id', TRUE)=>$id]);
 			if($x) {
 				if(strEncrypt($x[0]->id) !== $id) {
-					$result['msg'] = 'No Induk sudah ada !';
+					$result['msg'] = 'Data tidak berhasil diperbarui !';
 					$result['sts'] = '0';
 				}
 				else{

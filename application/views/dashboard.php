@@ -170,7 +170,7 @@
               <p>Sevice</p>
             </div>
             <div class="icon">
-              <i class="ion ion-ios7-briefcase"></i>
+              <i class="ion ion-wrench"></i>
             </div>
             <a href="<?php echo base_url() ?>dashboard/detail1/service" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
