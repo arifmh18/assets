@@ -88,7 +88,7 @@
 
               <!-- /.box-body -->
               <div class="box-footer">
-                <a href="<?php echo base_url()?>servicehardware/edit/<?php echo strEncrypt($detail[0]->IPadd); ?>" class="btn btn-info">Edit Data</a>
+                <a href="<?php echo base_url()?>listipaddress/edit/<?php echo strEncrypt($detail[0]->IPadd); ?>" class="btn btn-info">Edit Data</a>
                 <input action="action" onclick="window.history.go(-1); return false;" type="button" value="Kembali" class="btn btn-default pull-right" />
               </div>
               <!-- /.box-footer -->
@@ -114,7 +114,7 @@
         success : function(data) {
           if(data.sts == 1) {
             $.notify({message: data.msg},{type: 'success'});
-            setTimeout("location.href='<?php echo base_url() ?>servicehardware'", 2000);
+            setTimeout("location.href='<?php echo base_url() ?>listipaddress'", 2000);
           } else {
             $.notify({message: data.msg},{type: 'danger'});
           }    console.log(data);

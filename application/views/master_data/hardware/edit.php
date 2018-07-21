@@ -45,9 +45,6 @@
                   <div class="col-sm-9">
                     <select name="status" class="form-control">
                       <option value="">- Pilih Status -</option>
-                      <option value="Service IT"<?php if ($detail[0]->status == 'Service IT' || $detail[0]->status == 'service IT') {
-                        echo 'selected';
-                      } ?>>Service IT</option>
                       <option value="Used"<?php if ($detail[0]->status == 'Used' || $detail[0]->status == 'used') {
                         echo 'selected';
                       } ?>>Used</option>

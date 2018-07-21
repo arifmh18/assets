@@ -42,7 +42,6 @@
                   <div class="col-sm-9">
                     <select name="status" class="form-control">
                       <option value="">- Pilih Status -</option>
-                      <option value="Service IT">Service IT</option>
                       <option value="Used">Used</option>
                       <option value="Afval">Afval</option>
                       <option value="Unknown">Unknown</option>
