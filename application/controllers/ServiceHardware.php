@@ -63,23 +63,23 @@ class ServiceHardware extends CI_Controller {
 		$result = [];
 		$post = $this->input->post();
 
-		// $this->form_validation->set_rules('induk', 'No induk', 'trim|required|numeric|min_length[18]|max_length[18]');
-		$this->form_validation->set_rules('ID', 'No Service', 'numeric');
-		$this->form_validation->set_rules('tglservice', 'Tanggal Service');
-		$this->form_validation->set_rules('hardwareID', 'Hardware ID');
-		$this->form_validation->set_rules('aset', 'Aset');
-		$this->form_validation->set_rules('username', 'Username');
-		$this->form_validation->set_rules('unitcode', 'Kode Unit');
-		$this->form_validation->set_rules('unitkerja', 'Unit Kerja');
-		$this->form_validation->set_rules('model', 'Model');
-		$this->form_validation->set_rules('serialnumber', 'Serial Number');
-		$this->form_validation->set_rules('manufacturer', 'Manufacturer');
-		$this->form_validation->set_rules('product', 'Product');
-		$this->form_validation->set_rules('remarks', 'Remark');
-		$this->form_validation->set_rules('status', 'Status');
-		$this->form_validation->set_rules('tglkeluar', 'Tanggal Keluar');
+		
+		$this->form_validation->set_rules('ID', 'No Service', 'trim|required|numeric');
+		$this->form_validation->set_rules('tglservice', 'Tanggal Service','trim');
+		$this->form_validation->set_rules('hardwareID', 'Hardware ID','trim|required');
+		$this->form_validation->set_rules('aset', 'Aset','trim');
+		$this->form_validation->set_rules('username', 'Username','trim');
+		$this->form_validation->set_rules('unitcode', 'Kode Unit','trim');
+		$this->form_validation->set_rules('unitkerja', 'Unit Kerja','trim');
+		$this->form_validation->set_rules('model', 'Model','trim');
+		$this->form_validation->set_rules('serialnumber', 'Serial Number','trim');
+		$this->form_validation->set_rules('manufacturer', 'Manufacturer','trim');
+		$this->form_validation->set_rules('product', 'Product','trim');
+		$this->form_validation->set_rules('remarks', 'Remark','trim');
+		$this->form_validation->set_rules('status', 'Status','trim');
+		$this->form_validation->set_rules('tglkeluar', 'Tanggal Keluar','trim');
 		if ($post['tglservice'] > $post['tglkeluar']) {
-				$result['msg'] = 'Tanggal Service Tidak Boleh Melebihi Tanggal Keluar';
+				$result['msg'] = 'Tanggal Mulai Service Tidak Boleh Melebihi Tanggal Keluar';
 				$result['sts'] = '0';
 			}
 		else{
@@ -138,21 +138,21 @@ class ServiceHardware extends CI_Controller {
 		$result = [];
 		$post = $this->input->post();
 
-		// $this->form_validation->set_rules('induk', 'No induk', 'trim|required|numeric|min_length[18]|max_length[18]');
-		$this->form_validation->set_rules('ID', 'No Service', 'numeric');
-		$this->form_validation->set_rules('tglservice', 'Tanggal Service');
-		$this->form_validation->set_rules('hardwareID', 'Hardware ID');
-		$this->form_validation->set_rules('aset', 'Aset');
-		$this->form_validation->set_rules('username', 'Username');
-		$this->form_validation->set_rules('unitcode', 'Kode Unit');
-		$this->form_validation->set_rules('unitkerja', 'Unit Kerja');
-		$this->form_validation->set_rules('model', 'Model');
-		$this->form_validation->set_rules('serialnumber', 'Serial Number');
-		$this->form_validation->set_rules('manufacturer', 'Manufacturer');
-		$this->form_validation->set_rules('product', 'Product');
-		$this->form_validation->set_rules('remarks', 'Remark');
-		$this->form_validation->set_rules('status', 'Status');
-		$this->form_validation->set_rules('tglkeluar', 'Tanggal Keluar');
+		
+		$this->form_validation->set_rules('ID', 'No Service', 'trim|required|numeric');
+		$this->form_validation->set_rules('tglservice', 'Tanggal Service','trim');
+		$this->form_validation->set_rules('hardwareID', 'Hardware ID','trim|required');
+		$this->form_validation->set_rules('aset', 'Aset','trim');
+		$this->form_validation->set_rules('username', 'Username','trim');
+		$this->form_validation->set_rules('unitcode', 'Kode Unit','trim');
+		$this->form_validation->set_rules('unitkerja', 'Unit Kerja','trim');
+		$this->form_validation->set_rules('model', 'Model','trim');
+		$this->form_validation->set_rules('serialnumber', 'Serial Number','trim');
+		$this->form_validation->set_rules('manufacturer', 'Manufacturer','trim');
+		$this->form_validation->set_rules('product', 'Product','trim');
+		$this->form_validation->set_rules('remarks', 'Remark','trim');
+		$this->form_validation->set_rules('status', 'Status','trim');
+		$this->form_validation->set_rules('tglkeluar', 'Tanggal Keluar','trim');
 		if ($post['tglservice'] > $post['tglkeluar']) {
 				$result['msg'] = 'Tanggal Service Tidak Boleh Melebihi Tanggal Keluar';
 				$result['sts'] = '0';

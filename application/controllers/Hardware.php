@@ -43,7 +43,7 @@ public function add()
 		$post = $this->input->post();
 
 		// $this->form_validation->set_rules('induk', 'No induk', 'trim|required|numeric|min_length[18]|max_length[18]');
-		$this->form_validation->set_rules('ID', 'Hardware ID', 'trim');
+		$this->form_validation->set_rules('ID', 'Hardware ID', 'trim|required');
 		$this->form_validation->set_rules('tglmsk', 'Tanggal Masuk', 'trim');
 		$this->form_validation->set_rules('aset', 'Aset', 'trim');
 		$this->form_validation->set_rules('status', 'Status', 'trim');
@@ -182,7 +182,7 @@ public function windowsversion()
 		$post = $this->input->post();
 
 		// $this->form_validation->set_rules('induk', 'No induk', 'trim|required|numeric|min_length[18]|max_length[18]');
-		$this->form_validation->set_rules('ID', 'Hardware ID', 'trim');
+		$this->form_validation->set_rules('ID', 'Hardware ID', 'trim|required');
 		$this->form_validation->set_rules('tglmsk', 'Tanggal Masuk', 'trim');
 		$this->form_validation->set_rules('aset', 'Aset', 'trim');
 		$this->form_validation->set_rules('status', 'Status', 'trim');

@@ -78,16 +78,16 @@ class ListIPAddress extends CI_Controller {
 		$result = [];
 		$post = $this->input->post();
 
-		// $this->form_validation->set_rules('induk', 'No induk', 'trim|required|numeric|min_length[18]|max_length[18]');
+		
 		$this->form_validation->set_rules('kode', 'IP Address', 'trim|required');
-		$this->form_validation->set_rules('hardwareID', 'Hardware ID');
-		$this->form_validation->set_rules('devicename', 'Device Name');
-		$this->form_validation->set_rules('macadd', 'Mac Address');
-		$this->form_validation->set_rules('macaddwifi', 'Mac Address Wifi');
-		$this->form_validation->set_rules('unitcode', 'Unit Code');
-		$this->form_validation->set_rules('unitkerja', 'Unit Kerja');
+		$this->form_validation->set_rules('hardwareID', 'Hardware ID','trim');
+		$this->form_validation->set_rules('devicename', 'Device Name','trim');
+		$this->form_validation->set_rules('macadd', 'Mac Address','trim');
+		$this->form_validation->set_rules('macaddwifi', 'Mac Address Wifi','trim');
+		$this->form_validation->set_rules('unitcode', 'Unit Code','trim');
+		$this->form_validation->set_rules('unitkerja', 'Unit Kerja','trim');
 		// $this->form_validation->set_rules('lokasi', 'Lokasi');
-		$this->form_validation->set_rules('server_area', 'Server Area');
+		$this->form_validation->set_rules('server_area', 'Server Area','trim');
 
 		if ($this->form_validation->run() == true){
 			$data = array(
@@ -142,14 +142,14 @@ class ListIPAddress extends CI_Controller {
 
 		// $this->form_validation->set_rules('induk', 'No induk', 'trim|required|numeric|min_length[18]|max_length[18]');
 		$this->form_validation->set_rules('kode', 'IP Address', 'trim|required');
-		$this->form_validation->set_rules('hardwareID', 'Hardware ID');
-		$this->form_validation->set_rules('devicename', 'Device Name');
-		$this->form_validation->set_rules('macadd', 'Mac Address');
-		$this->form_validation->set_rules('macaddwifi', 'Mac Address Wifi');
-		$this->form_validation->set_rules('unitcode', 'Unit Code');
-		$this->form_validation->set_rules('unitkerja', 'Unit Kerja');
+		$this->form_validation->set_rules('hardwareID', 'Hardware ID','trim');
+		$this->form_validation->set_rules('devicename', 'Device Name','trim');
+		$this->form_validation->set_rules('macadd', 'Mac Address','trim');
+		$this->form_validation->set_rules('macaddwifi', 'Mac Address Wifi','trim');
+		$this->form_validation->set_rules('unitcode', 'Unit Code','trim');
+		$this->form_validation->set_rules('unitkerja', 'Unit Kerja','trim');
 		// $this->form_validation->set_rules('lokasi', 'Lokasi');
-		$this->form_validation->set_rules('server_area', 'Server Area');
+		$this->form_validation->set_rules('server_area', 'Server Area','trim');
 
 		if ($this->form_validation->run() == true){
 			$data = array(

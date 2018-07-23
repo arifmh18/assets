@@ -15,7 +15,7 @@
             <div class="inner">
               <h3><?php echo $hardwareAset; ?></h3>
 
-              <p>Aset</p>
+              <p>Total Unit Aset</p>
             </div>
             <div class="icon">
               <i class="ion ion-pin"></i>
@@ -30,7 +30,7 @@
             <div class="inner">
               <h3><?php echo $hardwareSewa; ?></h3>
 
-              <p>Sewa</p>
+              <p>Total Unit Sewa</p>
             </div>
             <div class="icon">
               <i class="ion ion-link"></i>
