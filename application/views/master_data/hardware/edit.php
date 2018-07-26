@@ -65,18 +65,16 @@
                   </div>
                 </div>
 
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Kode Unit<span style="color: red">*</span></label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Kode Unit" id="unitcode" name="unitcode" value="<?php echo $detail[0]->unitcode; ?>">
-                  </div>
-                </div>
-
-
-                <div class="form-group">
+                
+                 <div class="form-group">
                   <label class="col-sm-3 control-label">Unit Kerja<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Unit Kerja" id="unitkerja" name="unitkerja" value="<?php echo $detail[0]->unitkerja; ?>">
+                   <select class="form-control select2" style="width: 100%;" id="unitkerja" name="unitkerja">
+                      <option value="">- Pilih Unit Kerja -</option>
+                      <?php foreach ($unit as $key => $value) { 
+                        echo "<option ".($value->unitcode == $detail[0]->unitkerja ? 'selected' : '')." value='".$value->unitcode."'>".$value->unitkerja."</option>";
+                          } ?>
+                    </select>
                   </div>
                 </div>
 
@@ -195,44 +193,24 @@
                 </div>
 
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Windows OS ID<span style="color: red">*</span></label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Windows OS ID" id="winID" name="winOSID" value="<?php echo $detail[0]->winOSID; ?>">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Windows OS Version<span style="color: red">*</span></label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Windows OS Version" id="winversion" name="winOSver" value="<?php echo $detail[0]->winOSver; ?>">
-                  </div>
-                </div>
-
-                <div class="form-group">
                   <label class="col-sm-3 control-label">Windows OS Product Key<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Windows OS Product Key" id="productkey" name="winOSpk" value="<?php echo $detail[0]->winOSpk; ?>">
+                    <select class="form-control select2" style="width: 100%;" id="winOSpk" name="winOSpk">
+                      <option value="">- Pilih OS PK -</option>
+                      <?php foreach ($windowsversion as $key => $value) { echo "<option ".($value->winID == $detail[0]->winOSpk ? 'selected' : '')." value='".$value->winID."'>".$value->productkey."</option>";
+                          } ?>
+                    </select>
                   </div>
                 </div>
-
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Windows Label ID<span style="color: red">*</span></label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Windows Label ID" id="winlabel" name="winlabelID" value="<?php echo $detail[0]->winlabelID; ?>">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Windows Label Version<span style="color: red">*</span></label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Windows Label Version" id="winlabelversion" name="winlabelver" value="<?php echo $detail[0]->winlabelver; ?>">
-                  </div>
-                </div>
-
+                                 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Windows Label Product Key<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Windows Label Product Key" id="labelproductkey" name="winlabelpk" value="<?php echo $detail[0]->winlabelpk; ?>">
+                    <select class="form-control select2" style="width: 100%;" id="winlabelpk" name="winlabelpk">
+                      <option value="">- Pilih Label PK -</option>
+                      <?php foreach ($windowsversion as $key => $value) { echo "<option ".($value->winID == $detail[0]->winlabelpk ? 'selected' : '')." value='".$value->winID."'>".$value->productkey."</option>";
+                          } ?>
+                    </select>
                   </div>
                 </div>
 

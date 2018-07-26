@@ -55,14 +55,7 @@
                     <input type="text" class="form-control" placeholder="Username" name="username">
                   </div>
                 </div>
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Kode Unit<span style="color: red">*</span></label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Kode Unit" name="unitcode" id="unitcode">
-                  </div>
-                </div>
-
-
+               
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Unit Kerja<span style="color: red">*</span></label>
                   <div class="col-sm-9">
@@ -185,45 +178,28 @@
                   </div>
                 </div>
 
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Windows OS ID<span style="color: red">*</span></label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" id="winID" placeholder="Windows OS ID" name="winOSID">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Windows OS Version<span style="color: red">*</span></label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" id="winversion" placeholder="Windows OS Version" name="winOSver">
-                  </div>
-                </div>
 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Windows OS Product Key<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" id="productkey" placeholder="Windows OS Product Key" name="winOSpk">
+                    <select class="form-control select2" style="width: 100%;" id="winOSpk" name="winOSpk">
+                      <option value="">- Pilih OS PK -</option>
+                      <?php foreach ($windowsversion as $key => $value) { ?>
+                      <option value="<?php echo $value->winID; ?>"><?php echo $value->productkey; ?></option>
+                      <?php } ?>
+                    </select>
                   </div>
                 </div>
-
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Windows Label ID<span style="color: red">*</span></label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" id="winlabel" placeholder="Windows Label ID" name="winlabelID">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Windows Label Version<span style="color: red">*</span></label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" id="winlabelversion" placeholder="Windows Label Version" name="winlabelversion">
-                  </div>
-                </div>
-
+                                 
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Windows Label Product Key<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" id="labelproductkey" placeholder="Windows Label Product Key" name="winlabelpk">
+                    <select class="form-control select2" style="width: 100%;" id="winlabelpk" name="winlabelpk">
+                      <option value="">- Pilih Label PK -</option>
+                      <?php foreach ($windowsversion as $key => $value) { ?>
+                      <option value="<?php echo $value->winID; ?>"><?php echo $value->productkey; ?></option>
+                      <?php } ?>
+                    </select>
                   </div>
                 </div>
               <!-- /.box-body -->

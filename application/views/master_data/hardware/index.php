@@ -63,8 +63,20 @@
                    ?></td>
                   <td><?php echo $value->status ?></td>
                   <td><?php echo $value->username ?></td>
-                  <td><?php echo $value->unitcode ?></td>
-                  <td><?php echo $value->unitkerja ?></td>
+                  <td><?php 
+                  foreach ($unit as $key => $n) {
+                      if ($value->unitkerja == $n->unitcode) {
+                        echo $n->unitcode;
+                      }
+                     }
+                  ?></td>
+                  <td><?php 
+                  foreach ($unit as $key => $n) {
+                      if ($value->unitkerja == $n->unitcode) {
+                        echo $n->unitkerja;
+                      }
+                     }
+                  ?></td>
                   <td><?php echo $value->compname ?></td>
                   <td><?php echo $value->model ?></td>
                   <td><?php echo $value->serialnumber ?></td>
@@ -80,12 +92,49 @@
                   <td><?php echo $value->memorydim2 ?></td>
                   <td><?php echo $value->memorydim3 ?></td>
                   <td><?php echo $value->memorydim4 ?></td>
-                  <td><?php echo $value->winOSID ?></td>
-                  <td><?php echo $value->winOSver ?></td>
-                  <td><?php echo $value->winOSpk ?></td>
-                  <td><?php echo $value->winlabelID ?></td>
-                  <td><?php echo $value->winlabelver ?></td>
-                  <td><?php echo $value->winlabelpk ?></td>
+                  
+                  <td><?php 
+                  foreach ($windowsversion as $key => $n) {
+                      if ($value->winOSpk == $n->winID) {
+                        echo $n->winID;
+                      }
+                     }
+                  ?></td>
+                  <td><?php
+                  foreach ($windowsversion as $key => $n) {
+                      if ($value->winOSpk == $n->winID) {
+                        echo $n->winversion;
+                      }
+                     }
+                  ?></td>
+                  <td><?php 
+                  foreach ($windowsversion as $key => $n) {
+                      if ($value->winOSpk == $n->winID) {
+                        echo $n->productkey;
+                      }
+                     }
+                  ?></td>
+                  <td><?php 
+                  foreach ($windowsversion as $key => $n) {
+                      if ($value->winlabelpk == $n->winID) {
+                        echo $n->winID;
+                      }
+                     }
+                  ?></td>
+                  <td><?php
+                  foreach ($windowsversion as $key => $n) {
+                      if ($value->winlabelpk == $n->winID) {
+                        echo $n->winversion;
+                      }
+                     }
+                  ?></td>
+                  <td><?php 
+                  foreach ($windowsversion as $key => $n) {
+                      if ($value->winlabelpk == $n->winID) {
+                        echo $n->productkey;
+                      }
+                     }
+                  ?></td>
                   <td class="text-center">
                     <a href="<?php echo base_url()?>hardware/edit/<?php echo strEncrypt($value->hardwareID); ?>" class="btn btn-warning"><span class="fa fa-edit"></span> Edit</a>
                     <button type="button" value="<?php echo $value->hardwareID ?>" class="btn btn-danger confirm">

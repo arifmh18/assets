@@ -49,7 +49,7 @@ public function add()
 		$this->form_validation->set_rules('aset', 'Aset', 'trim');
 		$this->form_validation->set_rules('status', 'Status', 'trim');
 		$this->form_validation->set_rules('username', 'Username', 'trim');
-		$this->form_validation->set_rules('unitcode', 'Kode Unit', 'trim');
+	//	$this->form_validation->set_rules('unitcode', 'Kode Unit', 'trim');
 		$this->form_validation->set_rules('unitkerja', 'Unit Kerja', 'trim');
 		$this->form_validation->set_rules('compname', 'Computer Name', 'trim');
 		$this->form_validation->set_rules('model', 'Model', 'trim');
@@ -66,11 +66,11 @@ public function add()
 		$this->form_validation->set_rules('memorydim2', 'Memory Dim 2', 'trim');
 		$this->form_validation->set_rules('memorydim3', 'Memory Dim 3', 'trim');
 		$this->form_validation->set_rules('memorydim4', 'Memory Dim 4', 'trim');
-		$this->form_validation->set_rules('winOSID', 'Windows OS ID', 'trim');
-		$this->form_validation->set_rules('winOSver', 'Win OS Ver', 'trim');
+	//	$this->form_validation->set_rules('winOSID', 'Windows OS ID', 'trim');
+	//	$this->form_validation->set_rules('winOSver', 'Win OS Ver', 'trim');
 		$this->form_validation->set_rules('winOSpk', 'Win OS PK', 'trim');
-		$this->form_validation->set_rules('winlabelID', 'Win Label ID', 'trim');
-		$this->form_validation->set_rules('winlabelversion', 'Win Label Ver', 'trim');
+	//	$this->form_validation->set_rules('winlabelID', 'Win Label ID', 'trim');
+	//	$this->form_validation->set_rules('winlabelversion', 'Win Label Ver', 'trim');
 		$this->form_validation->set_rules('winlabelpk', 'Win Label PK', 'trim');
 		if ($this->form_validation->run() == true){
 			$data = array(
@@ -79,7 +79,7 @@ public function add()
 				'aset' => $post['aset'],
 				'status' => $post['status'],
 				'username' => $post['username'],
-				'unitcode' => $post['unitcode'],
+		//		'unitcode' => $post['unitcode'],
 				'unitkerja' => $post['unitkerja'],
 				'compname' => $post['compname'],
 				'model' => $post['model'],
@@ -96,11 +96,11 @@ public function add()
 				'memorydim2' => $post['memorydim2'],
 				'memorydim3' => $post['memorydim3'],
 				'memorydim4' => $post['memorydim4'],
-				'winOSID' => $post['winOSID'],
-				'winOSver' => $post['winOSver'],
+		//		'winOSID' => $post['winOSID'],
+		//		'winOSver' => $post['winOSver'],
 				'winOSpk' => $post['winOSpk'],
-				'winlabelID' => $post['winlabelID'],
-				'winlabelver' => $post['winlabelversion'],
+		//		'winlabelID' => $post['winlabelID'],
+		//		'winlabelver' => $post['winlabelversion'],
 				'winlabelpk' => $post['winlabelpk']
 				);
 			$proses = $this->m_global->insert('hardware', $data);
@@ -124,7 +124,7 @@ public function add()
 
 	}
 
-	public function unit()
+/*	public function unit()
 	{
 		$this->load->model('m_autocomplete');
 		if (isset($_GET['term'])) {
@@ -175,7 +175,7 @@ public function windowsversion()
 				}
         }
 	}
-
+*/
 	public function edit($id){
 		$data['title'] = 'Edit Data ';
 		$data['judul'] = 'Edit Data Hardware';
@@ -187,9 +187,6 @@ public function windowsversion()
 		$data['unit'] = $this->m_global->get_data_all('unit');
 		$data['detail'] = $this->m_global->get_data_all('hardware', null, [strEncrypt('hardwareID', TRUE) => $id]);
 
-		// echo "<pre>";
-		// print_r ($data);
-		// echo "</pre>";
 		$this->load->view('master_template', $data);
 
 
@@ -206,7 +203,7 @@ public function windowsversion()
 		$this->form_validation->set_rules('aset', 'Aset', 'trim');
 		$this->form_validation->set_rules('status', 'Status', 'trim');
 		$this->form_validation->set_rules('username', 'Username', 'trim');
-		$this->form_validation->set_rules('unitcode', 'Kode Unit', 'trim');
+	//	$this->form_validation->set_rules('unitcode', 'Kode Unit', 'trim');
 		$this->form_validation->set_rules('unitkerja', 'Unit Kerja', 'trim');
 		$this->form_validation->set_rules('compname', 'Computer Name', 'trim');
 		$this->form_validation->set_rules('model', 'Model', 'trim');
@@ -223,11 +220,11 @@ public function windowsversion()
 		$this->form_validation->set_rules('memorydim2', 'Memory Dim 2', 'trim');
 		$this->form_validation->set_rules('memorydim3', 'Memory Dim 3', 'trim');
 		$this->form_validation->set_rules('memorydim4', 'Memory Dim 4', 'trim');
-		$this->form_validation->set_rules('winOSID', 'Windows OS ID', 'trim');
-		$this->form_validation->set_rules('winOSver', 'Win OS Ver', 'trim');
+	//	$this->form_validation->set_rules('winOSID', 'Windows OS ID', 'trim');
+	//	$this->form_validation->set_rules('winOSver', 'Win OS Ver', 'trim');
 		$this->form_validation->set_rules('winOSpk', 'Win OS PK', 'trim');
-		$this->form_validation->set_rules('winlabelID', 'Win Label ID', 'trim');
-		$this->form_validation->set_rules('winlabelversion', 'Win Label Ver', 'trim');
+	//	$this->form_validation->set_rules('winlabelID', 'Win Label ID', 'trim');
+	//	$this->form_validation->set_rules('winlabelversion', 'Win Label Ver', 'trim');
 		$this->form_validation->set_rules('winlabelpk', 'Win Label PK', 'trim');
 		if ($this->form_validation->run() == true){
 			$data = array(
@@ -236,7 +233,7 @@ public function windowsversion()
 				'aset' => $post['aset'],
 				'status' => $post['status'],
 				'username' => $post['username'],
-				'unitcode' => $post['unitcode'],
+			//	'unitcode' => $post['unitcode'],
 				'unitkerja' => $post['unitkerja'],
 				'compname' => $post['compname'],
 				'model' => $post['model'],
@@ -253,11 +250,11 @@ public function windowsversion()
 				'memorydim2' => $post['memorydim2'],
 				'memorydim3' => $post['memorydim3'],
 				'memorydim4' => $post['memorydim4'],
-				'winOSID' => $post['winOSID'],
-				'winOSver' => $post['winOSver'],
+			//	'winOSID' => $post['winOSID'],
+			//	'winOSver' => $post['winOSver'],
 				'winOSpk' => $post['winOSpk'],
-				'winlabelID' => $post['winlabelID'],
-				'winlabelver' => $post['winlabelver'],
+			//	'winlabelID' => $post['winlabelID'],
+			//	'winlabelver' => $post['winlabelver'],
 				'winlabelpk' => $post['winlabelpk']
 				);	
 			$x = $this->m_global->get_data_all('hardware', null, ['hardwareID' => $data['hardwareID']]);
