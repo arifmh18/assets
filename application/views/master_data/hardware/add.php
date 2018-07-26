@@ -66,7 +66,12 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Unit Kerja<span style="color: red">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Unit Kerja" name="unitkerja" id="unitkerja">
+                                 <select class="form-control select2" style="width: 100%;" id="unitkerja" name="unitkerja">
+                      <option value="">- Pilih Unit Kerja -</option>
+                      <?php foreach ($unit as $key => $value) { ?>
+                      <option value="<?php echo $value->unitcode; ?>"><?php echo $value->unitkerja; ?></option>
+                      <?php } ?>
+                    </select>
                   </div>
                 </div>
 
@@ -234,7 +239,7 @@
 <script src="<?php echo base_url(); ?>assets/sweet-alert/js/sweetalert2.min.js"></script>
 <script type="text/javascript">
   $(document).ready(function(){
-        $("#unitcode").autocomplete({
+        $("#unitkerja").autocomplete({
           source: function (request, response){
             $.ajax({
               url: "<?php echo site_url('hardware/unit/?');?>",
@@ -243,9 +248,31 @@
               success: function (data){
                 response(data.map(function(item){
                   return{
+                    'label':  item.unitkerja,
+                    'unitcode': item.unitcode,
+                    'value': item.unitkerja,
+                  };
+                }));
+              },
+            });
+          },
+              select: function (event, ui){
+                $("#unitcode").val(ui.item.unitcode);
+              }
+        });
+
+$("#unitcode").autocomplete({
+          source: function (request, response){
+            $.ajax({
+              url: "<?php echo site_url('hardware/unit1/?');?>",
+              dataType: 'json',
+              data: request,
+              success: function (data){
+                response(data.map(function(item){
+                  return{
                     'label':  item.unitcode,
                     'unitkerja': item.unitkerja,
-                    'value': item.unitcode
+                    'value': item.unitcode,
                   };
                 }));
               },

@@ -39,7 +39,7 @@ class Supplier extends CI_Controller {
 		$post = $this->input->post();
 
 		
-		$this->form_validation->set_rules('kode', 'ID Supplier', ,'trim|required|numeric');
+		$this->form_validation->set_rules('kode', 'ID Supplier','trim|required|numeric');
 		$this->form_validation->set_rules('nama', 'Nama Supplier', 'trim|required');
 		$this->form_validation->set_rules('status', 'Status','trim|required');
 
@@ -71,7 +71,7 @@ class Supplier extends CI_Controller {
 	}
 
 	public function edit($id){
-		$data['title'] = 'Edit Data ';
+		$data['title'] = 'Edit Data';
 		$data['judul'] = 'Edit Data Supplier';
 		$data['breadcumb'] = '<li><a href="'.base_url().'dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li><li><i class="fa fa-files-o"></i> Master Data</li><li><a href="'.base_url().'supplier">Supplier</a></li><li class="active">Edit Data</li>';
 		$data['view'] = 'master_data/supplier/edit';

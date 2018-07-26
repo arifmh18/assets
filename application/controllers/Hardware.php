@@ -19,7 +19,7 @@ class Hardware extends CI_Controller {
 		$data['hardware'] = $this->m_global->get_data_all('hardware');
 		$data['supplier'] = $this->m_global->get_data_all('supplier');
 		$data['windowsversion'] = $this->m_global->get_data_all('windowsversion');
-		// $data['unitkerja'] = $this->m_global->get_data_all('unitkerja');
+		 $data['unit'] = $this->m_global->get_data_all('unit');
 		//$data['windowsversion'] = $this->m_global->get_data_all('windowsversion');
 		$this->load->view('master_template', $data);
 	
@@ -33,6 +33,7 @@ public function add()
 		$data['view'] = 'master_data/hardware/add';
 		$data['supplier'] = $this->m_global->get_data_all('supplier');
 		$data['windowsversion'] = $this->m_global->get_data_all('windowsversion');
+		$data['unit'] = $this->m_global->get_data_all('unit');
 		$this->load->view('master_template', $data);
 		
 	}
@@ -127,6 +128,23 @@ public function add()
 	{
 		$this->load->model('m_autocomplete');
 		if (isset($_GET['term'])) {
+            $result = $this->m_autocomplete->get_data('unit', $_GET['term'], 'unitkerja');
+            								//get_data('nama table', biarin gitu,'field yang dibuat kondisi');
+            if (count($result) > 0) {
+				foreach ($result as $row)
+				$arr_result[] = array(
+					'unitcode' => $row->unitcode,
+					'unitkerja' => $row->unitkerja,
+					);
+				echo json_encode($arr_result);
+				}
+        }
+	}
+
+public function unit1()
+	{
+		$this->load->model('m_autocomplete');
+		if (isset($_GET['term'])) {
             $result = $this->m_autocomplete->get_data('unit', $_GET['term'], 'unitcode');
             								//get_data('nama table', biarin gitu,'field yang dibuat kondisi');
             if (count($result) > 0) {
@@ -166,6 +184,7 @@ public function windowsversion()
 
 		$data['supplier'] = $this->m_global->get_data_all('supplier');
 		$data['windowsversion'] = $this->m_global->get_data_all('windowsversion');
+		$data['unit'] = $this->m_global->get_data_all('unit');
 		$data['detail'] = $this->m_global->get_data_all('hardware', null, [strEncrypt('hardwareID', TRUE) => $id]);
 
 		// echo "<pre>";
